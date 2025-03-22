@@ -1,0 +1,31 @@
+@import '../variables';
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: $spacing-3xl;
+  
+  &__content {
+    max-width: 800px;
+    
+    h1 {
+      margin-bottom: $spacing-lg;
+    }
+    
+    p {
+      font-size: 1.25rem;
+      color: $text-secondary;
+      margin-bottom: $spacing-xl;
+    }
+  }
+  
+  &__buttons {
+    display: flex;
+    gap: $spacing-md;
+    
+    @media (max-width: $breakpoint-sm) {
+      flex-direction: column;
+    }
+  }
+}

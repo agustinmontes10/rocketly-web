@@ -1,0 +1,52 @@
+@import '../variables';
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba($bg-primary, 0.8);
+  backdrop-filter: blur(10px);
+  z-index: 100;
+  padding: $spacing-md 0;
+  border-bottom: 1px solid $border-color;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $text-primary;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+  }
+
+  &__nav {
+    display: flex;
+    gap: $spacing-xl;
+
+    @media (max-width: $breakpoint-md) {
+      display: none;
+    }
+  }
+
+  &__link {
+    color: $text-secondary;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $text-primary;
+    }
+
+    &--active {
+      color: $text-primary;
+    }
+  }
+}

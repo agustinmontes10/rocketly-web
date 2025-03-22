@@ -1,0 +1,87 @@
+@import '../variables';
+
+.contact {
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-2xl;
+    
+    @media (max-width: $breakpoint-lg) {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  &__info {
+    p {
+      color: $text-secondary;
+      font-size: 1.25rem;
+      margin-bottom: $spacing-xl;
+    }
+  }
+  
+  &__details {
+    margin-bottom: $spacing-xl;
+  }
+  
+  &__detail {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    margin-bottom: $spacing-md;
+    color: $text-secondary;
+    
+    svg {
+      color: $accent-blue;
+    }
+  }
+  
+  &__image {
+    margin-top: $spacing-xl;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid $border-color;
+    
+    img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+  }
+  
+  &__form {
+    background-color: $bg-secondary;
+    padding: $spacing-2xl;
+    border-radius: 16px;
+    border: 1px solid $border-color;
+  }
+}
+
+.form__group {
+  margin-bottom: $spacing-lg;
+  
+  label {
+    display: block;
+    margin-bottom: $spacing-xs;
+    color: $text-secondary;
+  }
+  
+  input,
+  textarea {
+    width: 100%;
+    padding: $spacing-sm $spacing-md;
+    background-color: $bg-primary;
+    border: 1px solid $border-color;
+    border-radius: 8px;
+    color: $text-primary;
+    font-family: inherit;
+    
+    &:focus {
+      outline: none;
+      border-color: $accent-blue;
+    }
+  }
+  
+  textarea {
+    resize: vertical;
+  }
+}
