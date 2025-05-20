@@ -1,31 +1,70 @@
-@import '../variables';
-
 .hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding-top: $spacing-3xl;
-  
-  &__content {
-    max-width: 800px;
-    
-    h1 {
-      margin-bottom: $spacing-lg;
-    }
-    
-    p {
-      font-size: 1.25rem;
-      color: $text-secondary;
-      margin-bottom: $spacing-xl;
-    }
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+
+  .split-word {
+    display: inline-block;
+    opacity: 0;
+    will-change: transform, opacity;
   }
-  
-  &__buttons {
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(14, 14, 14, 0.7); // opcional para oscurecer el fondo
     display: flex;
-    gap: $spacing-md;
-    
-    @media (max-width: $breakpoint-sm) {
-      flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 2rem;
+    z-index: 1;
+  }
+
+  .container {
+    max-width: 960px;
+    text-align: center;
+    color: white;
+    z-index: 2;
+  }
+
+  .heading--xl {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #ccc;
+  }
+
+  .hero__buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+
+    .button {
+      padding: 0.75rem 1.5rem;
+      border: 2px solid white;
+      border-radius: 4px;
+      text-decoration: none;
+      color: white;
+      transition: background 0.3s;
+
+      &--primary {
+        background-color: #00ffff;
+        color: #0e0e0e;
+        font-weight: bold;
+      }
+
+      &:hover {
+        background: white;
+        color: black;
+      }
     }
   }
 }

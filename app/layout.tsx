@@ -1,3 +1,4 @@
+import RocketCursor from './components/RocketCursor';
 import './styles/globals.scss';
 import type { Metadata } from 'next';
 
@@ -13,6 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <RocketCursor />
       <body>{children}</body>
     </html>
   );

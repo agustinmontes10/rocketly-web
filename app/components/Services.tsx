@@ -1,6 +1,7 @@
 'use client';
 
 import '../styles/components/services.scss';
+import { motion } from 'framer-motion';
 import { Code2, Globe, Smartphone, Gauge, Lock, Palette } from 'lucide-react';
 
 const services = [
@@ -43,17 +44,31 @@ export default function Services() {
         <h2 className="heading heading--lg">Our Services</h2>
         <p className="services__subtitle">Comprehensive web solutions to power your digital success</p>
         
-        <div className="services__grid">
+        <motion.div
+          className="services__grid"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ staggerChildren: 0.15 }}
+        >
           {services.map((service, index) => (
-            <div key={index} className="services__card">
+            <motion.div
+              key={index}
+              className="services__card"
+              variants={{
+                hidden: { opacity: 0, y: 40 },
+                visible: { opacity: 1, y: 0 }
+              }}
+              transition={{ duration: 0.6, ease: 'easeOut' }}
+            >
               <div className="services__card-icon">
                 {service.icon}
               </div>
               <h3>{service.title}</h3>
               <p>{service.description}</p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
