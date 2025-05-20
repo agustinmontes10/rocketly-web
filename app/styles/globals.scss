@@ -12,6 +12,7 @@ body {
   background-color: $bg-primary;
   color: $text-primary;
   line-height: 1.6;
+  cursor: none;
 }
 
 .container {
@@ -63,4 +64,10 @@ body {
       font-size: 2rem;
     }
   }
+}
+
+#rocket-cursor {
+  filter: drop-shadow(0 0 6px rgba(255, 100, 100, 0.6));
+  transition: transform 0.15s ease;
+  will-change: transform;
 }
