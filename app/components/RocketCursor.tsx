@@ -10,9 +10,13 @@ export default function RocketCursor() {
     rocket.style.pointerEvents = 'none';
     rocket.style.width = '40px';
     rocket.style.zIndex = '9999';
-    rocket.style.transition = 'transform 0.2s ease';
-
+    rocket.style.transition = 'transform 0.4s ease';
     document.body.appendChild(rocket);
+
+    let lastX = window.innerWidth / 2;
+    let lastY = window.innerHeight / 2;
+    let lastRotation = 0;
+    const ROTATION_THRESHOLD = 20; // distancia mínima para girar
 
     const createTrail = (x: number, y: number) => {
       const trail = document.createElement('div');
@@ -40,42 +44,37 @@ export default function RocketCursor() {
       }, 400);
     };
 
-    const getNearestDirectionAngle = (angleRad: number) => {
-      const angleDeg = (angleRad * 180) / Math.PI;
-      const directions = [0, 45, 90, 135, 180, -135, -90, -45];
+    const handleMouseMove = (e: MouseEvent) => {
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
 
-      let closest = directions[0];
-      let minDiff = Math.abs(angleDeg - closest);
+      const dx = mouseX - lastX;
+      const dy = mouseY - lastY;
 
-      for (const dir of directions) {
-        const diff = Math.abs(angleDeg - dir);
-        if (diff < minDiff) {
-          minDiff = diff;
-          closest = dir;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+      let rotation = lastRotation;
+
+      if (distance > ROTATION_THRESHOLD) {
+        // Movimiento dominante
+        if (Math.abs(dx) > Math.abs(dy)) {
+          rotation = dx > 0 ? 45 : 225;
+        } else {
+          rotation = dy > 0 ? 135 : 315;
         }
+
+        lastX = mouseX;
+        lastY = mouseY;
+        lastRotation = rotation;
       }
 
-      return closest;
-    };
-
-    const handleMouseMove = (e: MouseEvent) => {
-      const rocketX = rocket.offsetLeft + rocket.offsetWidth / 2;
-      const rocketY = rocket.offsetTop + rocket.offsetHeight / 2;
-
-      const dx = e.clientX - rocketX;
-      const dy = e.clientY - rocketY;
-
-      const angle = Math.atan2(dy, dx);
-      const snappedAngle = getNearestDirectionAngle(angle);
-
-      const x = e.clientX - 20;
-      const y = e.clientY - 20;
+      const x = mouseX - 20;
+      const y = mouseY - 20;
 
       rocket.style.left = `${x}px`;
       rocket.style.top = `${y}px`;
-      rocket.style.transform = `rotate(${snappedAngle}deg)`;
+      rocket.style.transform = `rotate(${rotation}deg)`;
 
-      createTrail(x + 20, y + 20); // justo en el centro
+      createTrail(x + 20, y + 20);
     };
 
     window.addEventListener('mousemove', handleMouseMove);
