@@ -29,9 +29,9 @@ export default function Projects() {
         <div className="projects__grid">
           {projects.map((project, index) => (
             <div key={index} className="projects__card">
-              <img 
-                src={project.image} 
-                alt={project.title} 
+              <img
+                src={project.image}
+                alt={project.title}
                 className="projects__card-image"
               />
               <div className="projects__card-content">
@@ -46,6 +46,12 @@ export default function Projects() {
             </div>
           ))}
         </div>
+      </div>
+
+      <div className="stars">
+        {[...Array(30)].map((_, i) => (
+          <div key={i} className="star" />
+        ))}
       </div>
     </section>
   );

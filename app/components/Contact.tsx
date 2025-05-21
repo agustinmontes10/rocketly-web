@@ -18,30 +18,28 @@ export default function Contact() {
   };
 
   return (
-    <div className="contact-container">
-    <section className="contact-section">
-      <div className="contact-overlay" />
-      <div className="stars">
-        {[...Array(30)].map((_, i) => (
-          <div key={i} className="star" />
-        ))}
-      </div>
-      <div className="contact-content">
-        <h1>
-          Let’s <span>connect</span>
-        </h1>
-        <p>
-          Ready to start your next project? Fill out the form and let's talk about how we can help your brand grow.
-        </p>
-        <form className="contact-form">
-          <input type="text" placeholder="Your name" required />
-          <input type="email" placeholder="Your email" required />
-          <textarea placeholder="Your message" required></textarea>
-          <button type="submit">Send message</button>
-        </form>
-      </div>
-    </section>
-    </div>
-    
+      <section className="contact-section">
+        <div className="contact-overlay" />
+        <div className="stars">
+          {[...Array(30)].map((_, i) => (
+            <div key={i} className="star" />
+          ))}
+        </div>
+        <div className="contact-content">
+          <h1>
+            Let’s <span>connect</span>
+          </h1>
+          <p>
+            Ready to start your next project? Fill out the form and let's talk about how we can help your brand grow.
+          </p>
+          <form className="contact-form">
+            <input type="text" placeholder="Your name" required />
+            <input type="email" placeholder="Your email" required />
+            <textarea placeholder="Your message" required></textarea>
+            <button type="submit">Send message</button>
+          </form>
+        </div>
+      </section>
+
   );
 }

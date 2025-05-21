@@ -43,7 +43,7 @@ export default function Services() {
       <div className="container">
         <h2 className="heading heading--lg">Our Services</h2>
         <p className="services__subtitle">Comprehensive web solutions to power your digital success</p>
-        
+
         <motion.div
           className="services__grid"
           initial="hidden"
@@ -69,6 +69,12 @@ export default function Services() {
             </motion.div>
           ))}
         </motion.div>
+      </div>
+
+      <div className="stars">
+        {[...Array(30)].map((_, i) => (
+          <div key={i} className="star" />
+        ))}
       </div>
     </section>
   );
