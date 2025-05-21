@@ -16,7 +16,9 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(14, 14, 14, 0.7); // opcional para oscurecer el fondo
+    // background: rgba(14, 14, 14, 0.7); // opcional para oscurecer el fondo
+    background: linear-gradient(to bottom, #001f3fdc 0%, #00000000 100%);
+
     display: flex;
     align-items: center;
     justify-content: center;
