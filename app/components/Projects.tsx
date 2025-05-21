@@ -23,7 +23,7 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section className="section" id="projects">
+    <section className="section projects" id="projects">
       <div className="container">
         <h2 className="heading heading--lg">Our Latest Projects</h2>
         <div className="projects__grid">

@@ -10,7 +10,7 @@ export default function RocketCursor() {
     rocket.style.pointerEvents = 'none';
     rocket.style.width = '40px';
     rocket.style.zIndex = '9999';
-    rocket.style.transition = 'transform 0.4s ease';
+    rocket.style.transition = 'transform 0.7s ease';
     document.body.appendChild(rocket);
 
     let lastX = window.innerWidth / 2;
