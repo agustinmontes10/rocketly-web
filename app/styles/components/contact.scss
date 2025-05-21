@@ -1,87 +1,138 @@
-@import '../variables';
+.contact-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
 
-.contact {
-  &__wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: $spacing-2xl;
-    
-    @media (max-width: $breakpoint-lg) {
-      grid-template-columns: 1fr;
-    }
-  }
-  
-  &__info {
-    p {
-      color: $text-secondary;
-      font-size: 1.25rem;
-      margin-bottom: $spacing-xl;
-    }
-  }
-  
-  &__details {
-    margin-bottom: $spacing-xl;
-  }
-  
-  &__detail {
-    display: flex;
-    align-items: center;
-    gap: $spacing-md;
-    margin-bottom: $spacing-md;
-    color: $text-secondary;
-    
-    svg {
-      color: $accent-blue;
-    }
-  }
-  
-  &__image {
-    margin-top: $spacing-xl;
-    border-radius: 16px;
+  .contact-section {
+    position: relative;
+    padding: 80px 20px;
+    background: linear-gradient(to bottom, #000000 0%, #001f3f 100%);
+    color: #fff;
+    text-align: center;
     overflow: hidden;
-    border: 1px solid $border-color;
-    
-    img {
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
-    }
-  }
-  
-  &__form {
-    background-color: $bg-secondary;
-    padding: $spacing-2xl;
-    border-radius: 16px;
-    border: 1px solid $border-color;
-  }
-}
+    border-radius: 0px 0px 40px 40px;
+    width: 80%;
 
-.form__group {
-  margin-bottom: $spacing-lg;
-  
-  label {
-    display: block;
-    margin-bottom: $spacing-xs;
-    color: $text-secondary;
-  }
-  
-  input,
-  textarea {
-    width: 100%;
-    padding: $spacing-sm $spacing-md;
-    background-color: $bg-primary;
-    border: 1px solid $border-color;
-    border-radius: 8px;
-    color: $text-primary;
-    font-family: inherit;
-    
-    &:focus {
-      outline: none;
-      border-color: $accent-blue;
+    .contact-overlay {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: radial-gradient(circle at center, rgba(0, 122, 255, 0.3), transparent 70%),
+        url('data:image/svg+xml;utf8,<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="none" stroke="%231a1a1a" stroke-width="1" /></svg>');
+      background-size: cover;
+      pointer-events: none;
+      z-index: 0;
     }
-  }
-  
-  textarea {
-    resize: vertical;
+
+    .contact-content {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+      margin: 0 auto;
+
+      h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+
+        span {
+          background: linear-gradient(90deg, #00c6ff, #0072ff);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+      }
+
+      p {
+        font-size: 1.1rem;
+        color: #ccc;
+        margin-bottom: 40px;
+      }
+
+      .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        input,
+        textarea {
+          padding: 15px;
+          border: none;
+          border-radius: 10px;
+          font-size: 1rem;
+          background: rgba(255, 255, 255, 0.05);
+          color: white;
+          outline: none;
+          transition: background 0.3s;
+
+          &:focus {
+            background: rgba(255, 255, 255, 0.1);
+          }
+        }
+
+        button {
+          background: linear-gradient(90deg, #00c6ff, #0072ff);
+          border: none;
+          padding: 15px;
+          font-size: 1rem;
+          color: white;
+          border-radius: 10px;
+          cursor: pointer;
+          transition: transform 0.2s;
+
+          &:hover {
+            transform: scale(1.05);
+          }
+        }
+      }
+    }
+
+    .stars {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+
+      .star {
+        position: absolute;
+        width: 2px;
+        height: 2px;
+        background: white;
+        border-radius: 50%;
+        animation: floatStar linear infinite;
+        opacity: 0.8;
+
+        // distribución y animación aleatoria
+        @for $i from 1 through 30 {
+          &:nth-child(#{$i}) {
+            top: random(100) * 1%;
+            left: random(100) * 1%;
+            animation-duration: #{5 + random(10)}s;
+            animation-delay: -#{random(10)}s;
+            transform: scale(#{0.5 + random(5) / 10});
+          }
+        }
+      }
+    }
+
+    @keyframes floatStar {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.6;
+      }
+
+      50% {
+        transform: translateY(70px) scale(1.1);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.6;
+      }
+    }
   }
 }

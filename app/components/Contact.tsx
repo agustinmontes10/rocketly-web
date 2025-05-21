@@ -1,8 +1,9 @@
 'use client';
 
-import '../styles/components/contact.scss';
+import { useState, useEffect } from 'react';
 import { Mail, MapPin, Phone } from 'lucide-react';
-import { useState } from 'react';
+import { motion } from 'framer-motion';
+import '../styles/components/contact.scss'; // Podés ir migrándolo a Tailwind si te copa más
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -13,81 +14,34 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
     console.log('Form submitted:', formData);
   };
 
   return (
-    <section className="section contact" id="contact">
-      <div className="container">
-        <div className="contact__wrapper">
-          <div className="contact__info">
-            <h2 className="heading heading--lg">Get in Touch</h2>
-            <p>Ready to start your project? Contact us today and let's create something amazing together.</p>
-            
-            <div className="contact__details">
-              <div className="contact__detail">
-                <Mail size={24} />
-                <span>hello@rocketly.dev</span>
-              </div>
-              <div className="contact__detail">
-                <Phone size={24} />
-                <span>+1 (555) 123-4567</span>
-              </div>
-              <div className="contact__detail">
-                <MapPin size={24} />
-                <span>123 Tech Street, Silicon Valley, CA</span>
-              </div>
-            </div>
-
-            <div className="contact__image">
-              <img 
-                src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" 
-                alt="Office Space"
-              />
-            </div>
-          </div>
-
-          <form className="contact__form" onSubmit={handleSubmit}>
-            <div className="form__group">
-              <label htmlFor="name">Name</label>
-              <input
-                type="text"
-                id="name"
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                required
-              />
-            </div>
-            
-            <div className="form__group">
-              <label htmlFor="email">Email</label>
-              <input
-                type="email"
-                id="email"
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                required
-              />
-            </div>
-            
-            <div className="form__group">
-              <label htmlFor="message">Message</label>
-              <textarea
-                id="message"
-                value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                required
-                rows={5}
-              />
-            </div>
-
-            <button type="submit" className="button button--primary">
-              Send Message
-            </button>
-          </form>
-        </div>
+    <div className="contact-container">
+    <section className="contact-section">
+      <div className="contact-overlay" />
+      <div className="stars">
+        {[...Array(30)].map((_, i) => (
+          <div key={i} className="star" />
+        ))}
+      </div>
+      <div className="contact-content">
+        <h1>
+          Let’s <span>connect</span>
+        </h1>
+        <p>
+          Ready to start your next project? Fill out the form and let's talk about how we can help your brand grow.
+        </p>
+        <form className="contact-form">
+          <input type="text" placeholder="Your name" required />
+          <input type="email" placeholder="Your email" required />
+          <textarea placeholder="Your message" required></textarea>
+          <button type="submit">Send message</button>
+        </form>
       </div>
     </section>
+    </div>
+    
   );
 }
