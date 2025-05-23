@@ -99,7 +99,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="hero" ref={vantaRef}>
+    <section className="hero" ref={vantaRef} id="hero">
       <div className="hero__overlay">
         <div className="container">
           <div className="hero__content" ref={heroRef}>
