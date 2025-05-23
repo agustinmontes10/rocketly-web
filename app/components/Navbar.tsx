@@ -4,9 +4,20 @@ import '../styles/components/navbar.scss';
 import { Rocket } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useState } from 'react';
 
 export default function Navbar() {
   const pathname = usePathname();
+  const [selected, setSelected] = useState<string | null>(null);
+
+  const handleClick = (id: string) => {
+    setSelected(id);
+
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <header className="navbar">
@@ -15,32 +26,32 @@ export default function Navbar() {
           <Rocket size={24} />
           Rocketly
         </Link>
-        
+
         <nav className="navbar__nav">
-          <Link 
-            href="/" 
-            className={`navbar__link ${pathname === '/' ? 'navbar__link--active' : ''}`}
+          <button
+            className={`navbar__link navbar__button ${selected === 'hero' ? 'navbar__link--active' : ''}`}
+            onClick={() => handleClick('hero')}
           >
             Home
-          </Link>
-          <Link 
-            href="#projects" 
-            className="navbar__link"
+          </button>
+          <button
+            className={`navbar__link navbar__button ${selected === 'projects' ? 'navbar__link--active' : ''}`}
+            onClick={() => handleClick('projects')}
           >
             Projects
-          </Link>
-          <Link 
-            href="#services" 
-            className="navbar__link"
+          </button>
+          <button
+            className={`navbar__link navbar__button ${selected === 'services' ? 'navbar__link--active' : ''}`}
+            onClick={() => handleClick('services')}
           >
             Services
-          </Link>
-          <Link 
-            href="#contact" 
-            className="navbar__link"
+          </button>
+          <button
+            className={`navbar__link navbar__button ${selected === 'contact' ? 'navbar__link--active' : ''}`}
+            onClick={() => handleClick('contact')}
           >
             Contact
-          </Link>
+          </button>
         </nav>
       </div>
     </header>
