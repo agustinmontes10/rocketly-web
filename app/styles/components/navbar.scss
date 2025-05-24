@@ -39,11 +39,13 @@
   &__link {
     color: $text-secondary;
     text-decoration: none;
-    transition: color 0.3s ease;
-    cursor: pointer;
+    transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
+    position: relative;
 
     &:hover {
       color: $text-primary;
+      text-shadow: 0 0 6px rgba($text-primary, 0.7), 0 0 12px rgba($text-primary, 0.4);
+      transform: scale(1.05);
     }
 
     &--active {
@@ -56,6 +58,6 @@
     border: none;
     padding: 0;
     font: inherit;
-    cursor: pointer;
+    cursor: none;
   }
 }
