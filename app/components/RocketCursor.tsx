@@ -74,6 +74,16 @@ export default function RocketCursor() {
       rocket.style.top = `${y}px`;
       rocket.style.transform = `rotate(${rotation}deg)`;
 
+      // 👇 Detecta si está sobre un link del nav
+      const target = e.target as HTMLElement;
+      if (target.closest('.navbar__link')) {
+        console.log('paso')
+        rocket.style.filter = 'hue-rotate(180deg) brightness(1.2)';
+      } else {
+        console.log('no paso')
+        rocket.style.filter = 'none';
+      }
+
       createTrail(x + 20, y + 20);
     };
 

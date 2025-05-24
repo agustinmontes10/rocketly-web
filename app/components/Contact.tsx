@@ -18,7 +18,7 @@ export default function Contact() {
   };
 
   return (
-      <section className="contact-section">
+      <section className="contact-section" id='contact'>
         <div className="contact-overlay" />
         <div className="stars">
           {[...Array(30)].map((_, i) => (
