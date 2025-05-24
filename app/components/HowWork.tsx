@@ -14,22 +14,11 @@ const steps = [
 
 export default function HowWork() {
     const [activeStep, setActiveStep] = useState(0)
-    const containerRef = useRef<HTMLDivElement>(null)
     const scrollContainerRef = useRef<HTMLDivElement>(null)
 
     return (
-        <div ref={containerRef} style={{ position: 'relative' }}>
+        <div className='section howWork'>
             <div ref={scrollContainerRef} className="scroll-container">
-                <div className="rocket-indicator">
-                    {/* Podés animar este cohete con más lógica */}
-                    <motion.img
-                        src="/assets/rocket.png"
-                        alt="rocket"
-                        animate={{ rotate: activeStep * 90 }}
-                        transition={{ type: 'spring', stiffness: 100 }}
-                    />
-                </div>
-
                 {steps.map((step, index) => {
                     const [ref, inView] = useInView({ threshold: 0.5 })
 
