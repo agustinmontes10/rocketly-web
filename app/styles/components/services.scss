@@ -12,17 +12,22 @@
   }
 
   &__grid {
-    display: grid;
+    display: flex;
+    flex-wrap: wrap;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 2rem;
+    justify-content: center;
   }
 
   &__card {
     background: rgba(255, 255, 255, 0.05);
+    max-width: 30%;
+    min-width: 22rem;
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 1rem;
     padding: 2rem;
     text-align: center;
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 
@@ -34,7 +39,7 @@
 
     &-icon {
       margin-bottom: 1.5rem;
-      color: #00ffff;
+      color: rgba(138, 158, 255, 1);
     }
 
     h3 {
