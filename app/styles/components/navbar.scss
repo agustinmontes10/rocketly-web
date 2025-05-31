@@ -5,11 +5,24 @@
   top: 0;
   left: 0;
   right: 0;
-  background-color: rgba($bg-primary, 0.8);
-  backdrop-filter: blur(10px);
+  background-color: transparent;
+    border-bottom: 1px solid transparent;
   z-index: 100;
   padding: $spacing-md 0;
-  border-bottom: 1px solid $border-color;
+    transition: all ease 0.3s;
+    box-shadow: none;
+
+
+
+
+  &--scrolled {
+    transition: all ease 0.3s;
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #242527;
+   box-shadow: inset 0px -4px 12px -4px rgba(138, 158, 255, 0.5);
+
+  }
 
   &__container {
     display: flex;

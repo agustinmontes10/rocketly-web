@@ -30,11 +30,11 @@ const services = [
     title: 'Security Solutions',
     description: 'Robust security measures to protect your web applications and user data.'
   },
-  {
-    icon: <Palette size={32} />,
-    title: 'UI/UX Design',
-    description: 'Intuitive and engaging user interfaces that deliver exceptional user experiences.'
-  }
+  // {
+  //   icon: <Palette size={32} />,
+  //   title: 'UI/UX Design',
+  //   description: 'Intuitive and engaging user interfaces that deliver exceptional user experiences.'
+  // }
 ];
 
 export default function Services() {
