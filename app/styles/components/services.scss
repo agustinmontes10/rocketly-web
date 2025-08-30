@@ -1,3 +1,5 @@
+@import '../variables';
+
 .services {
   padding: 6rem 0;
   color: #ffffff;
@@ -23,23 +25,25 @@
     background: rgba(255, 255, 255, 0.05);
     max-width: 30%;
     min-width: 22rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: $button-border;
     border-radius: 1rem;
     padding: 2rem;
     text-align: center;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: $button-transition;
+    box-shadow: $button-shadow;
 
     &:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
-      border-color: rgba(0, 255, 255, 0.3);
+      transform: translateY(-4px);
+      box-shadow: $button-shadow-hover, 0 0 20px $brand-glow-light;
+      border: $button-border-hover;
+      background: rgba(255, 255, 255, 0.07);
     }
 
     &-icon {
       margin-bottom: 1.5rem;
-      color: rgba(138, 158, 255, 1);
+      color: $brand-primary;
     }
 
     h3 {
