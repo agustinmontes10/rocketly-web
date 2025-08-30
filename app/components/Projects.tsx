@@ -43,7 +43,7 @@ export default function Projects() {
 
   return (
     <section className="section projects" id="projects">
-      <div className="container">
+      <div className="container projects__container">
         <h2 className="heading heading--lg">Our Latest Projects</h2>
         {projects.map((project, index) => (
           <div key={index} className="projects__card">
