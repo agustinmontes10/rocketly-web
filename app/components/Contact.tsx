@@ -3,7 +3,8 @@
 import { useState, useEffect } from 'react';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import { motion } from 'framer-motion';
-import '../styles/components/contact.scss'; // Podés ir migrándolo a Tailwind si te copa más
+import Toast from './Toast';
+import '../styles/components/contact.scss';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -14,6 +15,9 @@ export default function Contact() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState('');
+  const [toastType, setToastType] = useState<'success' | 'error' | 'info'>('success');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -44,12 +48,21 @@ export default function Contact() {
       if (response.ok) {
         setSubmitStatus('success');
         setFormData({ name: '', email: '', message: '' });
+        setToastMessage('¡Mensaje enviado exitosamente! Te contactaremos pronto.');
+        setToastType('success');
+        setShowToast(true);
       } else {
         setSubmitStatus('error');
+        setToastMessage('Error al enviar el mensaje. Por favor, inténtalo nuevamente.');
+        setToastType('error');
+        setShowToast(true);
       }
     } catch (error) {
       console.error('Error sending email:', error);
       setSubmitStatus('error');
+      setToastMessage('Error de conexión. Verifica tu internet e inténtalo nuevamente.');
+      setToastType('error');
+      setShowToast(true);
     } finally {
       setIsSubmitting(false);
     }
@@ -98,19 +111,16 @@ export default function Contact() {
               {isSubmitting ? 'Sending...' : 'Send message'}
             </button>
 
-            {submitStatus === 'success' && (
-              <div style={{ color: '#3fb950', marginTop: '10px', textAlign: 'center' }}>
-                ✅ Message sent successfully!
-              </div>
-            )}
-
-            {submitStatus === 'error' && (
-              <div style={{ color: '#ff6b6b', marginTop: '10px', textAlign: 'center' }}>
-                ❌ Error sending message. Please try again.
-              </div>
-            )}
           </form>
         </div>
+
+        <Toast
+          message={toastMessage}
+          type={toastType}
+          isVisible={showToast}
+          onClose={() => setShowToast(false)}
+          duration={5000}
+        />
       </section>
 
   );
