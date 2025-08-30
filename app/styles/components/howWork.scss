@@ -1,52 +1,73 @@
 .howWork {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+
+  /* This makes steps snap while scrolling the whole page */
+  scroll-snap-type: y mandatory;
+
+  .scroll-step {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+    text-align: center;
+    scroll-snap-align: start;
     position: relative;
+    z-index: 2; // ensures text is above background
 
-    .scroll-container {
-        position: relative;
-        width: 100%;
-        //   height: 100%;
-        overflow-x: hidden;
-        scroll-snap-type: y mandatory;
-        overflow-y: scroll;
-        height: 100vh;
-
-        .rocket-indicator {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
-            z-index: 10;
-
-            img {
-                width: 100%;
-                transition: transform 0.5s ease;
-            }
-        }
-
-        .scroll-step {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 3rem;
-            text-align: center;
-            scroll-snap-align: start;
-
-            h2 {
-                font-size: 3rem;
-                margin-bottom: 1rem;
-            }
-
-            p {
-                font-size: 1.4rem;
-                max-width: 600px;
-            }
-        }
-
-        &::-webkit-scrollbar {
-            width: 0;
-        }
+    h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
     }
+
+    p {
+      font-size: 1.4rem;
+      max-width: 600px;
+    }
+  }
+
+  .rocket-indicator {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    z-index: 10;
+
+    img {
+      width: 100%;
+      transition: transform 0.5s ease;
+    }
+  }
+
+  .stars {
+    position: fixed; // stays put while scrolling
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none; // stars don’t block interaction
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle 3s infinite ease-in-out;
+    }
+  }
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
 }

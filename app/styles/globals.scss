@@ -33,18 +33,73 @@ body {
 .button {
   display: inline-block;
   padding: $spacing-sm $spacing-lg;
-  border-radius: 8px;
+  border-radius: $button-radius;
   font-weight: 500;
-  transition: all 0.3s ease;
+  transition: $button-transition;
   cursor: pointer;
+  border: $button-border;
+  text-decoration: none;
+  background: transparent;
+  color: $text-primary;
+  box-shadow: $button-shadow;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.04);
+    transition: $button-transition;
+    z-index: -1;
+    opacity: 0;
+  }
+
+  &:hover {
+    transform: translateY(-1px);
+    border: $button-border-hover;
+    box-shadow: $button-shadow-hover;
+    color: white;
+
+    &::before {
+      opacity: 1;
+    }
+  }
 
   &--primary {
-    background-color: $accent-blue;
+    background: $brand-gradient;
+    color: white;
+    border: none;
+
+    &::before {
+      background: rgba(255, 255, 255, 0.1);
+      opacity: 0;
+    }
+
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: $button-shadow-hover, 0 0 15px $brand-glow-light;
+      border: none;
+
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
+
+  &--secondary {
+    background: rgba($bg-secondary, 0.6);
+    border: $button-border;
     color: $text-primary;
 
     &:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba($accent-blue, 0.3);
+      background: rgba($bg-secondary, 0.8);
+      transform: translateY(-1px);
+      box-shadow: $button-shadow-hover;
+      border: $button-border-hover;
     }
   }
 }
@@ -72,7 +127,7 @@ body {
 }
 
 #rocket-cursor {
-  filter: drop-shadow(0 0 6px rgba(255, 100, 100, 0.6));
+  filter: drop-shadow(0 0 6px $brand-glow);
   transition: transform 0.15s ease;
   will-change: transform;
 }
