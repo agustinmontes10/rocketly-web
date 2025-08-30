@@ -3,6 +3,12 @@
 .projects {
   position: relative;
 
+  .projects__container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
   &__grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -13,7 +19,6 @@
     overflow: hidden;
     transition: $button-transition;
     transition: transform 0.3s ease;
-    margin-bottom: 100px;
 
     &-image {
       width: 100%;
@@ -63,6 +68,7 @@
         position: relative;
         overflow: hidden;
         box-shadow: $button-shadow;
+        cursor: pointer;
         font-size: 0.875rem;
 
         &--primary {
