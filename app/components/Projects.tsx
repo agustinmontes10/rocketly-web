@@ -1,51 +1,75 @@
+"use client"
 import '../styles/components/projects.scss';
+import { useState, useEffect } from 'react';
 
 const projects = [
   {
-    title: 'E-commerce Platform',
-    description: 'A modern e-commerce solution with real-time inventory and seamless checkout.',
-    image: 'https://images.unsplash.com/photo-1661956602116-aa6865609028?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80',
-    tags: ['Next.js', 'TypeScript', 'Stripe']
+    title: 'Agencia de viajes',
+    description: 'Agencia de viajes con diversidad de paquetes y destinos, seccion de contacto y servicios.',
+    image: '/assets/agenciaViajes',
+    link: 'https://agencia-viajes-gray.vercel.app/',
+    tags: ['Next.js', 'TypeScript', 'TailwindCSS', 'Supabase']
   },
   {
-    title: 'SaaS Dashboard',
-    description: 'Analytics dashboard for SaaS businesses with real-time data visualization.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80',
-    tags: ['React', 'D3.js', 'Node.js']
+    title: 'Broker de seguros',
+    description: 'Broker de seguros con secciones de cotizaciones, ofertas, servicios y contacto',
+    image: '/assets/rivoltaSeguros',
+    link: 'https://rivolta-seguros.vercel.app/',
+    tags: ['Next.js', 'TypeScript', 'TailwindCSS', 'Supabase', 'Sheets']
   },
-  {
-    title: 'Social Platform',
-    description: 'Community platform with real-time messaging and content sharing.',
-    image: 'https://images.unsplash.com/photo-1552581234-26160f608093?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80',
-    tags: ['Next.js', 'WebSocket', 'PostgreSQL']
-  }
 ];
 
 export default function Projects() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const getProjectImage = (imageURL: string) => {
+    if (isMobile) {
+      // Remove trailing slash if exists and add mobile
+      return `${imageURL}Mobile`;
+    }
+    return imageURL;
+  };
+
   return (
     <section className="section projects" id="projects">
       <div className="container">
         <h2 className="heading heading--lg">Our Latest Projects</h2>
-        <div className="projects__grid">
-          {projects.map((project, index) => (
-            <div key={index} className="projects__card">
-              <img
-                src={project.image}
-                alt={project.title}
-                className="projects__card-image"
-              />
-              <div className="projects__card-content">
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
-                <div className="projects__card-tags">
-                  {project.tags.map((tag, tagIndex) => (
-                    <span key={tagIndex}>{tag}</span>
-                  ))}
-                </div>
+        {projects.map((project, index) => (
+          <div key={index} className="projects__card">
+            <div className="projects__card-content">
+              <h2>{project.title}</h2>
+              <p>{project.description}</p>
+              <div className="projects__card-tags">
+                {project.tags.map((tag, tagIndex) => (
+                  <span key={tagIndex}>{tag}</span>
+                ))}
+              </div>
+              <div className="projects__card-buttons">
+                <a href={project.link} target="_blank" rel="noopener noreferrer">
+                  <button className="button button--primary">Ver proyecto</button>
+                </a>
               </div>
             </div>
-          ))}
-        </div>
+            <a href={project.link} target="_blank" rel="noopener noreferrer">
+            <img
+              src={`${getProjectImage(project.image)}.png`}
+              alt={project.title}
+                className="projects__card-image"
+              />
+            </a>
+          </div>
+        ))}
       </div>
 
       <div className="stars">
