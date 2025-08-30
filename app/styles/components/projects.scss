@@ -13,11 +13,15 @@
     background-color: $bg-secondary;
     border-radius: 12px;
     overflow: hidden;
-    transition: transform 0.3s ease;
-    border: 1px solid $border-color;
+    transition: $button-transition;
+    border: $button-border;
+    box-shadow: $button-shadow;
 
     &:hover {
-      transform: translateY(-4px);
+      transform: translateY(-3px);
+      border: $button-border-hover;
+      box-shadow: $button-shadow-hover, 0 0 15px $brand-glow-light;
+      background-color: lighten($bg-secondary, 2%);
     }
 
     &-image {
@@ -45,8 +49,8 @@
       flex-wrap: wrap;
 
       span {
-        background-color: rgba($accent-blue, 0.1);
-        color: $accent-blue;
+        background-color: $brand-glow-light;
+        color: $brand-primary;
         padding: 4px 8px;
         border-radius: 4px;
         font-size: 0.875rem;
