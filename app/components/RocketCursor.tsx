@@ -11,6 +11,7 @@ export default function RocketCursor() {
     rocket.style.width = '40px';
     rocket.style.zIndex = '9999';
     rocket.style.transition = 'transform 0.7s ease';
+    rocket.style.filter = 'hue-rotate(-33deg) saturate(1.2) brightness(1.1)';
     document.body.appendChild(rocket);
 
     let lastX = window.innerWidth / 2;
@@ -78,10 +79,10 @@ export default function RocketCursor() {
       const target = e.target as HTMLElement;
       if (target.closest('.navbar__link')) {
         console.log('paso')
-        rocket.style.filter = 'hue-rotate(180deg) brightness(1.2)';
+        rocket.style.filter = 'hue-rotate(-15deg) brightness(1.4) saturate(1.3)';
       } else {
         console.log('no paso')
-        rocket.style.filter = 'none';
+        rocket.style.filter = 'hue-rotate(-33deg) saturate(1.2) brightness(1.1)';
       }
 
       createTrail(x + 20, y + 20);
