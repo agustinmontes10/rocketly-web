@@ -108,5 +108,9 @@
         }
       }
     }
+
+    @media (max-width: $breakpoint-md) {
+      flex-direction: column;
+    }
   }
 }

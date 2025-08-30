@@ -3,8 +3,8 @@ import './styles/globals.scss';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Rocketly - Web Development Agency',
-  description: 'We build modern web applications that help businesses grow',
+  title: 'Rocketly - Desarrollo Web',
+  description: 'Desarrollo web moderno para tu negocio',
 };
 
 export default function RootLayout({
