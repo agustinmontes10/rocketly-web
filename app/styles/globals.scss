@@ -70,7 +70,7 @@ body {
   }
 
   &--primary {
-    background: $brand-gradient;
+    background: $brand-primary;
     color: white;
     border: none;
 
@@ -81,7 +81,7 @@ body {
 
     &:hover {
       transform: translateY(-1px);
-      box-shadow: $button-shadow-hover, 0 0 15px $brand-glow-light;
+      box-shadow: $button-shadow-hover, 0 0 15px rgba($brand-primary, 0.2);
       border: none;
 
       &::before {
@@ -127,7 +127,7 @@ body {
 }
 
 #rocket-cursor {
-  filter: drop-shadow(0 0 6px $brand-glow);
+  filter: drop-shadow(0 0 6px rgba($brand-primary, 0.3));
   transition: transform 0.15s ease;
   will-change: transform;
 }
@@ -166,22 +166,23 @@ body {
 
 .button {
   padding: 0.75rem 1.5rem;
-  border: 2px solid rgba(138, 158, 255, 1);
+  border: 2px solid $brand-primary;
   border-radius: 4px;
   text-decoration: none;
-  color: white;
+  color: $brand-primary;
   transition: background 0.3s;
+  background: transparent;
 
   &--primary {
-    background: linear-gradient(90deg, #00c6ff, #0072ff);
-    background: rgba(138, 158, 255, 1);
-    color: #0e0e0e;
+    background: transparent;
+    border: 2px solid $brand-secondary;
+    color: $brand-secondary;
     font-weight: bold;
   }
 
   &:hover {
-    background: white;
-    color: black;
+    background: $brand-primary;
+    color: white;
   }
 }
 
