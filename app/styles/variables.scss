@@ -14,6 +14,7 @@ $brand-tertiary: #111F45;   // Dark blue
 $brand-glow: rgba(0, 255, 178, 0.3);
 $brand-glow-light: rgba(0, 255, 178, 0.1);
 $brand-glow-strong: rgba(0, 255, 178, 0.5);
+$brand-gradient: linear-gradient(135deg, $brand-primary 0%, $brand-secondary 100%);
 
 // Color Variants
 $green-primary: #00FFB2;
