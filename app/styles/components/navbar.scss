@@ -31,7 +31,7 @@
   &__logo {
     font-size: 2rem;
     font-weight: 700;
-    color: $text-primary;
+    color: white;
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -48,7 +48,7 @@
   }
 
   &__link {
-    color: $text-secondary;
+    color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
     transition: $button-transition;
     position: relative;
@@ -73,7 +73,7 @@
     }
 
     &:hover {
-      color: $text-primary;
+      color: white;
       transform: translateY(-1px);
 
       &::before {
@@ -86,7 +86,7 @@
       font-weight: 500;
 
       &::before {
-        background: $brand-glow-light;
+        background: rgba($brand-primary, 0.1);
         opacity: 1;
       }
     }
@@ -97,9 +97,8 @@
     border: none;
     padding: 0.5rem 1rem;
     font: inherit;
-    cursor: pointer;
     border-radius: $button-radius;
-    color: $text-primary;
+    color: white;
     transition: $button-transition;
     position: relative;
     font-size: 1.1rem;

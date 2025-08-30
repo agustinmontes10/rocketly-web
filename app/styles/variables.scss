@@ -28,8 +28,9 @@ $dark-blue-dark: rgba(17, 31, 69, 0.9);
 
 // Button Styles - Standardized
 $button-border: 1px solid rgba(255, 255, 255, 0.08);
+$img-border: 1px solid rgba(255, 255, 255, 0.3);
 $button-border-hover: 1px solid rgba(255, 255, 255, 0.12);
-$button-radius: 8px;
+$button-radius: 4px;
 $button-transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 $button-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 $button-shadow-hover: 0 3px 12px rgba(0, 0, 0, 0.15);
