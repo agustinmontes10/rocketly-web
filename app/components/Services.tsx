@@ -38,28 +38,93 @@ const services = [
 ];
 
 export default function Services() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3,
+        delayChildren: 0.2,
+        duration: 0.5
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 80, 
+      scale: 0.85
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 1.2,
+        ease: "easeOut",
+        type: "spring",
+        stiffness: 100,
+        damping: 25
+      }
+    }
+  };
+
+  const titleVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 60, 
+      scale: 0.9 
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 1.5,
+        ease: "easeOut",
+        type: "spring",
+        stiffness: 80,
+        damping: 20
+      }
+    }
+  };
+
   return (
     <section className="section services" id="services">
       <div className="container">
-        <h2 className="heading heading--lg">Our Services</h2>
-        <p className="services__subtitle">Comprehensive web solutions to power your digital success</p>
+        <motion.h2 
+          className="heading heading--lg"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={titleVariants}
+        >
+          Our Services
+        </motion.h2>
+        
+        <motion.p 
+          className="services__subtitle"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={titleVariants}
+        >
+          Comprehensive web solutions to power your digital success
+        </motion.p>
 
         <motion.div
           className="services__grid"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
-          transition={{ staggerChildren: 0.15 }}
+          variants={containerVariants}
         >
           {services.map((service, index) => (
             <motion.div
               key={index}
               className="services__card"
-              variants={{
-                hidden: { opacity: 0, y: 40 },
-                visible: { opacity: 1, y: 0 }
-              }}
-              transition={{ duration: 0.6, ease: 'easeOut' }}
+              variants={itemVariants}
             >
               <div className="services__card-icon">
                 {service.icon}

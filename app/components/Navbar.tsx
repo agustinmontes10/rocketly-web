@@ -32,8 +32,7 @@ export default function Navbar() {
     <header className={`navbar${scrolled ? ' navbar--scrolled' : ''}`}>
       <div className="container navbar__container">
         <Link href="/" className="navbar__logo">
-          <Rocket size={24} />
-          Rocketly
+          <img src="/assets/logoRocketly.png" alt="Rocketly" />
         </Link>
 
         <nav className="navbar__nav">

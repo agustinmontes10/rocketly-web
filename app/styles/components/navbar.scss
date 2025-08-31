@@ -18,9 +18,9 @@
   &--scrolled {
     transition: all ease 0.3s;
     background-color: transparent;
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid #242527;
-    box-shadow: inset 0px -4px 12px -4px $brand-glow-strong;
+    backdrop-filter: blur(15px);
+    // border-bottom: 1px solid #242527;
+    // box-shadow: inset 0px -4px 12px -4px $brand-glow-strong;
 
   }
 
@@ -38,6 +38,10 @@
     display: flex;
     align-items: center;
     gap: $spacing-xs;
+    
+    img {
+      width: 150px;
+    }
   }
 
   &__nav {
