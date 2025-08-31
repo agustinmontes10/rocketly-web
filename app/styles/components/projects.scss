@@ -3,6 +3,10 @@
 .projects {
   position: relative;
 
+  &__container {
+    // Container para las animaciones de Framer Motion
+  }
+
   &__grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -12,16 +16,16 @@
   &__card {
     overflow: hidden;
     transition: $button-transition;
-    border: $button-border;
-    box-shadow: $button-shadow;
+    // border: $button-border;
+    // box-shadow: $button-shadow;
     transition: transform 0.3s ease;
     margin-bottom: 100px;
 
     &:hover {
       transform: translateY(-3px);
-      border: $button-border-hover;
-      box-shadow: $button-shadow-hover, 0 0 15px $brand-glow-light;
-      background-color: lighten($bg-secondary, 2%);
+      // border: $button-border-hover;
+      // box-shadow: $button-shadow-hover, 0 0 15px $brand-glow-light;
+      // background-color: lighten($bg-secondary, 2%);
     }
 
     &-image {
@@ -50,7 +54,7 @@
       flex-wrap: wrap;
 
       span {
-        background-color: $brand-glow-light;
+        background-color: rgba($brand-primary, 0.2);
         color: $brand-primary;
         padding: 4px 8px;
         border-radius: 4px;
@@ -62,7 +66,7 @@
       margin-top: 15px;
       
       .button {
-        padding: 0.5rem 1rem;
+        padding: 10px 15px;
         border-radius: $button-radius;
         text-decoration: none;
         transition: $button-transition;

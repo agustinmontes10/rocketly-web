@@ -114,7 +114,7 @@ export default function Hero() {
               <Link href="#contact" className="button button--primary">
                 Start Your Project
               </Link>
-              <Link href="#projects" className="button">
+              <Link href="#projects" className="button button--secondary">
                 View Our Work
               </Link>
             </div>

@@ -80,28 +80,27 @@
 
       &--primary {
         background: $brand-gradient;
-        color: white;
-        font-weight: 500;
+        color: black;
         border: none;
+        font-weight: 600;
 
         &::before {
           background: rgba(255, 255, 255, 0.1);
         }
 
         &:hover {
-          transform: translateY(-1px);
           box-shadow: $button-shadow-hover, 0 0 15px $brand-glow-light;
-
-          &::before {
-            opacity: 1;
-          }
         }
+      }
+
+      &--secondary {
+        background: rgba($brand-secondary, 0.1);
+        border: 2px solid $brand-secondary;
       }
 
       &:hover {
         transform: translateY(-1px);
         box-shadow: $button-shadow-hover;
-        color: white;
 
         &::before {
           opacity: 1;
