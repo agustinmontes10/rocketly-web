@@ -8,15 +8,26 @@ export default function RocketCursor() {
     rocket.src = '/assets/rocket.png';
     rocket.style.position = 'fixed';
     rocket.style.pointerEvents = 'none';
-    rocket.style.width = '40px';
+    rocket.style.width = '30px'; // Made smaller (was 40px)
     rocket.style.zIndex = '9999';
     rocket.style.transition = 'transform 0.7s ease';
     document.body.appendChild(rocket);
 
+    // Hide the native cursor globally with CSS
+    const style = document.createElement('style');
+    style.id = 'rocket-cursor-style';
+    style.textContent = `
+      *, *::before, *::after {
+        cursor: none !important;
+      }
+      body {
+        cursor: none !important;
+      }
+    `;
+    document.head.appendChild(style);
+
     let lastX = window.innerWidth / 2;
     let lastY = window.innerHeight / 2;
-    let lastRotation = 0;
-    const ROTATION_THRESHOLD = 20; // distancia mínima para girar
 
     const createTrail = (x: number, y: number) => {
       const trail = document.createElement('div');
@@ -48,43 +59,28 @@ export default function RocketCursor() {
       const mouseX = e.clientX;
       const mouseY = e.clientY;
 
-      const dx = mouseX - lastX;
-      const dy = mouseY - lastY;
-
-      const distance = Math.sqrt(dx * dx + dy * dy);
-      let rotation = lastRotation;
-
-      if (distance > ROTATION_THRESHOLD) {
-        // Movimiento dominante
-        if (Math.abs(dx) > Math.abs(dy)) {
-          rotation = dx > 0 ? 45 : 225;
-        } else {
-          rotation = dy > 0 ? 135 : 315;
-        }
-
-        lastX = mouseX;
-        lastY = mouseY;
-        lastRotation = rotation;
-      }
-
-      const x = mouseX - 20;
-      const y = mouseY - 20;
+      // Position the image so its top-left corner is at the cursor position
+      const x = mouseX;
+      const y = mouseY;
 
       rocket.style.left = `${x}px`;
       rocket.style.top = `${y}px`;
-      rocket.style.transform = `rotate(${rotation}deg)`;
+      // Fixed rotation - pointing to left top (315 degrees)
+      rocket.style.transform = `rotate(-90deg)`;
 
       // 👇 Detecta si está sobre un link del nav
       const target = e.target as HTMLElement;
-      if (target.closest('.navbar__link')) {
+      if (target.closest('.navbar__link') || target.closest('.button')) {
         console.log('paso')
+        // rocket.style.filter = 'brightness(0) invert(1)';
         rocket.style.filter = 'hue-rotate(180deg) brightness(1.2)';
       } else {
         console.log('no paso')
         rocket.style.filter = 'none';
       }
 
-      createTrail(x + 20, y + 20);
+      // Trail position adjusted to come from the rocket's position
+      createTrail(x + 15, y + 15);
     };
 
     window.addEventListener('mousemove', handleMouseMove);
@@ -92,6 +88,11 @@ export default function RocketCursor() {
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
       rocket.remove();
+      // Remove the cursor hiding CSS when component unmounts
+      const style = document.getElementById('rocket-cursor-style');
+      if (style) {
+        style.remove();
+      }
     };
   }, []);
 
