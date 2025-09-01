@@ -8,8 +8,10 @@ import Link from "next/link"
 import "../styles/components/hero.scss"
 import { animate, stagger } from "motion";
 import { splitText } from "motion-plus";
+import { useTranslation } from 'react-i18next';
 
 export default function Hero() {
+  const { t } = useTranslation();
   const vantaRef = useRef<HTMLDivElement>(null)
   const heroRef = useRef<HTMLDivElement>(null);
   const [vantaEffect, setVantaEffect] = useState<any>(null)
@@ -68,16 +70,25 @@ export default function Hero() {
       const heading = heroRef.current.querySelector("h1");
       const paragraph = heroRef.current.querySelector("p");
 
-      if (!heading || !paragraph) return;
+      if (!heading) return;
+      if (!paragraph) return;
 
       const { words } = splitText(heading);
-      const { words: wordsP } = splitText(paragraph);
-      
-      // Combine both heading and paragraph words into one array
-      const allWords = [...words, ...wordsP];
+      const { words: wordsparagraph } = splitText(paragraph);
 
       animate(
-        allWords,
+        words,
+        { opacity: [0, 1], y: [20, 0] },
+        {
+          type: "spring",
+          duration: 1.6,
+          bounce: 0.2,
+          delay: stagger(0.04),
+        }
+      );
+
+      animate(
+        wordsparagraph,
         { opacity: [0, 1], y: [20, 0] },
         {
           type: "spring",
@@ -95,18 +106,17 @@ export default function Hero() {
         <div className="container">
           <div className="hero__content" ref={heroRef}>
             <h1 className="heading heading--xl">
-              We Build Modern Web Solutions That Drive Growth
+              {t('hero.title')}
             </h1>
             <p>
-              Transform your digital presence with our cutting-edge web development services.
-              We create beautiful, high-performance websites and applications that help businesses thrive.
+              {t('hero.description')}
             </p>
             <div className="hero__buttons">
               <Link href="#contact" className="button button--primary">
-                Start Your Project
+                {t('hero.startProject')}
               </Link>
-              <Link href="#projects" className="button button--secondary">
-                View Our Work
+              <Link href="#projects" className="button">
+                {t('hero.viewWork')}
               </Link>
             </div>
           </div>

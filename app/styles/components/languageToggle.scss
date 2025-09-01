@@ -1,0 +1,119 @@
+@import '../variables';
+
+.language-toggle {
+  display: flex;
+  align-items: center;
+  
+  &__container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  &__labels {
+    display: flex;
+    gap: $spacing-sm;
+    z-index: 2;
+    position: relative;
+  }
+
+  &__label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: $text-secondary;
+    transition: color 0.3s ease;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    min-width: 24px;
+    text-align: center;
+
+    &.active {
+      color: $brand-primary;
+      font-weight: 600;
+    }
+
+    &:hover {
+      color: $text-primary;
+    }
+  }
+
+  &__track {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.3);
+      box-shadow: 0 0 10px $brand-glow-light;
+    }
+  }
+
+  &__thumb {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(135deg, $brand-primary, $brand-secondary);
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 12px;
+      height: 12px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+  }
+
+  // Mobile responsive
+  @media (max-width: $breakpoint-md) {
+    &__label {
+      font-size: 0.8rem;
+      padding: 0.2rem 0.4rem;
+    }
+
+    &__track {
+      width: 44px;
+      height: 22px;
+    }
+
+    &__thumb {
+      width: 18px;
+      height: 18px;
+
+      &::before {
+        width: 10px;
+        height: 10px;
+      }
+    }
+  }
+
+  // Animation states
+  &__container:active &__thumb {
+    transform: scale(0.95);
+  }
+
+  &__container:hover &__track {
+    box-shadow: 0 0 15px $brand-glow-light;
+  }
+}

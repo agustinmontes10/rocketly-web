@@ -1,30 +1,28 @@
 "use client"
 import '../styles/components/projects.scss';
 import { useState, useEffect } from 'react';
-import { motion, useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-
-const projects = [
-  {
-    title: 'Agencia de viajes',
-    description: 'Agencia de viajes con diversidad de paquetes y destinos, seccion de contacto y servicios.',
-    image: '/assets/agenciaViajes',
-    link: 'https://agencia-viajes-gray.vercel.app/',
-    tags: ['Next.js', 'TypeScript', 'TailwindCSS', 'Supabase']
-  },
-  {
-    title: 'Broker de seguros',
-    description: 'Broker de seguros con secciones de cotizaciones, ofertas, servicios y contacto',
-    image: '/assets/rivoltaSeguros',
-    link: 'https://rivolta-seguros.vercel.app/',
-    tags: ['Next.js', 'TypeScript', 'TailwindCSS', 'Supabase', 'Sheets']
-  },
-];
+import { useTranslation } from 'react-i18next';
 
 export default function Projects() {
+  const { t } = useTranslation();
   const [isMobile, setIsMobile] = useState(false);
-  const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
-  const controls = useAnimation();
+
+  const projects = [
+    {
+      title: t('projects.project1.title'),
+      description: t('projects.project1.description'),
+      image: '/assets/agenciaViajes',
+      link: 'https://agencia-viajes-gray.vercel.app/',
+      tags: ['Next.js', 'TypeScript', 'TailwindCSS', 'Supabase']
+    },
+    {
+      title: t('projects.project2.title'),
+      description: t('projects.project2.description'),
+      image: '/assets/rivoltaSeguros',
+      link: 'https://rivolta-seguros.vercel.app/',
+      tags: ['Next.js', 'TypeScript', 'TailwindCSS', 'Supabase', 'Sheets']
+    },
+  ];
 
   useEffect(() => {
     const checkMobile = () => {
@@ -37,12 +35,6 @@ export default function Projects() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  useEffect(() => {
-    if (inView) {
-      controls.start('visible');
-    }
-  }, [inView, controls]);
-
   const getProjectImage = (imageURL: string) => {
     if (isMobile) {
       // Remove trailing slash if exists and add mobile
@@ -51,107 +43,35 @@ export default function Projects() {
     return imageURL;
   };
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.4,
-        delayChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 100, 
-      scale: 0.9,
-      rotateX: -15
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      rotateX: 0,
-      transition: {
-        duration: 2.8,
-        ease: [0.25, 0.46, 0.45, 0.94],
-        type: "spring",
-        stiffness: 30,
-        damping: 15
-      }
-    }
-  };
-
-  const titleVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 80, 
-      scale: 0.8 
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 2.5,
-        ease: [0.25, 0.46, 0.45, 0.94],
-        type: "spring",
-        stiffness: 40,
-        damping: 20
-      }
-    }
-  };
-
   return (
-    <section className="projects" id="projects" ref={ref}>
+    <section className="section projects" id="projects">
       <div className="container">
-        <motion.h2 
-          className="heading heading--lg"
-          variants={titleVariants}
-          initial="hidden"
-          animate={controls}
-        >
-          Our Latest Projects
-        </motion.h2>
-        
-        <motion.div 
-          className="projects__container __cards__container"
-          variants={containerVariants}
-          initial="hidden"
-          animate={controls}
-        >
-          {projects.map((project, index) => (
-            <motion.div 
-              key={index} 
-              className="projects__card"
-              variants={itemVariants}
-            >
-              <div className="projects__card-content">
-                <h2>{project.title}</h2>
-                <p>{project.description}</p>
-                <div className="projects__card-tags">
-                  {project.tags.map((tag, tagIndex) => (
-                    <span key={tagIndex}>{tag}</span>
-                  ))}
-                </div>
-                <div className="projects__card-buttons">
-                  <a href={project.link} target="_blank" rel="noopener noreferrer">
-                    <button className="button button--primary">Ver proyecto</button>
-                  </a>
-                </div>
+        <h2 className="heading heading--lg">{t('projects.title')}</h2>
+        {projects.map((project, index) => (
+          <div key={index} className="projects__card">
+            <div className="projects__card-content">
+              <h2>{project.title}</h2>
+              <p>{project.description}</p>
+              <div className="projects__card-tags">
+                {project.tags.map((tag, tagIndex) => (
+                  <span key={tagIndex}>{tag}</span>
+                ))}
               </div>
-              <a href={project.link} target="_blank" rel="noopener noreferrer">
-                <img
-                  src={`${getProjectImage(project.image)}.png`}
-                  alt={project.title}
-                  className="projects__card-image"
-                />
-              </a>
-            </motion.div>
-          ))}
-        </motion.div>
+              <div className="projects__card-buttons">
+                <a href={project.link} target="_blank" rel="noopener noreferrer">
+                  <button className="button button--primary">{t('projects.viewProject')}</button>
+                </a>
+              </div>
+            </div>
+            <a href={project.link} target="_blank" rel="noopener noreferrer">
+            <img
+              src={`${getProjectImage(project.image)}.png`}
+              alt={project.title}
+                className="projects__card-image"
+              />
+            </a>
+          </div>
+        ))}
       </div>
 
       <div className="stars">

@@ -3,128 +3,60 @@
 import '../styles/components/services.scss';
 import { motion } from 'framer-motion';
 import { Code2, Globe, Smartphone, Gauge, Lock, Palette } from 'lucide-react';
-
-const services = [
-  {
-    icon: <Code2 size={32} />,
-    title: 'Custom Web Development',
-    description: 'Tailored web solutions built with cutting-edge technologies to meet your specific business needs.'
-  },
-  {
-    icon: <Globe size={32} />,
-    title: 'E-commerce Solutions',
-    description: 'Powerful online stores with seamless payment integration and inventory management.'
-  },
-  {
-    icon: <Smartphone size={32} />,
-    title: 'Responsive Design',
-    description: 'Mobile-first websites that look and perform beautifully across all devices.'
-  },
-  {
-    icon: <Gauge size={32} />,
-    title: 'Performance Optimization',
-    description: 'Lightning-fast loading times and optimal user experience through advanced optimization.'
-  },
-  {
-    icon: <Lock size={32} />,
-    title: 'Security Solutions',
-    description: 'Robust security measures to protect your web applications and user data.'
-  },
-  // {
-  //   icon: <Palette size={32} />,
-  //   title: 'UI/UX Design',
-  //   description: 'Intuitive and engaging user interfaces that deliver exceptional user experiences.'
-  // }
-];
+import { useTranslation } from 'react-i18next';
 
 export default function Services() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3,
-        delayChildren: 0.2,
-        duration: 0.5
-      }
-    }
-  };
+  const { t } = useTranslation();
 
-  const itemVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 80, 
-      scale: 0.85
+  const services = [
+    {
+      icon: <Code2 size={32} />,
+      title: t('services.service1.title'),
+      description: t('services.service1.description')
     },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 1.2,
-        ease: "easeOut",
-        type: "spring",
-        stiffness: 100,
-        damping: 25
-      }
-    }
-  };
-
-  const titleVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 60, 
-      scale: 0.9 
+    {
+      icon: <Globe size={32} />,
+      title: t('services.service2.title'),
+      description: t('services.service2.description')
     },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 1.5,
-        ease: "easeOut",
-        type: "spring",
-        stiffness: 80,
-        damping: 20
-      }
+    {
+      icon: <Smartphone size={32} />,
+      title: t('services.service3.title'),
+      description: t('services.service3.description')
+    },
+    {
+      icon: <Gauge size={32} />,
+      title: t('services.service4.title'),
+      description: t('services.service4.description')
+    },
+    {
+      icon: <Lock size={32} />,
+      title: t('services.service5.title'),
+      description: t('services.service5.description')
     }
-  };
-
+  ];
   return (
     <section className="section services" id="services">
       <div className="container">
-        <motion.h2 
-          className="heading heading--lg"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={titleVariants}
-        >
-          Our Services
-        </motion.h2>
-        
-        <motion.p 
-          className="services__subtitle"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={titleVariants}
-        >
-          Comprehensive web solutions to power your digital success
-        </motion.p>
+        <h2 className="heading heading--lg">{t('services.title')}</h2>
+        <p className="services__subtitle">{t('services.description')}</p>
 
         <motion.div
           className="services__grid"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
-          variants={containerVariants}
+          transition={{ staggerChildren: 0.15 }}
         >
           {services.map((service, index) => (
             <motion.div
               key={index}
               className="services__card"
-              variants={itemVariants}
+              variants={{
+                hidden: { opacity: 0, y: 40 },
+                visible: { opacity: 1, y: 0 }
+              }}
+              transition={{ duration: 0.6, ease: 'easeOut' }}
             >
               <div className="services__card-icon">
                 {service.icon}

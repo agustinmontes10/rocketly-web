@@ -1,0 +1,86 @@
+{
+  "navbar": {
+    "home": "Home",
+    "projects": "Projects",
+    "services": "Services",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "We Build Modern Web Solutions That Drive Growth",
+    "description": "Transform your digital presence with our cutting-edge web development services. We create beautiful, high-performance websites and applications that help businesses thrive.",
+    "startProject": "Start Your Project",
+    "viewWork": "View Our Work"
+  },
+  "projects": {
+    "title": "Our Latest Projects",
+    "description": "Discover some of our recent work and see how we've helped businesses transform their digital presence.",
+    "viewProject": "View Project",
+    "project1": {
+      "title": "Travel Agency",
+      "description": "Travel agency with diverse packages and destinations, contact section and services."
+    },
+    "project2": {
+      "title": "Insurance Broker",
+      "description": "Insurance broker with quotation sections, offers, services and contact"
+    }
+  },
+  "services": {
+    "title": "Our Services",
+    "description": "Comprehensive web solutions to power your digital success",
+    "service1": {
+      "title": "Custom Web Development",
+      "description": "Tailored web solutions built with cutting-edge technologies to meet your specific business needs."
+    },
+    "service2": {
+      "title": "E-commerce Solutions",
+      "description": "Powerful online stores with seamless payment integration and inventory management."
+    },
+    "service3": {
+      "title": "Responsive Design",
+      "description": "Mobile-first websites that look and perform beautifully across all devices."
+    },
+    "service4": {
+      "title": "Performance Optimization",
+      "description": "Lightning-fast loading times and optimal user experience through advanced optimization."
+    },
+    "service5": {
+      "title": "Security Solutions",
+      "description": "Robust security measures to protect your web applications and user data."
+    }
+  },
+  "howWork": {
+    "step1": {
+      "title": "Planning",
+      "description": "We research, analyze and align with your objectives."
+    },
+    "step2": {
+      "title": "Design",
+      "description": "We create prototypes and user-centered experiences."
+    },
+    "step3": {
+      "title": "Development",
+      "description": "We code with precision and passion."
+    },
+    "step4": {
+      "title": "Launch",
+      "description": "We deploy and accompany you to infinity 🚀"
+    }
+  },
+  "contact": {
+    "title": "Let's",
+    "titleHighlight": "connect",
+    "description": "Ready to start your next project? Fill out the form and let's talk about how we can help your brand grow.",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "Your email",
+    "messagePlaceholder": "Your message",
+    "sendButton": "Send message",
+    "sendingButton": "Sending...",
+    "successMessage": "Message sent successfully! We'll contact you soon.",
+    "errorMessage": "Error sending message. Please try again.",
+    "connectionError": "Connection error. Check your internet and try again."
+  },
+  "metadata": {
+    "title": "Rocketly - Web Development",
+    "description": "Modern web development for your business"
+  }
+}

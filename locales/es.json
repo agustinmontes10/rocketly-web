@@ -1,0 +1,86 @@
+{
+  "navbar": {
+    "home": "Inicio",
+    "projects": "Proyectos",
+    "services": "Servicios",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "title": "Construimos Soluciones Web Modernas Que Impulsan el Crecimiento",
+    "description": "Transforma tu presencia digital con nuestros servicios de desarrollo web de vanguardia. Creamos sitios web y aplicaciones hermosos y de alto rendimiento que ayudan a las empresas a prosperar.",
+    "startProject": "Iniciar Tu Proyecto",
+    "viewWork": "Ver Nuestro Trabajo"
+  },
+  "projects": {
+    "title": "Nuestros Últimos Proyectos",
+    "description": "Descubre algunos de nuestros trabajos recientes y ve cómo hemos ayudado a las empresas a transformar su presencia digital.",
+    "viewProject": "Ver Proyecto",
+    "project1": {
+      "title": "Agencia de Viajes",
+      "description": "Agencia de viajes con diversidad de paquetes y destinos, sección de contacto y servicios."
+    },
+    "project2": {
+      "title": "Broker de Seguros",
+      "description": "Broker de seguros con secciones de cotizaciones, ofertas, servicios y contacto"
+    }
+  },
+  "services": {
+    "title": "Nuestros Servicios",
+    "description": "Soluciones web integrales para potenciar tu éxito digital",
+    "service1": {
+      "title": "Desarrollo Web Personalizado",
+      "description": "Soluciones web a medida construidas con tecnologías de vanguardia para satisfacer las necesidades específicas de tu negocio."
+    },
+    "service2": {
+      "title": "Soluciones E-commerce",
+      "description": "Tiendas en línea potentes con integración de pagos sin problemas y gestión de inventario."
+    },
+    "service3": {
+      "title": "Diseño Responsivo",
+      "description": "Sitios web mobile-first que se ven y funcionan hermosamente en todos los dispositivos."
+    },
+    "service4": {
+      "title": "Optimización de Rendimiento",
+      "description": "Tiempos de carga ultrarrápidos y experiencia de usuario óptima a través de optimización avanzada."
+    },
+    "service5": {
+      "title": "Soluciones de Seguridad",
+      "description": "Medidas de seguridad robustas para proteger tus aplicaciones web y datos de usuarios."
+    }
+  },
+  "howWork": {
+    "step1": {
+      "title": "Planificación",
+      "description": "Investigamos, analizamos y nos alineamos con tus objetivos."
+    },
+    "step2": {
+      "title": "Diseño",
+      "description": "Creamos prototipos y experiencias centradas en el usuario."
+    },
+    "step3": {
+      "title": "Desarrollo",
+      "description": "Codificamos con precisión y pasión."
+    },
+    "step4": {
+      "title": "Lanzamiento",
+      "description": "Desplegamos y te acompañamos al infinito 🚀"
+    }
+  },
+  "contact": {
+    "title": "Vamos a",
+    "titleHighlight": "conectar",
+    "description": "¿Listo para comenzar tu próximo proyecto? Completa el formulario y hablemos sobre cómo podemos ayudar a que tu marca crezca.",
+    "namePlaceholder": "Tu nombre",
+    "emailPlaceholder": "Tu email",
+    "messagePlaceholder": "Tu mensaje",
+    "sendButton": "Enviar mensaje",
+    "sendingButton": "Enviando...",
+    "successMessage": "¡Mensaje enviado exitosamente! Te contactaremos pronto.",
+    "errorMessage": "Error al enviar el mensaje. Por favor, inténtalo nuevamente.",
+    "connectionError": "Error de conexión. Verifica tu internet e inténtalo nuevamente."
+  },
+  "metadata": {
+    "title": "Rocketly - Desarrollo Web",
+    "description": "Desarrollo web moderno para tu negocio"
+  }
+}

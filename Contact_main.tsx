@@ -3,12 +3,10 @@
 import { useState, useEffect } from 'react';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
 import Toast from './Toast';
 import '../styles/components/contact.scss';
 
 export default function Contact() {
-  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -50,19 +48,19 @@ export default function Contact() {
       if (response.ok) {
         setSubmitStatus('success');
         setFormData({ name: '', email: '', message: '' });
-        setToastMessage(t('contact.successMessage'));
+        setToastMessage('¡Mensaje enviado exitosamente! Te contactaremos pronto.');
         setToastType('success');
         setShowToast(true);
       } else {
         setSubmitStatus('error');
-        setToastMessage(t('contact.errorMessage'));
+        setToastMessage('Error al enviar el mensaje. Por favor, inténtalo nuevamente.');
         setToastType('error');
         setShowToast(true);
       }
     } catch (error) {
       console.error('Error sending email:', error);
       setSubmitStatus('error');
-      setToastMessage(t('contact.connectionError'));
+      setToastMessage('Error de conexión. Verifica tu internet e inténtalo nuevamente.');
       setToastType('error');
       setShowToast(true);
     } finally {
@@ -83,13 +81,13 @@ export default function Contact() {
             Let’s <span>connect</span>
           </h1>
           <p>
-            {t('contact.description')}
+            Ready to start your next project? Fill out the form and let&apos;s talk about how we can help your brand grow.
           </p>
           <form className="contact-form" onSubmit={handleSubmit}>
             <input
               type="text"
               name="name"
-              placeholder={t('contact.namePlaceholder')}
+              placeholder="Your name"
               value={formData.name}
               onChange={handleInputChange}
               required
@@ -97,20 +95,20 @@ export default function Contact() {
             <input
               type="email"
               name="email"
-              placeholder={t('contact.emailPlaceholder')}
+              placeholder="Your email"
               value={formData.email}
               onChange={handleInputChange}
               required
             />
             <textarea
               name="message"
-              placeholder={t('contact.messagePlaceholder')}
+              placeholder="Your message"
               value={formData.message}
               onChange={handleInputChange}
               required
             ></textarea>
             <button type="submit" disabled={isSubmitting}>
-              {isSubmitting ? t('contact.sendingButton') : t('contact.sendButton')}
+              {isSubmitting ? 'Sending...' : 'Send message'}
             </button>
 
           </form>

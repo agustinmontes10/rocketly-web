@@ -1,6 +1,8 @@
 import RocketCursor from './components/RocketCursor';
 import './styles/globals.scss';
 import type { Metadata } from 'next';
+import I18nProvider from './components/I18nProvider';
+import DynamicHtml from './components/DynamicHtml';
 
 export const metadata: Metadata = {
   title: 'Rocketly - Desarrollo Web',
@@ -15,7 +17,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <RocketCursor />
-      <body>{children}</body>
+      <body>
+        <I18nProvider>
+          <DynamicHtml>
+            {children}
+          </DynamicHtml>
+        </I18nProvider>
+      </body>
     </html>
   );
 }
