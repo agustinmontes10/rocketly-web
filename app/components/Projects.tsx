@@ -105,7 +105,7 @@ export default function Projects() {
   };
 
   return (
-    <section className="section projects" id="projects" ref={ref}>
+    <section className="projects" id="projects" ref={ref}>
       <div className="container">
         <motion.h2 
           className="heading heading--lg"
@@ -117,7 +117,7 @@ export default function Projects() {
         </motion.h2>
         
         <motion.div 
-          className="projects__container"
+          className="projects__container __cards__container"
           variants={containerVariants}
           initial="hidden"
           animate={controls}

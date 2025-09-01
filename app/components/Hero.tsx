@@ -68,25 +68,16 @@ export default function Hero() {
       const heading = heroRef.current.querySelector("h1");
       const paragraph = heroRef.current.querySelector("p");
 
-      if (!heading) return;
-      if (!paragraph) return;
+      if (!heading || !paragraph) return;
 
       const { words } = splitText(heading);
-      const { words: wordsparagraph } = splitText(paragraph);
+      const { words: wordsP } = splitText(paragraph);
+      
+      // Combine both heading and paragraph words into one array
+      const allWords = [...words, ...wordsP];
 
       animate(
-        words,
-        { opacity: [0, 1], y: [20, 0] },
-        {
-          type: "spring",
-          duration: 1.6,
-          bounce: 0.2,
-          delay: stagger(0.04),
-        }
-      );
-
-      animate(
-        wordsparagraph,
+        allWords,
         { opacity: [0, 1], y: [20, 0] },
         {
           type: "spring",

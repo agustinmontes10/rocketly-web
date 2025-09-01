@@ -2,6 +2,7 @@
 
 .projects {
   position: relative;
+  padding: 6rem 0;
 
   &__container {
     // Container para las animaciones de Framer Motion
@@ -13,13 +14,18 @@
     gap: $spacing-xl;
   }
 
+  .__cards__container {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xl;
+  }
+
   &__card {
     overflow: hidden;
     transition: $button-transition;
     // border: $button-border;
     // box-shadow: $button-shadow;
     transition: transform 0.3s ease;
-    margin-bottom: 100px;
 
     &:hover {
       transform: translateY(-3px);
@@ -33,6 +39,8 @@
       height: 80vh;
       object-fit: cover;
       object-position: top;
+      border: solid #596069 1px;
+      border-radius: 8px;
     }
 
     &-content {
@@ -55,16 +63,16 @@
 
       span {
         background-color: rgba($brand-primary, 0.2);
-        color: $brand-primary;
+        color: $brand-primary-dark;
         padding: 4px 8px;
-        border-radius: 4px;
+        border-radius: 8px;
         font-size: 0.875rem;
       }
     }
 
     &-buttons {
       margin-top: 15px;
-      
+
       .button {
         padding: 10px 15px;
         border-radius: $button-radius;
