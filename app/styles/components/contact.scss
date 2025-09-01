@@ -8,12 +8,6 @@
   text-align: center;
   overflow: hidden;
   width: 100%;
-  
-  @media (max-width: 768px) {
-    display: flex;
-    align-items: center;
-    height: calc(100vh - 76px);
-  }
 
   .contact-overlay {
     position: absolute;
