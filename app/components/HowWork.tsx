@@ -74,7 +74,7 @@ function StepComponent({ step, index, setActiveStep }: StepProps) {
           stiffness: 25,
           damping: 18,
           mass: 1.5,
-          delay: 0.5
+          delay: 0.3
         }}
       >
         {step.description}
