@@ -81,7 +81,7 @@ export default function Contact() {
             Let’s <span>connect</span>
           </h1>
           <p>
-            Ready to start your next project? Fill out the form and let's talk about how we can help your brand grow.
+            Ready to start your next project? Fill out the form and let&apos;s talk about how we can help your brand grow.
           </p>
           <form className="contact-form" onSubmit={handleSubmit}>
             <input

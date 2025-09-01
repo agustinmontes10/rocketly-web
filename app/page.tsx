@@ -4,6 +4,7 @@ import Projects from './components/Projects';
 import Services from './components/Services';
 import Contact from './components/Contact';
 import HowWork from './components/HowWork';
+import Footer from './components/Footer';
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Services />
       <HowWork />
       <Contact />
+      <Footer />
     </main>
   );
 }
