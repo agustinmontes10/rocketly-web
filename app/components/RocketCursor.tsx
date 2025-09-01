@@ -86,7 +86,7 @@ export default function RocketCursor() {
       createTrail(x + 15, y + 15);
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mousemove', handleMouseMove); 
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
