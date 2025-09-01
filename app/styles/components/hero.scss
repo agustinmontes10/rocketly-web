@@ -64,6 +64,7 @@
       box-shadow: $button-shadow;
       background: rgba($bg-secondary, 0.6);
       font-size: 1rem;
+      min-width: 200px;
 
       &::before {
         content: '';
@@ -79,23 +80,32 @@
       }
 
       &--primary {
-        background: $brand-gradient;
-        color: black;
+        background: #006942;
+        color: white;
         border: none;
         font-weight: 600;
+        box-shadow: inset 0 0px 4px #01af6f;
 
         &::before {
           background: rgba(255, 255, 255, 0.1);
         }
 
         &:hover {
-          box-shadow: $button-shadow-hover, 0 0 15px $brand-glow-light;
+          box-shadow: $button-shadow-hover, 0 0 15px $brand-glow-light, inset 0 0px 4px #01af6f;
         }
       }
 
       &--secondary {
         background: rgba($brand-secondary, 0.1);
         border: 2px solid $brand-secondary;
+        color: white;
+
+        &:hover {
+          background: rgba($brand-secondary, 0.2);
+          transform: translateY(-1px);
+          box-shadow: $button-shadow-hover;
+          border: 2px solid lighten($brand-secondary, 10%);
+        }
       }
 
       &:hover {
