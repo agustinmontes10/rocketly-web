@@ -9,7 +9,7 @@ const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
 const steps = [
   { title: 'Planificación', description: 'Investigamos, analizamos y nos alineamos con tus objetivos 📝' },
-  { title: 'Diseño', description: 'Creamos prototipos y experiencias centradas en el usuario 🪄' },
+  { title: 'Diseño', description: 'Creamos prototipos y experiencias centradas en el usuario 👤' },
   { title: 'Desarrollo', description: 'Codificamos con precisión y pasión 👨🏻‍💻' },
   { title: 'Lanzamiento', description: 'Desplegamos y te acompañamos al infinito 🚀' },
 ]
