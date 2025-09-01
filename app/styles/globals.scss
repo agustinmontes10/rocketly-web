@@ -117,6 +117,10 @@ body {
     @media (max-width: $breakpoint-md) {
       font-size: 2.5rem!important;
     }
+
+    @media (max-width: $breakpoint-xs) {
+      font-size: 2rem!important;
+    }
   }
 
   &--lg {
