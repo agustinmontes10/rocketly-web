@@ -11,6 +11,7 @@ export default function RocketCursor() {
     rocket.style.width = '30px'; // Made smaller (was 40px)
     rocket.style.zIndex = '9999';
     rocket.style.transition = 'transform 0.7s ease';
+    rocket.id = 'rocket-cursor';
     document.body.appendChild(rocket);
 
     // Hide the native cursor globally with CSS

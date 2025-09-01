@@ -193,6 +193,12 @@ body {
   }
 }
 
+@media (max-width: $breakpoint-sm) {
+  #rocket-cursor {
+    display: none;
+  }
+}
+
 @keyframes floatStar {
   0% {
     transform: translateY(0) scale(1);
