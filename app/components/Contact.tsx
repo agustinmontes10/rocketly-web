@@ -80,7 +80,7 @@ export default function Contact() {
         </div>
         <div className="contact-content">
           <h1>
-            Let’s <span>connect</span>
+            {t('contact.title')} <span>{t('contact.titleHighlight')}</span>
           </h1>
           <p>
             {t('contact.description')}

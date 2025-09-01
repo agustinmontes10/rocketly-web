@@ -20,7 +20,8 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    fallbackLng: 'en',
+    fallbackLng: 'es',
+    lng: 'es', // Set Spanish as default language
     debug: false,
     
     detection: {
