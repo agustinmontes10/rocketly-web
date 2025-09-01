@@ -70,9 +70,11 @@ body {
   }
 
   &--primary {
-    background: $brand-gradient;
+    background: #006942;
     color: white;
     border: none;
+    font-weight: 600;
+    box-shadow: inset 0 0px 4px #01af6f;
 
     &::before {
       background: rgba(255, 255, 255, 0.1);
@@ -81,7 +83,7 @@ body {
 
     &:hover {
       transform: translateY(-1px);
-      box-shadow: $button-shadow-hover, 0 0 15px $brand-glow-light;
+      box-shadow: $button-shadow-hover, 0 0 15px $brand-glow-light, inset 0 0px 4px #01af6f;
       border: none;
 
       &::before {
@@ -166,22 +168,24 @@ body {
 
 .button {
   padding: 0.75rem 1.5rem;
-  border: 2px solid rgba(138, 158, 255, 1);
+  border: none;
   border-radius: 4px;
   text-decoration: none;
   color: white;
+  background: #006942;
+  font-weight: 600;
+  box-shadow: inset 0 0px 4px #01af6f;
   transition: background 0.3s;
 
   &--primary {
-    background: linear-gradient(90deg, #00c6ff, #0072ff);
-    background: rgba(138, 158, 255, 1);
-    color: #0e0e0e;
-    font-weight: bold;
+    background: #006942;
+    color: white;
+    font-weight: 600;
+    box-shadow: inset 0 0px 4px #01af6f;
   }
 
   &:hover {
-    background: white;
-    color: black;
+    box-shadow: $button-shadow-hover, 0 0 15px $brand-glow-light, inset 0 0px 4px #01af6f;
   }
 }
 
