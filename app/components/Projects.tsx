@@ -3,18 +3,19 @@ import '../styles/components/projects.scss';
 import { useState, useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { useTranslation } from 'react-i18next';
 
-const projects = [
+const getProjects = (t: any) => [
   {
-    title: 'Agencia de viajes',
-    description: 'Agencia de viajes con diversidad de paquetes y destinos, seccion de contacto y servicios.',
+    title: t('projects.project1.title'),
+    description: t('projects.project1.description'),
     image: '/assets/agenciaViajes',
     link: 'https://agencia-viajes-gray.vercel.app/',
     tags: ['Next.js', 'TypeScript', 'TailwindCSS', 'Supabase']
   },
   {
-    title: 'Broker de seguros',
-    description: 'Broker de seguros con secciones de cotizaciones, ofertas, servicios y contacto',
+    title: t('projects.project2.title'),
+    description: t('projects.project2.description'),
     image: '/assets/rivoltaSeguros',
     link: 'https://rivolta-seguros.vercel.app/',
     tags: ['Next.js', 'TypeScript', 'TailwindCSS', 'Supabase', 'Sheets']
@@ -25,6 +26,8 @@ export default function Projects() {
   const [isMobile, setIsMobile] = useState(false);
   const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
   const controls = useAnimation();
+  const { t } = useTranslation();
+  const projects = getProjects(t);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -113,7 +116,7 @@ export default function Projects() {
           initial="hidden"
           animate={controls}
         >
-          Our Latest Projects
+          {t('projects.title')} <span className="text-gradient">{t('projects.titleHighlight')}</span>
         </motion.h2>
         
         <motion.div 
@@ -138,7 +141,7 @@ export default function Projects() {
                 </div>
                 <div className="projects__card-buttons">
                   <a href={project.link} target="_blank" rel="noopener noreferrer">
-                    <button className="button button--primary">Ver proyecto</button>
+                    <button className="button button--primary">{t('projects.viewProject')}</button>
                   </a>
                 </div>
               </div>

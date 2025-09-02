@@ -5,13 +5,14 @@ import { motion, useAnimation } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import '@/app/styles/components/howWork.scss'
 import dynamic from 'next/dynamic'
+import { useTranslation } from 'react-i18next';
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
-const steps = [
-  { title: 'Planificación', description: 'Investigamos, analizamos y nos alineamos con tus objetivos 📝' },
-  { title: 'Diseño', description: 'Creamos prototipos y experiencias centradas en el usuario 👤' },
-  { title: 'Desarrollo', description: 'Codificamos con precisión y pasión 👨🏻‍💻' },
-  { title: 'Lanzamiento', description: 'Desplegamos y te acompañamos al infinito 🚀' },
+const getSteps = (t: any) => [
+  { title: t('howWork.step1.title'), description: t('howWork.step1.description') },
+  { title: t('howWork.step2.title'), description: t('howWork.step2.description') },
+  { title: t('howWork.step3.title'), description: t('howWork.step3.description') },
+  { title: t('howWork.step4.title'), description: t('howWork.step4.description') },
 ]
 
 interface StepProps {
@@ -79,7 +80,7 @@ function StepComponent({ step, index, setActiveStep }: StepProps) {
       >
         {step.description}
       </motion.p>
-      {step.title === 'Lanzamiento' && animationData && (
+      {index === 3 && animationData && (
         <div className="animationRocket">
           <Lottie animationData={animationData} loop={true} />
         </div>
@@ -90,6 +91,8 @@ function StepComponent({ step, index, setActiveStep }: StepProps) {
 
 export default function HowWork() {
   const [activeStep, setActiveStep] = useState(0)
+  const { t } = useTranslation();
+  const steps = getSteps(t);
 
   return (
     <div className="section howWork">

@@ -1,0 +1,156 @@
+@import '../variables';
+
+:root {
+  --toggle-sz: 3rem;
+  --toggle-sz1: calc(var(--toggle-sz) / 10);
+  --toggle-on: #0099A7; // Brand primary (celeste)
+  --toggle-off: #006942; // Brand secondary (verde)
+  --toggle-bg: #212121;
+  --toggle-tr: all 0.5s ease 0s;
+}
+
+@property --deg {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 180deg;
+}
+
+.language-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  .language-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: $text-secondary;
+    transition: color 0.3s ease;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    min-width: 24px;
+    text-align: center;
+
+    &.active {
+      color: $brand-primary;
+      font-weight: 600;
+    }
+
+    &:hover {
+      color: $text-primary;
+    }
+  }
+
+  .toggle {
+    position: relative;
+    width: calc(var(--toggle-sz) * 1.3);
+    height: calc(var(--toggle-sz) * 0.65);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  input {
+    display: none;
+  }
+
+  label {
+    --clr: var(--toggle-off);
+    --deg: 180deg;
+    position: absolute;
+    width: calc(var(--toggle-sz) * 1.3);
+    height: calc(var(--toggle-sz) * 0.65);
+    background: conic-gradient(from var(--deg) at 50% 50%, var(--clr) 0 50%, rgba(255, 255, 255, 0.03) 0 100%);
+    border-radius: var(--toggle-sz);
+    pointer-events: none;
+    transition: var(--toggle-tr), var(--toggle-tr);
+    transition-property: --deg, --clr;
+    cursor: pointer;
+    overflow: hidden;
+
+    &:before {
+      content: "";
+      position: absolute;
+      width: calc(var(--toggle-sz) * 0.32);
+      height: calc((var(--toggle-sz) * 0.65) + 2px);
+      left: calc(var(--toggle-sz1) * 4.8);
+      top: -1px;
+      transition: var(--toggle-tr);
+      background:
+        radial-gradient(circle at calc(0% - 2px) 50%, transparent calc(var(--toggle-sz1) * 0.64), var(--toggle-bg) calc(calc(var(--toggle-sz1) * 0.64) + 1px) 100%),
+        radial-gradient(circle at calc(0% - 2px) 50%, transparent calc(var(--toggle-sz1) * 0.64), var(--toggle-bg) calc(calc(var(--toggle-sz1) * 0.64) + 1px) 100%),
+        radial-gradient(circle at calc(100% + 2px) 50%, transparent calc(var(--toggle-sz1) * 0.64), var(--toggle-bg) calc(calc(var(--toggle-sz1) * 0.64) + 1px) 100%),
+        radial-gradient(circle at calc(100% + 2px) 50%, transparent calc(var(--toggle-sz1) * 0.64), var(--toggle-bg) calc(calc(var(--toggle-sz1) * 0.64) + 1px) 100%),
+        transparent;
+      transform: rotate(0deg);
+      background-repeat: no-repeat;
+      background-size:
+        calc(var(--toggle-sz1) * 0.66) calc((var(--toggle-sz1) * 1.28) + 2px),
+        calc(var(--toggle-sz1) * 0.66) calc((var(--toggle-sz1) * 1.28) + 2px),
+        calc(var(--toggle-sz1) * 0.66) calc((var(--toggle-sz1) * 1.28) + 2px),
+        calc(var(--toggle-sz1) * 0.66) calc((var(--toggle-sz1) * 1.28) + 2px),
+        100% 100%;
+      background-position: calc(50% - var(--toggle-sz1) * 0.32) 0%, calc(50% - var(--toggle-sz1) * 0.32) 100%, calc(50% + var(--toggle-sz1) * 0.32) 0%, calc(50% + var(--toggle-sz1) * 0.32) calc(100% + 0px), 0 0;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      background: var(--toggle-bg);
+      width: calc(var(--toggle-sz) * 1);
+      height: calc(var(--toggle-sz1) * 3.84);
+      left: calc(var(--toggle-sz1) * 1.36);
+      top: calc(var(--toggle-sz1) * 1.28);
+      transition: var(--toggle-tr);
+      border-radius: var(--toggle-sz);
+    }
+  }
+
+  #language-toggle:checked+label {
+    --deg: 360deg;
+    --clr: var(--toggle-on);
+
+    .thumb {
+      left: calc(100% - calc(var(--toggle-sz) * 0.45));
+      background: var(--toggle-on);
+      pointer-events: none;
+    }
+  }
+
+  .thumb {
+    position: absolute;
+    width: calc(var(--toggle-sz) * 0.39);
+    height: calc(var(--toggle-sz) * 0.39);
+    top: calc(var(--toggle-sz) * 0.13);
+    left: calc(var(--toggle-sz) * 0.073);
+    background: var(--toggle-off);
+    border-radius: var(--toggle-sz);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    overflow: hidden;
+    pointer-events: all;
+    border: calc(var(--toggle-sz1) * 0.48) solid var(--toggle-bg);
+    transition: var(--toggle-tr);
+
+    &:hover {
+      background: var(--toggle-on);
+    }
+  }
+
+  #language-toggle:checked+label .thumb:hover {
+    background: var(--toggle-off);
+  }
+
+  // Mobile responsive
+  @media (max-width: $breakpoint-md) {
+    --toggle-sz: 2.5rem;
+    gap: 0.5rem;
+
+    .language-label {
+      font-size: 0.8rem;
+      padding: 0.2rem 0.4rem;
+    }
+  }
+}
