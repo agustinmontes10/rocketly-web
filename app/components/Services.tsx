@@ -3,41 +3,40 @@
 import '../styles/components/services.scss';
 import { motion } from 'framer-motion';
 import { Code2, Globe, Smartphone, Gauge, Lock, Palette } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
-const services = [
+const getServices = (t: any) => [
   {
     icon: <Code2 size={32} />,
-    title: 'Custom Web Development',
-    description: 'Tailored web solutions built with cutting-edge technologies to meet your specific business needs.'
+    title: t('services.service1.title'),
+    description: t('services.service1.description')
   },
   {
     icon: <Globe size={32} />,
-    title: 'E-commerce Solutions',
-    description: 'Powerful online stores with seamless payment integration and inventory management.'
+    title: t('services.service2.title'),
+    description: t('services.service2.description')
   },
   {
     icon: <Smartphone size={32} />,
-    title: 'Responsive Design',
-    description: 'Mobile-first websites that look and perform beautifully across all devices.'
+    title: t('services.service3.title'),
+    description: t('services.service3.description')
   },
   {
     icon: <Gauge size={32} />,
-    title: 'Performance Optimization',
-    description: 'Lightning-fast loading times and optimal user experience through advanced optimization.'
+    title: t('services.service4.title'),
+    description: t('services.service4.description')
   },
   {
     icon: <Lock size={32} />,
-    title: 'Security Solutions',
-    description: 'Robust security measures to protect your web applications and user data.'
-  },
-  // {
-  //   icon: <Palette size={32} />,
-  //   title: 'UI/UX Design',
-  //   description: 'Intuitive and engaging user interfaces that deliver exceptional user experiences.'
-  // }
+    title: t('services.service5.title'),
+    description: t('services.service5.description')
+  }
 ];
 
 export default function Services() {
+  const { t } = useTranslation();
+  const services = getServices(t);
+  
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -100,7 +99,7 @@ export default function Services() {
           viewport={{ once: true, amount: 0.3 }}
           variants={titleVariants}
         >
-          Our Services
+          {t('services.title')} <span className="text-gradient">{t('services.titleHighlight')}</span>
         </motion.h2>
         
         <motion.p 
@@ -110,7 +109,7 @@ export default function Services() {
           viewport={{ once: true, amount: 0.3 }}
           variants={titleVariants}
         >
-          Comprehensive web solutions to power your digital success
+          {t('services.subtitle')}
         </motion.p>
 
         <motion.div

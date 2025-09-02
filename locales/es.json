@@ -1,0 +1,87 @@
+{
+  "navbar": {
+    "home": "Inicio",
+    "projects": "Proyectos",
+    "services": "Servicios",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "title": "Desarrollo Web",
+    "titleHighlight": "Moderno",
+    "description": "Creamos experiencias digitales excepcionales que impulsan tu negocio hacia el futuro. Desde diseño hasta implementación, llevamos tu visión al siguiente nivel.",
+    "cta": "Comenzar Proyecto"
+  },
+  "services": {
+    "title": "Nuestros",
+    "titleHighlight": "Servicios",
+    "subtitle": "Soluciones web integrales para impulsar tu éxito digital",
+    "service1": {
+      "title": "Desarrollo Web",
+      "description": "Sitios web modernos y responsivos con las últimas tecnologías"
+    },
+    "service2": {
+      "title": "Aplicaciones Móviles",
+      "description": "Apps nativas e híbridas para iOS y Android"
+    },
+    "service3": {
+      "title": "E-commerce",
+      "description": "Tiendas online optimizadas para conversión y ventas"
+    },
+    "service4": {
+      "title": "Consultoría",
+      "description": "Asesoramiento técnico para optimizar tu presencia digital"
+    },
+    "service5": {
+      "title": "Soluciones de Seguridad",
+      "description": "Medidas de seguridad robustas para proteger tus aplicaciones web y datos de usuarios"
+    }
+  },
+  "projects": {
+    "title": "Proyectos",
+    "titleHighlight": "Destacados",
+    "viewProject": "Ver proyecto",
+    "project1": {
+      "title": "Agencia de Viajes",
+      "description": "Plataforma completa de reservas con integración de pagos"
+    },
+    "project2": {
+      "title": "Seguros Rivolta",
+      "description": "Sistema de gestión de pólizas y clientes"
+    }
+  },
+  "howWork": {
+    "title": "Cómo",
+    "titleHighlight": "Trabajamos",
+    "step1": {
+      "title": "Análisis",
+      "description": "Entendemos tus necesidades y objetivos"
+    },
+    "step2": {
+      "title": "Diseño",
+      "description": "Creamos la experiencia visual perfecta"
+    },
+    "step3": {
+      "title": "Desarrollo",
+      "description": "Implementamos con las mejores tecnologías"
+    },
+    "step4": {
+      "title": "Lanzamiento",
+      "description": "Desplegamos y optimizamos tu proyecto"
+    }
+  },
+  "contact": {
+    "title": "¿Listo para",
+    "titleHighlight": "Comenzar?",
+    "subtitle": "Hablemos sobre tu próximo proyecto",
+    "name": "Nombre",
+    "email": "Email",
+    "message": "Mensaje",
+    "send": "Enviar Mensaje",
+    "success": "¡Mensaje enviado correctamente!",
+    "error": "Error al enviar el mensaje. Inténtalo de nuevo."
+  },
+  "metadata": {
+    "title": "Rocketly - Desarrollo Web",
+    "description": "Desarrollo web moderno para tu negocio"
+  }
+}

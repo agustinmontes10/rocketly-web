@@ -8,11 +8,13 @@ import Link from "next/link"
 import "../styles/components/hero.scss"
 import { animate, stagger } from "motion";
 import { splitText } from "motion-plus";
+import { useTranslation } from 'react-i18next';
 
 export default function Hero() {
   const vantaRef = useRef<HTMLDivElement>(null)
   const heroRef = useRef<HTMLDivElement>(null);
   const [vantaEffect, setVantaEffect] = useState<any>(null)
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     if (!vantaEffect && vantaRef.current) {
@@ -62,51 +64,63 @@ export default function Hero() {
   }, [vantaEffect])
 
   useEffect(() => {
-    document.fonts.ready.then(() => {
-      if (!heroRef.current) return;
+    // Pequeño delay para asegurar que el DOM se actualice
+    const timer = setTimeout(() => {
+      document.fonts.ready.then(() => {
+        if (!heroRef.current) return;
 
-      const heading = heroRef.current.querySelector("h1");
-      const paragraph = heroRef.current.querySelector("p");
+        const heading = heroRef.current.querySelector("h1");
+        const paragraph = heroRef.current.querySelector("p");
 
-      if (!heading || !paragraph) return;
+        if (!heading || !paragraph) return;
 
-      const { words } = splitText(heading);
-      const { words: wordsP } = splitText(paragraph);
-      
-      // Combine both heading and paragraph words into one array
-      const allWords = [...words, ...wordsP];
+        // Limpiar animaciones anteriores
+        const allElements = heading.querySelectorAll('*');
+        allElements.forEach(el => {
+          const element = el as HTMLElement;
+          element.style.opacity = '';
+          element.style.transform = '';
+        });
 
-      animate(
-        allWords,
-        { opacity: [0, 1], y: [20, 0] },
-        {
-          type: "spring",
-          duration: 1.6,
-          bounce: 0.2,
-          delay: stagger(0.04),
-        }
-      );
-    });
-  }, []);
+        const { words } = splitText(heading);
+        const { words: wordsP } = splitText(paragraph);
+        
+        // Combine both heading and paragraph words into one array
+        const allWords = [...words, ...wordsP];
+
+        animate(
+          allWords,
+          { opacity: [0, 1], y: [20, 0] },
+          {
+            type: "spring",
+            duration: 1.6,
+            bounce: 0.2,
+            delay: stagger(0.04),
+          }
+        );
+      });
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, [i18n.language]); // Re-ejecutar cuando cambie el idioma
 
   return (
     <section className="hero" ref={vantaRef} id="hero">
       <div className="hero__overlay">
         <div className="container">
           <div className="hero__content" ref={heroRef}>
-            <h1 className="heading heading--xl">
-              We Build Modern Web Solutions That Drive Growth
+            <h1 key={i18n.language} className="heading heading--xl">
+              {t('hero.title')} <span className="text-gradient">{t('hero.titleHighlight')}</span>
             </h1>
             <p>
-              Transform your digital presence with our cutting-edge web development services.
-              We create beautiful, high-performance websites and applications that help businesses thrive.
+              {t('hero.description')}
             </p>
             <div className="hero__buttons">
               <Link href="#contact" className="button button--primary">
-                Start Your Project
+                {t('hero.cta')}
               </Link>
               <Link href="#projects" className="button button--secondary">
-                View Our Work
+                {t('navbar.projects')}
               </Link>
             </div>
           </div>

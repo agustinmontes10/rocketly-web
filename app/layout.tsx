@@ -1,4 +1,5 @@
 import RocketCursor from './components/RocketCursor';
+import I18nProvider from './components/I18nProvider';
 import './styles/globals.scss';
 import type { Metadata } from 'next';
 
@@ -13,9 +14,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="es">
       <RocketCursor />
-      <body>{children}</body>
+      <body>
+        <I18nProvider>
+          {children}
+        </I18nProvider>
+      </body>
     </html>
   );
 }

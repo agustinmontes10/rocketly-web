@@ -5,11 +5,14 @@ import { Rocket } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import LanguageToggle from './LanguageToggle';
 
 export default function Navbar() {
   const pathname = usePathname();
   const [selected, setSelected] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,27 +43,29 @@ export default function Navbar() {
             className={`navbar__link navbar__button ${selected === 'hero' ? 'navbar__link--active' : ''}`}
             onClick={() => handleClick('hero')}
           >
-            Home
+            {t('navbar.home')}
           </button>
           <button
             className={`navbar__link navbar__button ${selected === 'projects' ? 'navbar__link--active' : ''}`}
             onClick={() => handleClick('projects')}
           >
-            Projects
+            {t('navbar.projects')}
           </button>
           <button
             className={`navbar__link navbar__button ${selected === 'services' ? 'navbar__link--active' : ''}`}
             onClick={() => handleClick('services')}
           >
-            Services
+            {t('navbar.services')}
           </button>
           <button
             className={`navbar__link navbar__button ${selected === 'contact' ? 'navbar__link--active' : ''}`}
             onClick={() => handleClick('contact')}
           >
-            Contact
+            {t('navbar.contact')}
           </button>
         </nav>
+
+        <LanguageToggle />
       </div>
     </header>
   );

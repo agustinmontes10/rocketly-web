@@ -1,0 +1,87 @@
+{
+  "navbar": {
+    "home": "Home",
+    "projects": "Projects",
+    "services": "Services",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Modern",
+    "titleHighlight": "Web Development",
+    "description": "We create exceptional digital experiences that drive your business into the future. From design to implementation, we take your vision to the next level.",
+    "cta": "Start Project"
+  },
+  "services": {
+    "title": "Our",
+    "titleHighlight": "Services",
+    "subtitle": "Comprehensive web solutions to power your digital success",
+    "service1": {
+      "title": "Web Development",
+      "description": "Modern and responsive websites with the latest technologies"
+    },
+    "service2": {
+      "title": "Mobile Apps",
+      "description": "Native and hybrid apps for iOS and Android"
+    },
+    "service3": {
+      "title": "E-commerce",
+      "description": "Online stores optimized for conversion and sales"
+    },
+    "service4": {
+      "title": "Consulting",
+      "description": "Technical advice to optimize your digital presence"
+    },
+    "service5": {
+      "title": "Security Solutions",
+      "description": "Robust security measures to protect your web applications and user data"
+    }
+  },
+  "projects": {
+    "title": "Featured",
+    "titleHighlight": "Projects",
+    "viewProject": "View project",
+    "project1": {
+      "title": "Travel Agency",
+      "description": "Complete booking platform with payment integration"
+    },
+    "project2": {
+      "title": "Rivolta Insurance",
+      "description": "Policy and customer management system"
+    }
+  },
+  "howWork": {
+    "title": "How We",
+    "titleHighlight": "Work",
+    "step1": {
+      "title": "Analysis",
+      "description": "We understand your needs and objectives"
+    },
+    "step2": {
+      "title": "Design",
+      "description": "We create the perfect visual experience"
+    },
+    "step3": {
+      "title": "Development",
+      "description": "We implement with the best technologies"
+    },
+    "step4": {
+      "title": "Launch",
+      "description": "We deploy and optimize your project"
+    }
+  },
+  "contact": {
+    "title": "Ready to",
+    "titleHighlight": "Start?",
+    "subtitle": "Let's talk about your next project",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send Message",
+    "success": "Message sent successfully!",
+    "error": "Error sending message. Please try again."
+  },
+  "metadata": {
+    "title": "Rocketly - Web Development",
+    "description": "Modern web development for your business"
+  }
+}
