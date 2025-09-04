@@ -16,7 +16,7 @@ export default function Footer() {
       <div className="footer-content">
         <div className="footer-social">
           <a 
-            href="https://linkedin.com/company/rocketly" 
+            href="https://www.linkedin.com/company/rocketly-company/" 
             target="_blank" 
             rel="noopener noreferrer"
             className="social-link"
@@ -25,7 +25,7 @@ export default function Footer() {
             <Linkedin size={24} />
           </a>
           <a 
-            href="https://instagram.com/rocketly.dev" 
+            href="https://www.instagram.com/rocketly_/" 
             target="_blank" 
             rel="noopener noreferrer"
             className="social-link"
@@ -34,7 +34,7 @@ export default function Footer() {
             <Instagram size={24} />
           </a>
           <a 
-            href="mailto:hello@rocketly.dev" 
+            href="mailto:contact.rocketly@gmail.com" 
             className="social-link"
             aria-label="Email"
           >
