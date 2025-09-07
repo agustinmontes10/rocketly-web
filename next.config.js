@@ -16,7 +16,6 @@ const nextConfig = {
   },
   experimental: {
     serverComponentsExternalPackages: ['resend'],
-    optimizeCss: true,
   },
   compress: true,
   poweredByHeader: false,

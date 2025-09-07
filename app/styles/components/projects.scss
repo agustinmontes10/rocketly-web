@@ -41,6 +41,10 @@
       object-position: top;
       border: solid #596069 1px;
       border-radius: 8px;
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
+      backface-visibility: hidden;
+      transform: translateZ(0);
     }
 
     &-content {

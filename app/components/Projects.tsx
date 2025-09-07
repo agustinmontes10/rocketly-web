@@ -151,6 +151,8 @@ const Projects = memo(function Projects() {
                   src={`${getProjectImage(project.image)}.png`}
                   alt={project.title}
                   className="projects__card-image"
+                  loading={index < 2 ? "eager" : "lazy"}
+                  decoding="async"
                 />
               </a>
             </motion.div>
