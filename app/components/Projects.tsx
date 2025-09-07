@@ -1,9 +1,10 @@
 "use client"
 import '../styles/components/projects.scss';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, memo } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useTranslation } from 'react-i18next';
+import Image from 'next/image';
 
 const getProjects = (t: any) => [
   {
@@ -22,7 +23,7 @@ const getProjects = (t: any) => [
   },
 ];
 
-export default function Projects() {
+const Projects = memo(function Projects() {
   const [isMobile, setIsMobile] = useState(false);
   const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
   const controls = useAnimation();
@@ -68,9 +69,9 @@ export default function Projects() {
   const itemVariants = {
     hidden: { 
       opacity: 0, 
-      y: 100, 
-      scale: 0.9,
-      rotateX: -15
+      y: isMobile ? 50 : 100, 
+      scale: isMobile ? 0.95 : 0.9,
+      rotateX: isMobile ? 0 : -15
     },
     visible: {
       opacity: 1,
@@ -78,11 +79,11 @@ export default function Projects() {
       scale: 1,
       rotateX: 0,
       transition: {
-        duration: 2.8,
-        ease: [0.25, 0.46, 0.45, 0.94],
-        type: "spring",
-        stiffness: 30,
-        damping: 15
+        duration: isMobile ? 1.2 : 2.8,
+        ease: isMobile ? "easeOut" : [0.25, 0.46, 0.45, 0.94],
+        type: isMobile ? "tween" : "spring",
+        stiffness: isMobile ? 100 : 30,
+        damping: isMobile ? 20 : 15
       }
     }
   };
@@ -90,19 +91,19 @@ export default function Projects() {
   const titleVariants = {
     hidden: { 
       opacity: 0, 
-      y: 80, 
-      scale: 0.8 
+      y: isMobile ? 40 : 80, 
+      scale: isMobile ? 0.9 : 0.8 
     },
     visible: {
       opacity: 1,
       y: 0,
       scale: 1,
       transition: {
-        duration: 2.5,
-        ease: [0.25, 0.46, 0.45, 0.94],
-        type: "spring",
-        stiffness: 40,
-        damping: 20
+        duration: isMobile ? 1.0 : 2.5,
+        ease: isMobile ? "easeOut" : [0.25, 0.46, 0.45, 0.94],
+        type: isMobile ? "tween" : "spring",
+        stiffness: isMobile ? 100 : 40,
+        damping: isMobile ? 25 : 20
       }
     }
   };
@@ -164,4 +165,6 @@ export default function Projects() {
       </div>
     </section>
   );
-}
+});
+
+export default Projects;

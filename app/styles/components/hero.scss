@@ -6,10 +6,36 @@
   width: 100%;
   overflow: hidden;
 
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  &__background-fallback {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #000428 0%, #004e92 100%);
+    z-index: 0;
+  }
+
   .split-word {
     display: inline-block;
     opacity: 0;
     will-change: transform, opacity;
+  }
+
+  // Optimización para móviles - reducir animaciones pesadas
+  @media (max-width: $breakpoint-md) {
+    .split-word {
+      will-change: auto; // Reducir will-change en móviles
+    }
   }
 
   &__overlay {

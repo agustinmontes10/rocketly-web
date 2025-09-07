@@ -1,67 +1,19 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
-import * as THREE from "three"
-// @ts-ignore
-import NET from "vanta/dist/vanta.net.min"
+import { useEffect, useRef, useState, memo, lazy, Suspense } from "react"
 import Link from "next/link"
 import "../styles/components/hero.scss"
 import { animate, stagger } from "motion";
 import { splitText } from "motion-plus";
 import { useTranslation } from 'react-i18next';
 
-export default function Hero() {
-  const vantaRef = useRef<HTMLDivElement>(null)
+// Lazy load heavy dependencies
+const VantaBackground = lazy(() => import('./VantaBackground').catch(() => ({ default: () => <div className="hero__background-fallback" /> })));
+const LoadingSpinner = lazy(() => import('./LoadingSpinner'));
+
+const Hero = memo(function Hero() {
   const heroRef = useRef<HTMLDivElement>(null);
-  const [vantaEffect, setVantaEffect] = useState<any>(null)
   const { t, i18n } = useTranslation();
-
-  useEffect(() => {
-    if (!vantaEffect && vantaRef.current) {
-      setVantaEffect(
-        NET({
-          el: vantaRef.current,
-          THREE,
-          mouseControls: true,
-          touchControls: true,
-          // minHeight: 200.00,
-          // minWidth: 200.00,
-          // scale: 1.00,
-          // scaleMobile: 1.00,
-          // color: 0x2f5e96,
-          // backgroundColor: 0x30318,
-          // maxDistance: 10.00,
-          // spacing: 19.00
-          minHeight: 200.00,
-          minWidth: 200.00,
-          scale: 1.00,
-          scaleMobile: 1.00,
-          color: 0x9090bb,
-          backgroundColor: 0x000000,
-          maxDistance: 10.00,
-          spacing: 19.00
-        })
-
-        // VANTA.NET({
-        //   el: "#your-element-selector",
-        //   mouseControls: true,
-        //   touchControls: true,
-        //   gyroControls: false,
-        //   minHeight: 200.00,
-        //   minWidth: 200.00,
-        //   scale: 1.00,
-        //   scaleMobile: 1.00,
-        //   color: 0x2f5e96,
-        //   backgroundColor: 0x30318,
-        //   maxDistance: 10.00
-        // })
-      )
-    }
-
-    return () => {
-      if (vantaEffect) vantaEffect.destroy()
-    }
-  }, [vantaEffect])
 
   useEffect(() => {
     // Pequeño delay para asegurar que el DOM se actualice
@@ -105,7 +57,10 @@ export default function Hero() {
   }, [i18n.language]); // Re-ejecutar cuando cambie el idioma
 
   return (
-    <section className="hero" ref={vantaRef} id="hero">
+    <section className="hero" id="hero">
+      <Suspense fallback={<LoadingSpinner />}>
+        <VantaBackground />
+      </Suspense>
       <div className="hero__overlay">
         <div className="container">
           <div className="hero__content" ref={heroRef}>
@@ -128,4 +83,6 @@ export default function Hero() {
       </div>
     </section>
   )
-}
+});
+
+export default Hero;

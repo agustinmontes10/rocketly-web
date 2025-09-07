@@ -4,6 +4,7 @@ import '../styles/components/services.scss';
 import { motion } from 'framer-motion';
 import { Code2, Globe, Smartphone, Gauge, Lock, Palette } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { memo, useState, useEffect } from 'react';
 
 const getServices = (t: any) => [
   {
@@ -33,9 +34,21 @@ const getServices = (t: any) => [
   }
 ];
 
-export default function Services() {
+const Services = memo(function Services() {
   const { t } = useTranslation();
   const services = getServices(t);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
   
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -52,19 +65,19 @@ export default function Services() {
   const itemVariants = {
     hidden: { 
       opacity: 0, 
-      y: 80, 
-      scale: 0.85
+      y: isMobile ? 40 : 80, 
+      scale: isMobile ? 0.9 : 0.85
     },
     visible: {
       opacity: 1,
       y: 0,
       scale: 1,
       transition: {
-        duration: 1.2,
+        duration: isMobile ? 0.8 : 1.2,
         ease: "easeOut",
-        type: "spring",
-        stiffness: 100,
-        damping: 25
+        type: isMobile ? "tween" : "spring",
+        stiffness: isMobile ? 120 : 100,
+        damping: isMobile ? 30 : 25
       }
     }
   };
@@ -72,19 +85,19 @@ export default function Services() {
   const titleVariants = {
     hidden: { 
       opacity: 0, 
-      y: 60, 
-      scale: 0.9 
+      y: isMobile ? 30 : 60, 
+      scale: isMobile ? 0.95 : 0.9 
     },
     visible: {
       opacity: 1,
       y: 0,
       scale: 1,
       transition: {
-        duration: 1.5,
+        duration: isMobile ? 1.0 : 1.5,
         ease: "easeOut",
-        type: "spring",
-        stiffness: 80,
-        damping: 20
+        type: isMobile ? "tween" : "spring",
+        stiffness: isMobile ? 100 : 80,
+        damping: isMobile ? 25 : 20
       }
     }
   };
@@ -142,4 +155,6 @@ export default function Services() {
       </div>
     </section>
   );
-}
+});
+
+export default Services;
