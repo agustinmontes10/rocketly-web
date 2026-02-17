@@ -1,0 +1,165 @@
+@import '../variables';
+
+.tech-banner {
+  --tb-padding: 4rem;
+  --tb-gap: 1.5rem;
+  --tb-fade: 100px;
+  --tb-speed: 40s;
+  --tb-icon: 28px;
+  --tb-font: 0.9rem;
+  --tb-item-pad: 0.75rem 1.25rem;
+  --tb-radius: 12px;
+
+  padding: var(--tb-padding) 0;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+
+  &__header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 0 1rem;
+  }
+
+  &__title {
+    font-size: clamp(1.2rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.75rem;
+  }
+
+  &__subtitle {
+    font-size: clamp(0.8rem, 2vw, 1.2rem);
+    color: #aaa;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--tb-gap);
+  }
+
+  &__row {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      inset-block: 0;
+      width: var(--tb-fade);
+      z-index: 2;
+      pointer-events: none;
+    }
+    &::before { left: 0; background: linear-gradient(to right, $bg-primary, transparent); }
+    &::after { right: 0; background: linear-gradient(to left, $bg-primary, transparent); }
+
+    &--left .tech-banner__track { animation: scrollLeft var(--tb-speed) linear infinite; }
+    &--right .tech-banner__track { animation: scrollRight var(--tb-speed) linear infinite; }
+  }
+
+  &__track {
+    display: flex;
+    gap: var(--tb-gap);
+    padding: 0.5rem 0;
+    will-change: transform;
+    &:hover { animation-play-state: paused; }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: var(--tb-item-pad);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: var(--tb-radius);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--tech-color, $brand-primary);
+      transform: translateY(-2px);
+      .tech-banner__icon { color: var(--tech-color); transform: scale(1.1); }
+      .tech-banner__name { color: #fff; }
+    }
+  }
+
+  &__icon {
+    display: flex;
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+    svg { width: var(--tb-icon); height: var(--tb-icon); }
+  }
+
+  &__name {
+    font-size: var(--tb-font);
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.8);
+    white-space: nowrap;
+    transition: color 0.3s ease;
+  }
+
+  // Responsive - CSS variables only
+  @media (max-width: $breakpoint-lg) {
+    --tb-padding: 3rem;
+    --tb-gap: 1rem;
+    --tb-fade: 60px;
+    --tb-icon: 24px;
+    --tb-font: 0.85rem;
+    --tb-item-pad: 0.6rem 1rem;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    --tb-padding: 2.5rem;
+    --tb-gap: 0.75rem;
+    --tb-fade: 40px;
+    --tb-speed: 25s;
+    --tb-icon: 22px;
+    --tb-font: 0.8rem;
+    --tb-item-pad: 0.6rem 0.9rem;
+    --tb-radius: 10px;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    --tb-padding: 2rem;
+    --tb-fade: 20px;
+    --tb-speed: 20s;
+    --tb-item-pad: 0.55rem 0.85rem;
+    --tb-radius: 8px;
+    &__icon { color: var(--tech-color, rgba(255, 255, 255, 0.7)); }
+    &__item:hover { transform: none; }
+  }
+
+  @media (max-width: $breakpoint-xs) {
+    --tb-padding: 1.5rem;
+    --tb-gap: 0.6rem;
+    --tb-fade: 15px;
+    --tb-speed: 18s;
+    --tb-icon: 20px;
+    --tb-font: 0.75rem;
+    --tb-item-pad: 0.5rem 0.7rem;
+  }
+}
+
+// Animations
+@keyframes scrollLeft { to { transform: translateX(-50%); } }
+@keyframes scrollRight { from { transform: translateX(-50%); } }
+
+// Touch devices
+@media (hover: none) and (pointer: coarse) {
+  .tech-banner {
+    &__item:hover { background: rgba(255, 255, 255, 0.03); transform: none; }
+    &__item:active { background: rgba(255, 255, 255, 0.08); transform: scale(0.97); }
+    &__icon { color: var(--tech-color, rgba(255, 255, 255, 0.7)); }
+    &__track:hover { animation-play-state: running; }
+  }
+}
+
+// Accessibility
+@media (prefers-reduced-motion: reduce) {
+  .tech-banner__track { animation: none; }
+}

@@ -80,6 +80,10 @@
     "success": "Message sent successfully!",
     "error": "Error sending message. Please try again."
   },
+  "techBanner": {
+    "title": "Technologies We Master",
+    "subtitle": "Building the future with cutting-edge tools"
+  },
   "metadata": {
     "title": "Rocketly - Web Development",
     "description": "Modern web development for your business"
