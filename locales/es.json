@@ -6,9 +6,9 @@
     "contact": "Contacto"
   },
   "hero": {
-    "title": "Desarrollo Web",
-    "titleHighlight": "Moderno",
-    "description": "Creamos experiencias digitales excepcionales que impulsan tu negocio hacia el futuro. Desde diseño hasta implementación, llevamos tu visión al siguiente nivel.",
+    "title": "Transformamos tu empresa",
+    "titleHighlight": "con software e inteligencia artificial",
+    "description": "Desarrollamos webs, automatizaciones y soluciones con IA pensadas para escalar tu empresa.",
     "cta": "Comenzar Proyecto"
   },
   "services": {
@@ -40,13 +40,26 @@
     "title": "Proyectos",
     "titleHighlight": "Destacados",
     "viewProject": "Ver proyecto",
+    "filter": {
+      "all": "Todos",
+      "web": "Desarrollo Web",
+      "automation": "Automatización"
+    },
     "project1": {
       "title": "Agencia de Viajes",
-      "description": "Plataforma completa de reservas con integración de pagos"
+      "description": "Sitio web para una agencia de viajes, venta de paquetes turisticos"
     },
     "project2": {
+      "title": "Fernandez Inmobiliaria",
+      "description": "Sitio web para una inmobiliaria, tour virtual y chatbot con IA"
+    },
+    "project3": {
       "title": "Seguros Rivolta",
-      "description": "Sistema de gestión de pólizas y clientes"
+      "description": "Sitio web para Broker de seguros, cotizacion online"
+    },
+    "project4": {
+      "title": "Ferrario & Asociados",
+      "description": "Chatbot a traves de Whatsapp, Chatwoot como gestion de inbox"
     }
   },
   "howWork": {

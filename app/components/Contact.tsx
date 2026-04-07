@@ -79,9 +79,9 @@ export default function Contact() {
           ))}
         </div>
         <div className="contact-content">
-          <h1>
-            {t('contact.title')} <span>{t('contact.titleHighlight')}</span>
-          </h1>
+          <h2 className="heading heading--lg">
+            {t('contact.title')} <span className="text-gradient">{t('contact.titleHighlight')}</span>
+          </h2>
           <p>
             {t('contact.subtitle')}
           </p>

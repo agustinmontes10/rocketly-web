@@ -1,7 +1,7 @@
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Projects from './components/Projects';
-import Services from './components/Services';
+import Pricing from './components/Pricing';
 import Contact from './components/Contact';
 import HowWork from './components/HowWork';
 import Footer from './components/Footer';
@@ -11,9 +11,9 @@ export default function Home() {
     <main>
       <Navbar />
       <Hero />
-      <Projects />
-      <Services />
       <HowWork />
+      <Projects />
+      <Pricing />
       <Contact />
       <Footer />
     </main>

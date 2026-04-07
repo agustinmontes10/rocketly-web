@@ -2,28 +2,105 @@
 
 .hero {
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   overflow: hidden;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  &__background {
+  @media (max-width: $breakpoint-md) {
+    height: 100dvh;
+    align-items: stretch;
+    padding: 3rem 0;
+  }
+
+  // ── Subtle atmospheric glow from the top ─────────────────────────
+  // Barely visible — just enough to feel like there's a light source above.
+  // The curve is the real hero.
+  &__glow {
     position: absolute;
-    top: 0;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    // background: radial-gradient(ellipse 80% 55% at 50% 0%, #00be7727, transparent 65%);
+    background: radial-gradient(ellipse 80% 55% at 50% 0%, #00D4E727, transparent 65%);
+
+  }
+
+  // ── The vivid curve — THE visual statement ───────────────────────
+  &__curve {
+    position: absolute;
+    bottom: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 0;
+    pointer-events: none;
+    z-index: 1;
   }
 
-  &__background-fallback {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #000428 0%, #004e92 100%);
-    z-index: 0;
+  &__curve-path {
+    stroke-dasharray: 3000;
+    stroke-dashoffset: 3000;
+    animation: curveReveal 1.8s cubic-bezier(0.4, 0, 1, 1) forwards;
+    animation-delay: 0.2s;
   }
+
+  // ── Perspective grid — digital runway ────────────────────────────
+  &__grid {
+    position: absolute;
+    bottom: 0;
+    left: -20%;
+    width: 140%;
+    height: 55%;
+    background:
+      linear-gradient(to right, rgba($brand-primary, 0.035) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba($brand-primary, 0.035) 1px, transparent 1px);
+    background-size: 60px 60px;
+    transform: perspective(400px) rotateX(55deg);
+    transform-origin: center bottom;
+    -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,0.45) 0%, transparent 60%);
+    mask-image: linear-gradient(to top, rgba(0,0,0,0.45) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+    animation: gridScroll 20s linear infinite;
+  }
+
+  // ── Neural network SVG ───────────────────────────────────────────
+  &__neural {
+    position: absolute;
+    right: 4%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 260px;
+    height: 380px;
+    z-index: 1;
+    pointer-events: none;
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(0,0,0,0.5) 15%,
+      rgba(0,0,0,0.85) 55%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(0,0,0,0.5) 15%,
+      rgba(0,0,0,0.85) 55%,
+      transparent 100%
+    );
+
+    @media (max-width: $breakpoint-lg) { display: none; }
+  }
+
+  &__neural-line  { animation: lineFlow   3s ease-in-out infinite; stroke-dasharray: 4 4; }
+  &__neural-node  { animation: nodePulse  2.5s ease-in-out infinite; }
+  &__neural-pulse { animation: outerPulse 2.5s ease-in-out infinite; }
+
+  // ── Stars ────────────────────────────────────────────────────────
+  .stars { z-index: 0; }
 
   .split-word {
     display: inline-block;
@@ -31,27 +108,8 @@
     will-change: transform, opacity;
   }
 
-  // Optimización para móviles - reducir animaciones pesadas
   @media (max-width: $breakpoint-md) {
-    .split-word {
-      will-change: auto; // Reducir will-change en móviles
-    }
-  }
-
-  &__overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    // background: rgba(14, 14, 14, 0.7); // opcional para oscurecer el fondo
-    background: linear-gradient(to bottom, #001f3fdc 0%, #00000000 100%);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 2rem;
-    z-index: 1;
+    .split-word { will-change: auto; }
   }
 
   .container {
@@ -59,23 +117,50 @@
     text-align: center;
     color: white;
     z-index: 2;
+    position: relative;
+
+    @media (max-width: $breakpoint-md) {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__content {
+    @media (max-width: $breakpoint-md) {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      padding-top: 100px;
+    }
   }
 
   .heading--xl {
     font-size: 3rem;
     margin-bottom: 1.5rem;
+    text-shadow:
+      0 0 60px rgba($brand-primary, 0.2),
+      0 0 20px rgba(255, 255, 255, 0.07);
+
+    @media (max-width: $breakpoint-md) { font-size: 2.2rem; }
+    @media (max-width: $breakpoint-xs) { font-size: 1.8rem; }
+  }
+
+  .hero__title-line {
+    display: block;
+    opacity: 0;
   }
 
   p {
     font-size: 1.2rem;
     margin-bottom: 2rem;
-    color: #ccc;
+    color: rgba(255, 255, 255, 0.55);
 
-    @media (max-width: $breakpoint-xs) {
-      font-size: 1rem!important;
-    }
+    @media (max-width: $breakpoint-xs) { font-size: 1rem; }
   }
 
+  // ── Buttons ─────────────────────────────────────────────────────
   .hero__buttons {
     display: flex;
     justify-content: center;
@@ -99,10 +184,8 @@
       &::before {
         content: '';
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
         background: rgba($bg-secondary, 0.8);
         transition: $button-transition;
         z-index: -1;
@@ -115,21 +198,14 @@
         border: none;
         font-weight: 600;
         box-shadow: inset 0 0px 4px #01af6f;
-
-        &::before {
-          background: rgba(255, 255, 255, 0.1);
-        }
-
-        &:hover {
-          box-shadow: $button-shadow-hover, 0 0 15px $brand-glow-light, inset 0 0px 4px #01af6f;
-        }
+        &::before { background: rgba(255, 255, 255, 0.1); }
+        &:hover { box-shadow: $button-shadow-hover, 0 0 15px $brand-glow-light, inset 0 0px 4px #01af6f; }
       }
 
       &--secondary {
         background: rgba($brand-secondary, 0.1);
         border: 2px solid $brand-secondary;
         color: white;
-
         &:hover {
           background: rgba($brand-secondary, 0.2);
           transform: translateY(-1px);
@@ -141,15 +217,36 @@
       &:hover {
         transform: translateY(-1px);
         box-shadow: $button-shadow-hover;
-
-        &::before {
-          opacity: 1;
-        }
+        &::before { opacity: 1; }
       }
     }
 
-    @media (max-width: $breakpoint-md) {
-      flex-direction: column;
-    }
+    @media (max-width: $breakpoint-md) { flex-direction: column; }
   }
+}
+
+// ── Keyframes ─────────────────────────────────────────────────────────
+@keyframes gridScroll {
+  0%   { background-position: 0 0; }
+  100% { background-position: 0 60px; }
+}
+
+@keyframes nodePulse {
+  0%, 100% { opacity: 0.85; }
+  50%       { opacity: 1; }
+}
+
+@keyframes outerPulse {
+  0%, 100% { opacity: 0.08; }
+  50%       { opacity: 0.2; }
+}
+
+@keyframes curveReveal {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes lineFlow {
+  0%   { stroke-dashoffset: 16; opacity: 0.3; }
+  50%  { opacity: 0.6; }
+  100% { stroke-dashoffset: 0;  opacity: 0.3; }
 }

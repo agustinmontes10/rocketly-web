@@ -72,13 +72,11 @@ export default function RocketCursor() {
       // 👇 Detecta si está sobre un link del nav
       const target = e.target as HTMLElement;
       if (target.closest('.navbar__link') || target.closest('.button')) {
-        console.log('paso')
         rocket.style.filter = 'brightness(3)';
 
         // rocket.style.filter = 'brightness(0) invert(1)';
         // rocket.style.filter = 'hue-rotate(180deg) brightness(1.2)';
       } else {
-        console.log('no paso')
         rocket.style.filter = 'none';
       }
 

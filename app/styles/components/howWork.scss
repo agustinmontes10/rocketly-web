@@ -1,78 +1,146 @@
+@import '../variables';
+
 .howWork {
   position: relative;
-  width: 100%;
-  min-height: 100vh;
+  height: 350vh; // scroll space to drive the animation
+  background: #000;
 
-  /* This makes steps snap while scrolling the whole page */
-  scroll-snap-type: y mandatory;
-
-  .scroll-step {
+  &__sticky {
+    position: sticky;
+    top: 0;
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    padding: 3rem;
-    text-align: center;
-    scroll-snap-align: start;
-    position: relative;
-    z-index: 2; // ensures text is above background
+    justify-content: center;
+    padding: 2rem 3rem;
+  }
 
-    h2 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
+  &__header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  &__track {
+    width: 100%;
+    max-width: 1100px;
+  }
+
+  // viewBox 1200×400
+  &__svg-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1200 / 400;
+  }
+
+  &__svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: visible;
+  }
+
+  // Last dot: x=1140/1200=95%, y=30/400=7.5%
+  &__rocket {
+    position: absolute;
+    left: 95%;
+    top: -21.5%;
+    width: 160px;
+    pointer-events: none;
+  }
+
+  &__labels {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.25rem 0 0;
+  }
+
+  &__step {
+    width: 22%;
+    text-align: center;
+
+    h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 0.4rem;
     }
 
     p {
-      font-size: 1.4rem;
-      max-width: 600px;
-    }
-
-    .animationRocket {
-      width: 350px;
-      // height: 100%;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.55);
+      line-height: 1.5;
     }
   }
 
-  .rocket-indicator {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    width: 60px;
-    height: 60px;
-    z-index: 10;
+  // ── Mobile class (rendered via JS isMobile branch) ──────────────
+  &--mobile {
+    height: 260vh;
 
-    img {
-      width: 100%;
-      transition: transform 0.5s ease;
+    .howWork__sticky {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      padding: 2rem 1.25rem;
+      justify-content: flex-start;
+    }
+
+    .howWork__header {
+      margin-bottom: 1.5rem;
+      flex-shrink: 0;
     }
   }
 
-  .stars {
-    position: fixed; // stays put while scrolling
-    top: 0;
-    left: 0;
+  // ── Mobile layout: texto izquierda | curva S derecha ──────────
+  &__mobile-layout {
+    display: flex;
+    gap: 0.5rem;
+    align-items: stretch;
     width: 100%;
-    height: 100%;
-    z-index: 1;
-    pointer-events: none; // stars don’t block interaction
+    flex: 1;
+    min-height: 0;
+    position: relative;
+  }
 
-    .star {
-      position: absolute;
-      width: 2px;
-      height: 2px;
-      background: white;
-      border-radius: 50%;
-      animation: twinkle 3s infinite ease-in-out;
+  // Columna izquierda: pasos con texto centrado
+  &__mobile-steps {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__mobile-step {
+    text-align: center;
+    background-color: #000000a1;
+
+    h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 0.25rem;
+      line-height: 1.2;
+    }
+
+    p {
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.55);
+      line-height: 1.5;
     }
   }
 
-  &::-webkit-scrollbar {
-    width: 0;
+  // Columna derecha: SVG curva S
+  &__mobile-svg-wrapper {
+    position: absolute;
+    height: 100%;
+    left: 25%;
+    z-index: -1;
+    opacity: 0.5
   }
-}
 
-@keyframes twinkle {
-  0%, 100% { opacity: 0.2; }
-  50% { opacity: 1; }
+  &__mobile-svg {
+    height: 100%;
+    width: auto
+  }
 }

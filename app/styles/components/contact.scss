@@ -27,16 +27,8 @@
     max-width: 600px;
     margin: 0 auto;
 
-    h1 {
-      font-size: 3rem;
+    h2 {
       margin-bottom: 20px;
-
-      span {
-        background: $brand-gradient;
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
     }
 
     p {
