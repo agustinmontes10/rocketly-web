@@ -1,14 +1,14 @@
 {
   "navbar": {
-    "home": "Inicio",
+    "howWork": "Proceso",
     "projects": "Proyectos",
-    "services": "Servicios",
+    "pricing": "Precios",
     "contact": "Contacto"
   },
   "hero": {
-    "title": "Desarrollo Web",
-    "titleHighlight": "Moderno",
-    "description": "Creamos experiencias digitales excepcionales que impulsan tu negocio hacia el futuro. Desde diseño hasta implementación, llevamos tu visión al siguiente nivel.",
+    "title": "Transformamos tu empresa",
+    "titleHighlight": "con software e inteligencia artificial",
+    "description": "Desarrollamos webs, automatizaciones y soluciones con IA pensadas para escalar tu empresa.",
     "cta": "Comenzar Proyecto"
   },
   "services": {
@@ -40,13 +40,27 @@
     "title": "Proyectos",
     "titleHighlight": "Destacados",
     "viewProject": "Ver proyecto",
+    "viewAll": "Ver todos los proyectos",
+    "filter": {
+      "all": "Todos",
+      "web": "Desarrollo Web",
+      "automation": "Automatización"
+    },
     "project1": {
       "title": "Agencia de Viajes",
-      "description": "Plataforma completa de reservas con integración de pagos"
+      "description": "Sitio web para una agencia de viajes, venta de paquetes turisticos"
     },
     "project2": {
+      "title": "Fernandez Inmobiliaria",
+      "description": "Sitio web para una inmobiliaria, tour virtual y chatbot con IA"
+    },
+    "project3": {
       "title": "Seguros Rivolta",
-      "description": "Sistema de gestión de pólizas y clientes"
+      "description": "Sitio web para Broker de seguros, cotizacion online"
+    },
+    "project4": {
+      "title": "Ferrario & Asociados",
+      "description": "Chatbot a traves de Whatsapp, Chatwoot como gestion de inbox"
     }
   },
   "howWork": {
@@ -67,6 +81,41 @@
     "step4": {
       "title": "Lanzamiento",
       "description": "Desplegamos y optimizamos tu proyecto"
+    }
+  },
+  "pricing": {
+    "title": "Armá tu",
+    "titleHighlight": "proyecto",
+    "subtitle": "Seleccioná los módulos que necesitás y obtené un presupuesto al instante.",
+    "web": "Desarrollo Web",
+    "automation": "Automatizaciones",
+    "totalLabel": "Total estimado",
+    "cta": "Solicitar cotización",
+    "disclaimer": "* Los precios están expresados en USD y son estimaciones orientativas. El valor final se define según el alcance del proyecto.",
+    "emailSubject": "Solicitud de cotización — {{category}}",
+    "emailBody": "Hola! Me interesa cotizar los siguientes servicios de {{category}}:\n\n{{lines}}\n\nTotal estimado: ${{total}} USD\n\nQuedo a disposición para coordinar los detalles.",
+    "web_items": {
+      "landing": "Landing page / sitio institucional",
+      "ecommerce": "E-commerce / tienda online",
+      "admin": "Landing + Panel de administración",
+      "blog": "Blog / CMS personalizado",
+      "design": "Diseño UI/UX",
+      "api": "Integración con API externa",
+      "seo": "Optimización SEO",
+      "payment": "Integración método de pago",
+      "migration": "Migración de sitio / plataforma"
+    },
+    "automation_items": {
+      "chatbot_ai": "Chatbot con IA",
+      "chatbot_basic": "Chatbot respuestas predefinidas",
+      "whatsapp": "Integración con WhatsApp / Instagram",
+      "crm": "Integración con CRM",
+      "notifications": "Notificaciones automáticas",
+      "n8n": "Flujos de trabajo con n8n",
+      "scraping": "Recolección automática de datos",
+      "reports": "Reportes automáticos",
+      "pipeline": "Pipeline de ventas automatizado",
+      "billing": "Automatización de facturación / AFIP"
     }
   },
   "contact": {

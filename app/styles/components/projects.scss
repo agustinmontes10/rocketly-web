@@ -2,154 +2,338 @@
 
 .projects {
   position: relative;
-  padding: 6rem 0;
 
-  &__container {
-    // Container para las animaciones de Framer Motion
-  }
-
-  &__grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: $spacing-xl;
-  }
-
-  .__cards__container {
+  // ── Sticky wrapper ────────────────────────────────────────────────
+  &__sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    gap: $spacing-xl;
+    justify-content: center;
+    padding: 0 4rem 0 2rem;
+    overflow: hidden;
+    gap: 1.5rem;
+    padding-top: 100px;
   }
 
-  &__card {
+  // ── Filter tabs ───────────────────────────────────────────────────
+  &__filters {
+    display: flex;
+    gap: 0.4rem;
+    justify-content: center;
+    width: 100%;
+  }
+
+  &__filter-btn {
+    padding: 9px 28px;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-family: 'Space Grotesk', sans-serif;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    color: rgba(255, 255, 255, 0.28);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
     overflow: hidden;
-    transition: $button-transition;
-    // border: $button-border;
-    // box-shadow: $button-shadow;
-    transition: transform 0.3s ease;
 
     &:hover {
-      transform: translateY(-3px);
-      // border: $button-border-hover;
-      // box-shadow: $button-shadow-hover, 0 0 15px $brand-glow-light;
-      // background-color: lighten($bg-secondary, 2%);
+      color: rgba(255, 255, 255, 0.6);
+      border-color: rgba(255, 255, 255, 0.14);
     }
 
-    &-image {
-      width: 100%;
-      height: 80vh;
-      object-fit: cover;
-      object-position: top;
-      border: solid #596069 1px;
-      border-radius: 8px;
-      image-rendering: -webkit-optimize-contrast;
-      image-rendering: crisp-edges;
-      backface-visibility: hidden;
-      transform: translateZ(0);
+    // Scan line — top glowing edge
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 10%;
+      right: 10%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, $brand-primary, $brand-secondary, transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
     }
 
-    &-content {
-      padding: 24px 0px;
-
-      h3 {
-        margin-bottom: $spacing-sm;
-      }
-
-      p {
-        color: $text-secondary;
-        margin-bottom: $spacing-md;
-      }
+    // Thruster exhaust — radial glow beneath
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 55%;
+      height: 14px;
+      background: radial-gradient(ellipse at top, rgba($brand-primary, 0.55), transparent 70%);
+      filter: blur(3px);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
     }
 
-    &-tags {
-      display: flex;
-      gap: $spacing-xs;
-      flex-wrap: wrap;
+    &.active {
+      color: white;
+      border-color: rgba($brand-primary, 0.45);
+      background: linear-gradient(180deg, rgba($brand-primary, 0.1) 0%, transparent 100%);
+      box-shadow: 0 0 22px rgba($brand-primary, 0.2);
 
-      span {
-        background-color: rgba($brand-primary, 0.2);
-        color: $brand-primary;
-        padding: 4px 8px;
-        border-radius: 8px;
-        font-size: 0.875rem;
-      }
+      &::before { opacity: 1; }
+      &::after  { opacity: 1; }
+    }
+  }
+
+  // ── Main grid: indicators | content | preview ────────────────────
+  &__layout {
+    display: grid;
+    grid-template-columns: 56px 1fr 1.4fr;
+    gap: 3rem;
+    align-items: center;
+    width: 100%;
+    max-width: $container-max-width;
+    margin: 0 auto;
+    height: 80vh;
+  }
+
+  // ── Left vertical icon indicators ────────────────────────────────
+  &__indicators {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  &__indicator {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.35s ease;
+    color: $text-secondary;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.12);
+      color: $text-primary;
     }
 
-    &-buttons {
-      margin-top: 15px;
+    &.active {
+      background: $brand-primary;
+      border-color: $brand-primary;
+      color: #000;
+      box-shadow: 0 0 16px rgba($brand-primary, 0.4);
+    }
+  }
 
-      .button {
-        padding: 10px 15px;
-        border-radius: $button-radius;
-        text-decoration: none;
-        transition: $button-transition;
-        font-weight: 500;
-        font-family: 'Space Grotesk', sans-serif;
-        position: relative;
-        overflow: hidden;
-        box-shadow: $button-shadow;
-        cursor: pointer;
-        font-size: 0.875rem;
+  // ── Left content panel ────────────────────────────────────────────
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding-right: 1rem;
+  }
 
-        &--primary {
-          background: #006942;
-          color: white;
-          border: none;
-          font-weight: 600;
-          box-shadow: inset 0 0px 4px #01af6f;
+  &__project-title {
+    font-size: clamp(2.2rem, 2.5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+    color: $text-primary;
+  }
 
-          &::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.1);
-            transition: $button-transition;
-            z-index: -1;
-            opacity: 0;
-          }
+  &__project-description {
+    color: $text-secondary;
+    font-size: 1rem;
+    line-height: 1.65;
+    margin-bottom: 1.5rem;
+    max-width: 420px;
+  }
 
-          &:hover {
-            transform: translateY(-1px);
-            box-shadow: $button-shadow-hover, 0 0 15px $brand-glow-light, inset 0 0px 4px #01af6f;
+  &__tags {
+    display: flex;
+    gap: $spacing-xs;
+    flex-wrap: wrap;
+    margin-bottom: 1.75rem;
 
-            &::before {
-              opacity: 1;
-            }
-          }
-        }
+    span {
+      background-color: rgba($brand-primary, 0.15);
+      color: $brand-primary;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+  }
 
-        &--secondary {
-          background: rgba($bg-secondary, 0.6);
-          color: $text-primary;
-          border: $button-border;
+  // ── Bottom progress dots ──────────────────────────────────────────
+  &__progress {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 2rem;
+  }
 
-          &::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba($bg-secondary, 0.8);
-            transition: $button-transition;
-            z-index: -1;
-            opacity: 0;
-          }
+  &__dot {
+    width: 28px;
+    height: 4px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
 
-          &:hover {
-            transform: translateY(-1px);
-            box-shadow: $button-shadow-hover;
-            border: $button-border-hover;
-            color: white;
+    &.active {
+      background: $brand-primary;
+      width: 48px;
+    }
 
-            &::before {
-              opacity: 1;
-            }
-          }
-        }
+    &:hover:not(.active) {
+      background: rgba(255, 255, 255, 0.3);
+    }
+  }
+
+  // ── Right preview panel ───────────────────────────────────────────
+  &__preview {
+    height: 65%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__preview-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 14px;
+    overflow: hidden;
+    text-decoration: none;
+  }
+
+  &__preview-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: top;
+    display: block;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+
+  // ── Button ────────────────────────────────────────────────────────
+  .button {
+    padding: 10px 20px;
+    border-radius: $button-radius;
+    text-decoration: none;
+    transition: $button-transition;
+    font-weight: 600;
+    font-family: 'Space Grotesk', sans-serif;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    font-size: 0.9rem;
+
+    &--primary {
+      background: $brand-primary-dark;
+      color: white;
+      border: none;
+      box-shadow: inset 0 0 4px #01af6f;
+
+      &:hover {
+        transform: translateY(-1px);
+        box-shadow: $button-shadow-hover, 0 0 15px $brand-glow-light, inset 0 0 4px #01af6f;
       }
+    }
+  }
+
+  // ── Ver todos (desktop) ───────────────────────────────────────────
+  &__view-all-btn {
+    margin-top: 1.5rem;
+    align-self: flex-start;
+    padding: 8px 20px;
+    border-radius: $button-radius;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-family: 'Space Grotesk', sans-serif;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      border-color: rgba($brand-primary, 0.5);
+      color: $brand-primary;
+    }
+  }
+
+  // ── Ver todos (mobile) ────────────────────────────────────────────
+  &__view-all {
+    display: flex;
+    justify-content: center;
+    margin-top: 2.5rem;
+  }
+
+  // ── Mobile layout ─────────────────────────────────────────────────
+  &--mobile {
+    padding: 4rem 0 5rem;
+
+    .container {
+      max-width: $container-max-width;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    .heading {
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__mobile-list {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+  }
+
+  &__mobile-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  &__mobile-image {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+  &__mobile-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      color: $text-secondary;
+      margin-bottom: 1rem;
+      line-height: 1.6;
     }
   }
 }
