@@ -115,7 +115,7 @@
   .container {
     max-width: 960px;
     text-align: center;
-    color: white;
+    color: $text-primary;
     z-index: 2;
     position: relative;
 
@@ -155,7 +155,7 @@
   p {
     font-size: 1.2rem;
     margin-bottom: 2rem;
-    color: rgba(255, 255, 255, 0.55);
+    color: $text-secondary;
 
     @media (max-width: $breakpoint-xs) { font-size: 1rem; }
   }

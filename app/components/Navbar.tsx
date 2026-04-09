@@ -40,10 +40,10 @@ export default function Navbar() {
 
         <nav className="navbar__nav">
           <button
-            className={`navbar__link navbar__button ${selected === 'hero' ? 'navbar__link--active' : ''}`}
-            onClick={() => handleClick('hero')}
+            className={`navbar__link navbar__button ${selected === 'howWork' ? 'navbar__link--active' : ''}`}
+            onClick={() => handleClick('howWork')}
           >
-            {t('navbar.home')}
+            {t('navbar.howWork')}
           </button>
           <button
             className={`navbar__link navbar__button ${selected === 'projects' ? 'navbar__link--active' : ''}`}
@@ -52,10 +52,10 @@ export default function Navbar() {
             {t('navbar.projects')}
           </button>
           <button
-            className={`navbar__link navbar__button ${selected === 'services' ? 'navbar__link--active' : ''}`}
-            onClick={() => handleClick('services')}
+            className={`navbar__link navbar__button ${selected === 'pricing' ? 'navbar__link--active' : ''}`}
+            onClick={() => handleClick('pricing')}
           >
-            {t('navbar.services')}
+            {t('navbar.pricing')}
           </button>
           <button
             className={`navbar__link navbar__button ${selected === 'contact' ? 'navbar__link--active' : ''}`}

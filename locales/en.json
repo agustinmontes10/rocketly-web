@@ -1,8 +1,8 @@
 {
   "navbar": {
-    "home": "Home",
+    "howWork": "Process",
     "projects": "Projects",
-    "services": "Services",
+    "pricing": "Pricing",
     "contact": "Contact"
   },
   "hero": {
@@ -40,6 +40,7 @@
     "title": "Featured",
     "titleHighlight": "Projects",
     "viewProject": "View project",
+    "viewAll": "View all projects",
     "filter": {
       "all": "All",
       "web": "Web Development",
@@ -80,6 +81,41 @@
     "step4": {
       "title": "Launch",
       "description": "We deploy and optimize your project"
+    }
+  },
+  "pricing": {
+    "title": "Build your",
+    "titleHighlight": "project",
+    "subtitle": "Select the modules you need and get an instant quote.",
+    "web": "Web Development",
+    "automation": "Automations",
+    "totalLabel": "Estimated total",
+    "cta": "Request a quote",
+    "disclaimer": "* Prices are expressed in USD and are indicative estimates. The final price is defined based on the project scope.",
+    "emailSubject": "Quote request — {{category}}",
+    "emailBody": "Hi! I'm interested in quoting the following {{category}} services:\n\n{{lines}}\n\nEstimated total: ${{total}} USD\n\nI'm available to coordinate the details.",
+    "web_items": {
+      "landing": "Landing page / institutional site",
+      "ecommerce": "E-commerce / online store",
+      "admin": "Landing + Admin panel",
+      "blog": "Blog / Custom CMS",
+      "design": "UI/UX Design",
+      "api": "External API integration",
+      "seo": "SEO optimization",
+      "payment": "Payment method integration",
+      "migration": "Site / platform migration"
+    },
+    "automation_items": {
+      "chatbot_ai": "AI Chatbot",
+      "chatbot_basic": "Predefined responses chatbot",
+      "whatsapp": "WhatsApp / Instagram integration",
+      "crm": "CRM integration",
+      "notifications": "Automated notifications",
+      "n8n": "Workflows with n8n",
+      "scraping": "Automated data collection",
+      "reports": "Automated reports",
+      "pipeline": "Automated sales pipeline",
+      "billing": "Billing automation / AFIP"
     }
   },
   "contact": {

@@ -1,8 +1,8 @@
 {
   "navbar": {
-    "home": "Inicio",
+    "howWork": "Proceso",
     "projects": "Proyectos",
-    "services": "Servicios",
+    "pricing": "Precios",
     "contact": "Contacto"
   },
   "hero": {
@@ -40,6 +40,7 @@
     "title": "Proyectos",
     "titleHighlight": "Destacados",
     "viewProject": "Ver proyecto",
+    "viewAll": "Ver todos los proyectos",
     "filter": {
       "all": "Todos",
       "web": "Desarrollo Web",
@@ -80,6 +81,41 @@
     "step4": {
       "title": "Lanzamiento",
       "description": "Desplegamos y optimizamos tu proyecto"
+    }
+  },
+  "pricing": {
+    "title": "Armá tu",
+    "titleHighlight": "proyecto",
+    "subtitle": "Seleccioná los módulos que necesitás y obtené un presupuesto al instante.",
+    "web": "Desarrollo Web",
+    "automation": "Automatizaciones",
+    "totalLabel": "Total estimado",
+    "cta": "Solicitar cotización",
+    "disclaimer": "* Los precios están expresados en USD y son estimaciones orientativas. El valor final se define según el alcance del proyecto.",
+    "emailSubject": "Solicitud de cotización — {{category}}",
+    "emailBody": "Hola! Me interesa cotizar los siguientes servicios de {{category}}:\n\n{{lines}}\n\nTotal estimado: ${{total}} USD\n\nQuedo a disposición para coordinar los detalles.",
+    "web_items": {
+      "landing": "Landing page / sitio institucional",
+      "ecommerce": "E-commerce / tienda online",
+      "admin": "Landing + Panel de administración",
+      "blog": "Blog / CMS personalizado",
+      "design": "Diseño UI/UX",
+      "api": "Integración con API externa",
+      "seo": "Optimización SEO",
+      "payment": "Integración método de pago",
+      "migration": "Migración de sitio / plataforma"
+    },
+    "automation_items": {
+      "chatbot_ai": "Chatbot con IA",
+      "chatbot_basic": "Chatbot respuestas predefinidas",
+      "whatsapp": "Integración con WhatsApp / Instagram",
+      "crm": "Integración con CRM",
+      "notifications": "Notificaciones automáticas",
+      "n8n": "Flujos de trabajo con n8n",
+      "scraping": "Recolección automática de datos",
+      "reports": "Reportes automáticos",
+      "pipeline": "Pipeline de ventas automatizado",
+      "billing": "Automatización de facturación / AFIP"
     }
   },
   "contact": {

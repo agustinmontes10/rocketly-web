@@ -4,7 +4,7 @@
   position: relative;
   padding: 80px 20px;
   background: linear-gradient(to bottom, #000000 0%, #001f3f 100%);
-  color: #fff;
+  color: $text-primary;
   text-align: center;
   overflow: hidden;
   width: 100%;
@@ -33,7 +33,7 @@
 
     p {
       font-size: 1.1rem;
-      color: #ccc;
+      color: $text-secondary;
       margin-bottom: 40px;
     }
 

@@ -6,6 +6,9 @@ import { useTranslation } from 'react-i18next';
 
 type FilterType = 'all' | 'web' | 'automation';
 
+const MOBILE_LIMIT  = 3;
+const DESKTOP_LIMIT = 4;
+
 const getProjects = (t: any) => [
   {
     title: t('projects.project1.title'),
@@ -74,12 +77,17 @@ const Projects = memo(function Projects() {
   const [isMobile, setIsMobile] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const [activeFilter, setActiveFilter] = useState<FilterType>('all');
+  const [showAll, setShowAll] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
   const { t } = useTranslation();
   const allProjects = getProjects(t);
-  const projects = activeFilter === 'all'
+  const filtered = activeFilter === 'all'
     ? allProjects
     : allProjects.filter(p => p.category === activeFilter);
+
+  const limit    = isMobile ? MOBILE_LIMIT : DESKTOP_LIMIT;
+  const hasMore  = filtered.length > limit;
+  const projects = showAll ? filtered : filtered.slice(0, limit);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth <= 768);
@@ -112,6 +120,7 @@ const Projects = memo(function Projects() {
   const handleFilterChange = (filter: FilterType) => {
     setActiveFilter(filter);
     setActiveIndex(0);
+    setShowAll(false);
   };
 
   const scrollToProject = (index: number) => {
@@ -152,6 +161,13 @@ const Projects = memo(function Projects() {
               </div>
             ))}
           </div>
+          {hasMore && !showAll && (
+            <div className="projects__view-all">
+              <button className="button button--secondary" onClick={() => setShowAll(true)}>
+                {t('projects.viewAll')}
+              </button>
+            </div>
+          )}
         </div>
         <div className="stars">
           {[...Array(30)].map((_, i) => <div key={i} className="star" />)}
@@ -231,6 +247,12 @@ const Projects = memo(function Projects() {
                 />
               ))}
             </div>
+
+            {hasMore && !showAll && (
+              <button className="button button--secondary projects__view-all-btn" onClick={() => setShowAll(true)}>
+                {t('projects.viewAll')}
+              </button>
+            )}
           </div>
 
           {/* Right image */}
