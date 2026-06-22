@@ -52,27 +52,29 @@ export default function HowWork() {
   // ── Desktop: spring-smoothed ───────────────────────────────────
   const smooth = useSpring(scrollYProgress, { stiffness: 80, damping: 25, restDelta: 0.001 })
 
-  const pathLength = useTransform(smooth, [0.05, 0.9], [0, 1])
-  const dot1Opacity = useTransform(smooth, [0.04, 0.16], [0, 1])
-  const dot2Opacity = useTransform(smooth, [0.40, 0.52], [0, 1])
-  const dot3Opacity = useTransform(smooth, [0.74, 0.86], [0, 1])
+  // El path empieza en 0.08 (pequeño tramo ya visible al entrar)
+  const pathLength = useTransform(smooth, [0, 0.9], [0.08, 1])
+  // Dot 1 y step 1 visibles desde el inicio (son el punto de partida)
+  const dot1Opacity = useTransform(smooth, [0, 0.05], [0.7, 1])
+  const dot2Opacity = useTransform(smooth, [0.38, 0.50], [0, 1])
+  const dot3Opacity = useTransform(smooth, [0.72, 0.84], [0, 1])
   const dotOpacities = [dot1Opacity, dot2Opacity, dot3Opacity]
-  const line1Opacity = useTransform(smooth, [0.05, 0.17], [0, 1])
-  const line2Opacity = useTransform(smooth, [0.41, 0.53], [0, 1])
-  const line3Opacity = useTransform(smooth, [0.75, 0.87], [0, 1])
+  const line1Opacity = useTransform(smooth, [0, 0.05], [0.5, 1])
+  const line2Opacity = useTransform(smooth, [0.39, 0.51], [0, 1])
+  const line3Opacity = useTransform(smooth, [0.73, 0.85], [0, 1])
   const lineOpacities = [line1Opacity, line2Opacity, line3Opacity]
-  const step1Opacity = useTransform(smooth, [0.05, 0.22], [0, 1])
-  const step2Opacity = useTransform(smooth, [0.41, 0.58], [0, 1])
-  const step3Opacity = useTransform(smooth, [0.75, 0.90], [0, 1])
+  const step1Opacity = useTransform(smooth, [0, 0.08], [0.6, 1])
+  const step2Opacity = useTransform(smooth, [0.39, 0.55], [0, 1])
+  const step3Opacity = useTransform(smooth, [0.73, 0.88], [0, 1])
   const stepOpacities = [step1Opacity, step2Opacity, step3Opacity]
-  const step1Y = useTransform(smooth, [0.05, 0.22], [24, 0])
-  const step2Y = useTransform(smooth, [0.41, 0.58], [24, 0])
-  const step3Y = useTransform(smooth, [0.75, 0.90], [24, 0])
+  const step1Y = useTransform(smooth, [0, 0.08], [8, 0])
+  const step2Y = useTransform(smooth, [0.39, 0.55], [24, 0])
+  const step3Y = useTransform(smooth, [0.73, 0.88], [24, 0])
   const stepYs = [step1Y, step2Y, step3Y]
-  const rocketOpacity = useTransform(smooth, [0.75, 0.88], [0, 1])
+  const rocketOpacity = useTransform(smooth, [0.73, 0.86], [0, 1])
 
   // ── Mobile timeline animation ───────────────
-  const mobilePathLength = useTransform(scrollYProgress, [0.05, 0.9], [0, 1])
+  const mobilePathLength = useTransform(scrollYProgress, [0, 0.9], [0.05, 1])
 
   return (
     // Un único elemento root — containerRef nunca se desmonta → useScroll siempre trackea
