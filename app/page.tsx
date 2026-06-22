@@ -1,6 +1,7 @@
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Problem from './components/Problem';
+import ChatDemo from './components/ChatDemo';
 import HowWork from './components/HowWork';
 import Services from './components/Services';
 import Metrics from './components/Metrics';
@@ -17,6 +18,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Problem />
+      <ChatDemo />
       <HowWork />
       <Services />
       <Metrics />

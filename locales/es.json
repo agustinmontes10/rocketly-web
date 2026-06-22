@@ -65,6 +65,15 @@
       "description": "Si no sabés por dónde empezar, empezamos por acá. Analizamos tu operativa y te decimos exactamente qué conviene automatizar, cuánto tiempo llevaría y qué retorno podés esperar."
     }
   },
+  "chatDemo": {
+    "label": "En acción",
+    "title": "Un bot que responde",
+    "titleHighlight": "solo, 24/7",
+    "description": "Así funciona el bot que implementamos para una administradora de consorcios. Lo que antes requería al equipo todo el día, ahora lo resuelve automáticamente.",
+    "bullet1": "Responde al instante, a cualquier hora",
+    "bullet2": "Deriva a asesores cuando el caso lo requiere",
+    "bullet3": "Aprende de la información real de tu empresa"
+  },
   "metrics": {
     "item1": { "value": "24/7", "label": "Tus bots atienden sin pausa" },
     "item2": { "value": "1-2 sem", "label": "Diagnóstico de tu operativa" },

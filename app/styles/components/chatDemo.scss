@@ -1,0 +1,119 @@
+@import '../variables';
+
+.chatDemo {
+  position: relative;
+  padding: 6rem 0;
+  overflow: hidden;
+  z-index: 1;
+
+  &::before {
+    @include glow(80%, 50%, rgba(0, 190, 119, 0.09), 65%, 70%);
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__layout {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+
+    @media (max-width: $breakpoint-lg) {
+      gap: 2.5rem;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      flex-direction: column;
+      align-items: center;
+      gap: 2.5rem;
+    }
+  }
+
+  // ── Left copy ────────────────────────────────────────────────────
+  &__copy {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__label {
+    display: inline-block;
+    font-family: $font-mono;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: $brand-primary;
+    background: rgba($brand-primary, 0.1);
+    border: 1px solid rgba($brand-primary, 0.2);
+    border-radius: 2rem;
+    padding: 0.3rem 0.85rem;
+    margin-bottom: 1.25rem;
+  }
+
+  &__title {
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: $text-primary;
+    margin-bottom: 1rem;
+  }
+
+  &__description {
+    font-size: 1.05rem;
+    color: $text-secondary;
+    line-height: 1.65;
+    margin-bottom: 2rem;
+    max-width: 44ch;
+
+    @media (max-width: $breakpoint-md) {
+      max-width: 100%;
+    }
+  }
+
+  &__bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  &__bullet {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 1rem;
+    color: $text-primary;
+    line-height: 1.45;
+
+    &-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      width: 34px;
+      height: 34px;
+      border-radius: 0.5rem;
+      color: $brand-secondary;
+      background: rgba($brand-secondary, 0.1);
+      border: 1px solid rgba($brand-secondary, 0.2);
+      margin-top: 0.05rem;
+    }
+  }
+
+  // ── Right mock ───────────────────────────────────────────────────
+  &__mock {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: $breakpoint-md) {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+  }
+}

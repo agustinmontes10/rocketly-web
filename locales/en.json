@@ -65,6 +65,15 @@
       "description": "If you don't know where to start, we start here. We analyze your operation and tell you exactly what's worth automating, how long it would take and what return you can expect."
     }
   },
+  "chatDemo": {
+    "label": "In action",
+    "title": "A bot that responds",
+    "titleHighlight": "on its own, 24/7",
+    "description": "This is how the bot we built for a building management company works. What used to take the team all day is now handled automatically.",
+    "bullet1": "Responds instantly, at any hour",
+    "bullet2": "Routes to advisors when the case requires it",
+    "bullet3": "Learns from your company's real information"
+  },
   "metrics": {
     "item1": { "value": "24/7", "label": "Your bots run nonstop" },
     "item2": { "value": "1-2 wks", "label": "Diagnosis of your operation" },
