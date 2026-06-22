@@ -2,10 +2,14 @@
 
 import { useEffect, useRef, memo } from "react"
 import Link from "next/link"
+import dynamic from "next/dynamic"
 import "../styles/components/hero.scss"
 import { animate, stagger } from "motion";
 import { splitText } from "motion-plus";
 import { useTranslation } from 'react-i18next';
+import { whatsappLink } from "../../lib/site";
+
+const WhatsAppMock = dynamic(() => import('./WhatsAppMock'), { ssr: false });
 
 // Neural network layers: [x, y] per node
 const NN_LAYERS = [
@@ -138,28 +142,37 @@ const Hero = memo(function Hero() {
       <div className="stars">
         {[...Array(20)].map((_, i) => <div key={i} className="star" />)}
       </div>
-      {/* AI neural net decoration */}
-      <NeuralNetSVG />
-
       <div className="container">
-        <div className="hero__content" ref={heroRef}>
-          <div>
-            <h1 key={i18n.language} className="heading heading--xl">
-              <span className="hero__title-line">{t('hero.title')}</span>
-              <span className="hero__title-line text-gradient">{t('hero.titleHighlight')}</span>
-            </h1>
-            <p key={`p-${i18n.language}`}>{t('hero.description')}</p>
+        <div className="hero__layout">
+          {/* Left: copy + CTAs */}
+          <div className="hero__content" ref={heroRef}>
+            <div>
+              <h1 key={i18n.language} className="heading heading--xl">
+                <span className="hero__title-line">{t('hero.title')}</span>
+                <span className="hero__title-line text-gradient">{t('hero.titleHighlight')}</span>
+              </h1>
+              <p key={`p-${i18n.language}`}>{t('hero.description')}</p>
+            </div>
+            <div className="hero__buttons">
+              <a
+                href={whatsappLink()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="button button--primary"
+              >
+                {t('hero.ctaPrimary')}
+              </a>
+              <Link href="#howWork" className="button button--secondary">
+                {t('hero.ctaSecondary')}
+              </Link>
+            </div>
           </div>
-          <div className="hero__buttons">
-            <Link href="#contact" className="button button--primary">
-              {t('hero.cta')}
-            </Link>
-            <Link href="#projects" className="button button--secondary">
-              {t('navbar.projects')}
-            </Link>
+
+          {/* Right: WhatsApp mock */}
+          <div className="hero__mock">
+            <WhatsAppMock />
           </div>
         </div>
-
       </div>
     </section>
   )

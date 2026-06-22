@@ -31,6 +31,7 @@ export default function LanguageToggle() {
                     type="checkbox"
                     id="language-toggle"
                     checked={isChecked}
+                    readOnly
                 />
 
                 <label htmlFor="language-toggle">

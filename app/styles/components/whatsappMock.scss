@@ -1,0 +1,225 @@
+@import '../variables';
+
+$wa-bg: #0b141a;
+$wa-header: #202c33;
+$wa-client-bubble: #005c4b;
+$wa-bot-bubble: #1f2c34;
+$wa-text: #e9edef;
+$wa-subtext: #8696a0;
+$wa-input-bg: #1f2c34;
+
+.wa-mock {
+  width: 320px;
+  max-width: 100%;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  background: $wa-bg;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(255, 255, 255, 0.04),
+    0 0 80px rgba(0, 190, 119, 0.06);
+  display: flex;
+  flex-direction: column;
+  font-family: 'Space Grotesk', sans-serif;
+  position: relative;
+  flex-shrink: 0;
+
+  // Top status bar (iOS/Android cosmetic)
+  &::before {
+    content: '';
+    display: block;
+    height: 3px;
+    background: linear-gradient(90deg, $brand-primary, $brand-secondary);
+    opacity: 0.7;
+  }
+
+  // ── Header ─────────────────────────────────────────────────────────
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: $wa-header;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  &__avatar {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, $brand-primary-dark, $brand-secondary-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+  }
+
+  &__online {
+    position: absolute;
+    bottom: 1px;
+    right: 1px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #4ade80;
+    border: 2px solid $wa-header;
+    animation: waPulse 2s ease-in-out infinite;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    min-width: 0;
+  }
+
+  &__name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: $wa-text;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__status {
+    font-size: 0.72rem;
+    color: #4ade80;
+  }
+
+  // ── Chat body ──────────────────────────────────────────────────────
+  &__body {
+    flex: 1;
+    height: 280px;
+    overflow-y: auto;
+    padding: 0.85rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background: $wa-bg;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar { display: none; }
+  }
+
+  // ── Bubbles ────────────────────────────────────────────────────────
+  &__bubble {
+    max-width: 85%;
+    padding: 0.55rem 0.8rem 0.4rem;
+    border-radius: 0.55rem;
+    line-height: 1.4;
+    animation: waFadeIn 0.25s ease-out forwards;
+
+    &--client {
+      align-self: flex-end;
+      background: $wa-client-bubble;
+      border-bottom-right-radius: 0.15rem;
+    }
+
+    &--bot {
+      align-self: flex-start;
+      background: $wa-bot-bubble;
+      border-bottom-left-radius: 0.15rem;
+    }
+
+    &--typing {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.7rem 0.85rem;
+    }
+  }
+
+  &__text {
+    display: block;
+    font-size: 0.82rem;
+    color: $wa-text;
+    word-break: break-word;
+  }
+
+  &__time {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.25rem;
+    margin-top: 0.2rem;
+    font-size: 0.65rem;
+    color: $wa-subtext;
+  }
+
+  &__tick {
+    color: $brand-secondary;
+    flex-shrink: 0;
+  }
+
+  // Typing dots
+  &__dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: $wa-subtext;
+    animation: waDot 1.2s ease-in-out infinite;
+
+    &:nth-child(2) { animation-delay: 0.2s; }
+    &:nth-child(3) { animation-delay: 0.4s; }
+  }
+
+  // ── Input bar ──────────────────────────────────────────────────────
+  &__input {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 0.75rem;
+    background: $wa-header;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  &__input-text {
+    flex: 1;
+    font-size: 0.8rem;
+    color: $wa-subtext;
+    padding: 0.4rem 0.65rem;
+    background: $wa-input-bg;
+    border-radius: 1.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__send {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: $brand-primary-dark;
+    border: none;
+    cursor: default;
+    color: #fff;
+    flex-shrink: 0;
+
+    svg { pointer-events: none; }
+  }
+}
+
+// ── Keyframes ──────────────────────────────────────────────────────────
+@keyframes waFadeIn {
+  from { opacity: 0; transform: translateY(6px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes waDot {
+  0%, 80%, 100% { transform: scale(1); opacity: 0.5; }
+  40%           { transform: scale(1.25); opacity: 1; }
+}
+
+@keyframes waPulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}

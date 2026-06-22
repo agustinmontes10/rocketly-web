@@ -5,17 +5,17 @@ import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
 import '@/app/styles/components/howWork.scss'
 import dynamic from 'next/dynamic'
 import { useTranslation } from 'react-i18next'
+import { whatsappLink } from '../../lib/site'
 
 const Lottie = dynamic(() => import('lottie-react'), { ssr: false })
 
-const CURVE_PATH = 'M 80 350 C 250 350 420 340 600 280 S 1000 40 1140 30'
-const AREA_PATH = 'M 80 350 C 250 350 420 340 600 280 S 1000 40 1140 30 L 1140 400 L 80 400 Z'
+const CURVE_PATH = 'M 120 340 C 320 330 420 280 600 215 S 900 95 1080 60'
+const AREA_PATH = 'M 120 340 C 320 330 420 280 600 215 S 900 95 1080 60 L 1080 400 L 120 400 Z'
 
 const DOT_POSITIONS = [
-  { x: 80, y: 350 },
-  { x: 420, y: 330 },
-  { x: 780, y: 195 },
-  { x: 1140, y: 30 },
+  { x: 120, y: 340 },
+  { x: 600, y: 215 },
+  { x: 1080, y: 60 },
 ]
 
 export default function HowWork() {
@@ -25,10 +25,9 @@ export default function HowWork() {
   const [isMobile, setIsMobile] = useState(false)
 
   const steps = [
-    { title: t('howWork.step1.title'), description: t('howWork.step1.description') },
-    { title: t('howWork.step2.title'), description: t('howWork.step2.description') },
-    { title: t('howWork.step3.title'), description: t('howWork.step3.description') },
-    { title: t('howWork.step4.title'), description: t('howWork.step4.description') },
+    { number: '01', title: t('howWork.step1.title'), description: t('howWork.step1.description') },
+    { number: '02', title: t('howWork.step2.title'), description: t('howWork.step2.description') },
+    { number: '03', title: t('howWork.step3.title'), description: t('howWork.step3.description') },
   ]
 
   useEffect(() => {
@@ -53,28 +52,24 @@ export default function HowWork() {
   // ── Desktop: spring-smoothed ───────────────────────────────────
   const smooth = useSpring(scrollYProgress, { stiffness: 80, damping: 25, restDelta: 0.001 })
 
-  const pathLength = useTransform(smooth, [0.05, 0.88], [0, 1])
-  const dot1Opacity = useTransform(smooth, [0.04, 0.14], [0, 1])
-  const dot2Opacity = useTransform(smooth, [0.28, 0.38], [0, 1])
-  const dot3Opacity = useTransform(smooth, [0.52, 0.62], [0, 1])
-  const dot4Opacity = useTransform(smooth, [0.75, 0.85], [0, 1])
-  const dotOpacities = [dot1Opacity, dot2Opacity, dot3Opacity, dot4Opacity]
-  const line1Opacity = useTransform(smooth, [0.05, 0.16], [0, 1])
-  const line2Opacity = useTransform(smooth, [0.29, 0.40], [0, 1])
-  const line3Opacity = useTransform(smooth, [0.53, 0.63], [0, 1])
-  const line4Opacity = useTransform(smooth, [0.76, 0.86], [0, 1])
-  const lineOpacities = [line1Opacity, line2Opacity, line3Opacity, line4Opacity]
-  const step1Opacity = useTransform(smooth, [0.05, 0.20], [0, 1])
-  const step2Opacity = useTransform(smooth, [0.29, 0.43], [0, 1])
-  const step3Opacity = useTransform(smooth, [0.53, 0.66], [0, 1])
-  const step4Opacity = useTransform(smooth, [0.76, 0.89], [0, 1])
-  const stepOpacities = [step1Opacity, step2Opacity, step3Opacity, step4Opacity]
-  const step1Y = useTransform(smooth, [0.05, 0.20], [24, 0])
-  const step2Y = useTransform(smooth, [0.29, 0.43], [24, 0])
-  const step3Y = useTransform(smooth, [0.53, 0.66], [24, 0])
-  const step4Y = useTransform(smooth, [0.76, 0.89], [24, 0])
-  const stepYs = [step1Y, step2Y, step3Y, step4Y]
-  const rocketOpacity = useTransform(smooth, [0.76, 0.89], [0, 1])
+  const pathLength = useTransform(smooth, [0.05, 0.9], [0, 1])
+  const dot1Opacity = useTransform(smooth, [0.04, 0.16], [0, 1])
+  const dot2Opacity = useTransform(smooth, [0.40, 0.52], [0, 1])
+  const dot3Opacity = useTransform(smooth, [0.74, 0.86], [0, 1])
+  const dotOpacities = [dot1Opacity, dot2Opacity, dot3Opacity]
+  const line1Opacity = useTransform(smooth, [0.05, 0.17], [0, 1])
+  const line2Opacity = useTransform(smooth, [0.41, 0.53], [0, 1])
+  const line3Opacity = useTransform(smooth, [0.75, 0.87], [0, 1])
+  const lineOpacities = [line1Opacity, line2Opacity, line3Opacity]
+  const step1Opacity = useTransform(smooth, [0.05, 0.22], [0, 1])
+  const step2Opacity = useTransform(smooth, [0.41, 0.58], [0, 1])
+  const step3Opacity = useTransform(smooth, [0.75, 0.90], [0, 1])
+  const stepOpacities = [step1Opacity, step2Opacity, step3Opacity]
+  const step1Y = useTransform(smooth, [0.05, 0.22], [24, 0])
+  const step2Y = useTransform(smooth, [0.41, 0.58], [24, 0])
+  const step3Y = useTransform(smooth, [0.75, 0.90], [24, 0])
+  const stepYs = [step1Y, step2Y, step3Y]
+  const rocketOpacity = useTransform(smooth, [0.75, 0.88], [0, 1])
 
   // ── Mobile timeline animation ───────────────
   const mobilePathLength = useTransform(scrollYProgress, [0.05, 0.9], [0, 1])
@@ -193,6 +188,7 @@ export default function HowWork() {
                     ease: "easeOut",
                   }}
                 >
+                  <span className="howWork__step-number">{step.number}</span>
                   <h3>{step.title}</h3>
                   <p>{step.description}</p>
                 </motion.div>
@@ -226,12 +222,15 @@ export default function HowWork() {
                     stroke="rgba(255,255,255,0.12)" strokeWidth="1" strokeDasharray="4,4"
                     style={{ opacity: lineOpacities[i] }} />
                 ))}
-                {DOT_POSITIONS.map((pos, i) => (
-                  <motion.g key={`dot-${i}`} style={{ opacity: dotOpacities[i] }}>
-                    <circle cx={pos.x} cy={pos.y} r={22} fill={i === 3 ? '#00D4E7' : '#00BE77'} opacity={0.15} />
-                    <circle cx={pos.x} cy={pos.y} r={i === 3 ? 8 : 6} fill={i === 3 ? '#00D4E7' : '#00BE77'} stroke="rgba(255,255,255,0.3)" strokeWidth="2" />
-                  </motion.g>
-                ))}
+                {DOT_POSITIONS.map((pos, i) => {
+                  const isLast = i === DOT_POSITIONS.length - 1
+                  return (
+                    <motion.g key={`dot-${i}`} style={{ opacity: dotOpacities[i] }}>
+                      <circle cx={pos.x} cy={pos.y} r={22} fill={isLast ? '#00D4E7' : '#00BE77'} opacity={0.15} />
+                      <circle cx={pos.x} cy={pos.y} r={isLast ? 8 : 6} fill={isLast ? '#00D4E7' : '#00BE77'} stroke="rgba(255,255,255,0.3)" strokeWidth="2" />
+                    </motion.g>
+                  )
+                })}
               </svg>
 
               {animationData && (
@@ -244,6 +243,7 @@ export default function HowWork() {
             <div className="howWork__labels">
               {steps.map((step, i) => (
                 <motion.div key={i} className="howWork__step" style={{ opacity: stepOpacities[i], y: stepYs[i] }}>
+                  <span className="howWork__step-number">{step.number}</span>
                   <h3>{step.title}</h3>
                   <p>{step.description}</p>
                 </motion.div>
@@ -251,6 +251,17 @@ export default function HowWork() {
             </div>
           </div>
         )}
+
+        <div className="howWork__cta">
+          <a
+            href={whatsappLink('Hola, me gustaría saber qué automatizarían en mi empresa.')}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="button button--primary"
+          >
+            {t('howWork.cta')}
+          </a>
+        </div>
       </div>
     </div>
   )

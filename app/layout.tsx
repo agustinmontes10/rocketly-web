@@ -1,12 +1,15 @@
-import RocketCursor from './components/RocketCursor';
 import I18nProvider from './components/I18nProvider';
 import './styles/globals.scss';
 import type { Metadata } from 'next';
 
+const SITE_TITLE = 'Rocketly — Automatización con IA para PyMEs argentinas';
+const SITE_DESCRIPTION =
+  'Analizamos los procesos de tu empresa e implementamos automatizaciones reales con IA: bots de WhatsApp, agentes a medida y más. Primero entendemos, después construimos.';
+
 export const metadata: Metadata = {
-  title: 'Rocketly - Desarrollo Web',
-  description: 'Desarrollo web moderno para tu negocio',
-  keywords: 'desarrollo web, React, Next.js, TypeScript, diseño web, programación',
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
+  keywords: 'automatización, inteligencia artificial, IA, bots de WhatsApp, agentes de IA, automatización de procesos, PyMEs, Argentina, n8n, Chatwoot',
   authors: [{ name: 'Rocketly' }],
   creator: 'Rocketly',
   publisher: 'Rocketly',
@@ -24,8 +27,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Rocketly - Desarrollo Web',
-    description: 'Desarrollo web moderno para tu negocio',
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     url: 'https://rocketly.vercel.app',
     siteName: 'Rocketly',
     locale: 'es_ES',
@@ -33,8 +36,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Rocketly - Desarrollo Web',
-    description: 'Desarrollo web moderno para tu negocio',
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     creator: '@rocketly',
   },
   robots: {
@@ -65,7 +68,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
         <meta name="theme-color" content="#000000" />
         <meta name="mobile-web-app-capable" content="yes" />
@@ -75,7 +78,6 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
         <link rel="apple-touch-icon" href="/favicon.ico" />
       </head>
-      <RocketCursor />
       <body>
         <I18nProvider>
           {children}

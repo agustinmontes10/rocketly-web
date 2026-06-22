@@ -12,11 +12,23 @@ html {
 
 body {
   font-family: 'Space Grotesk', sans-serif;
-  background-color: $bg-primary;
+  background-color: $bg-base;
   color: $text-primary;
   line-height: 1.6;
-  cursor: none;
-  background-color: black;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+}
+
+// ── Subtle film grain over the whole page (very low opacity) ──────────
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 .text-gradient {
@@ -24,6 +36,11 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+.mono {
+  font-family: $font-mono;
+  letter-spacing: -0.01em;
 }
 
 .container {
@@ -36,87 +53,93 @@ body {
   padding: $spacing-3xl 0;
 }
 
+// ── Buttons — single unified system ──────────────────────────────────
 .button {
-  display: inline-block;
-  padding: $spacing-sm $spacing-lg;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
   border-radius: $button-radius;
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1;
   transition: $button-transition;
   cursor: pointer;
-  border: $button-border;
+  border: $border-soft;
   text-decoration: none;
-  background: transparent;
+  background: $surface;
   color: $text-primary;
-  box-shadow: $button-shadow;
   position: relative;
   overflow: hidden;
 
   &::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.04);
+    inset: 0;
+    background: rgba(255, 255, 255, 0.06);
     transition: $button-transition;
-    z-index: -1;
+    z-index: 0;
     opacity: 0;
   }
 
+  > * { position: relative; z-index: 1; }
+
   &:hover {
     transform: translateY(-1px);
-    border: $button-border-hover;
-    box-shadow: $button-shadow-hover;
-    color: white;
+    border-color: rgba(255, 255, 255, 0.14);
+    color: #fff;
 
-    &::before {
-      opacity: 1;
-    }
+    &::before { opacity: 1; }
   }
 
   &--primary {
-    background: #006942;
-    color: white;
+    color: #fff;
     border: none;
     font-weight: 600;
-    box-shadow: inset 0 0px 4px #01af6f;
+    background: linear-gradient(135deg, #00a866, #007a4a);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 6px 18px rgba(0, 122, 70, 0.25);
 
-    &::before {
-      background: rgba(255, 255, 255, 0.1);
-      opacity: 0;
-    }
+    &::before { background: rgba(255, 255, 255, 0.12); }
 
     &:hover {
-      transform: translateY(-1px);
-      box-shadow: $button-shadow-hover, 0 0 15px $brand-glow-light, inset 0 0px 4px #01af6f;
-      border: none;
-
-      &::before {
-        opacity: 1;
-      }
+      transform: translateY(-2px);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18),
+        0 10px 28px rgba(0, 122, 70, 0.35), 0 0 22px $brand-glow-light;
     }
   }
 
   &--secondary {
-    background: rgba($bg-secondary, 0.6);
-    border: $button-border;
-    color: $text-primary;
+    background: rgba($brand-secondary, 0.06);
+    border: 1px solid rgba($brand-secondary, 0.35);
+    color: #fff;
 
     &:hover {
-      background: rgba($bg-secondary, 0.8);
-      transform: translateY(-1px);
-      box-shadow: $button-shadow-hover;
-      border: $button-border-hover;
+      background: rgba($brand-secondary, 0.12);
+      border-color: rgba($brand-secondary, 0.55);
+      box-shadow: $button-shadow-hover, 0 0 22px rgba($brand-secondary, 0.12);
     }
   }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+  }
+}
+
+// ── Visible focus for keyboard users ─────────────────────────────────
+:focus-visible {
+  outline: 2px solid $brand-secondary;
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 .heading {
   font-weight: 800;
   margin-bottom: $spacing-lg;
   letter-spacing: -0.03em;
-  line-height: 1.1;
+  line-height: 1.08;
   color: $text-primary;
 
   &--xl {
@@ -141,12 +164,7 @@ body {
   }
 }
 
-#rocket-cursor {
-  filter: drop-shadow(0 0 6px $brand-glow);
-  transition: transform 0.15s ease;
-  will-change: transform;
-}
-
+// ── Stars (only used by the Hero now) ────────────────────────────────
 .stars {
   position: absolute;
   top: 0;
@@ -166,7 +184,6 @@ body {
     animation: floatStar linear infinite;
     opacity: 0.8;
 
-    // distribución y animación aleatoria
     @for $i from 1 through 30 {
       &:nth-child(#{$i}) {
         top: random(100) * 1%;
@@ -179,50 +196,10 @@ body {
   }
 }
 
-.button {
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 4px;
-  text-decoration: none;
-  color: white;
-  background: #006942;
-  font-weight: 600;
-  box-shadow: inset 0 0px 4px #01af6f;
-  transition: background 0.3s;
-
-  &--primary {
-    background: #006942;
-    color: white;
-    font-weight: 600;
-    box-shadow: inset 0 0px 4px #01af6f;
-  }
-
-  &:hover {
-    box-shadow: $button-shadow-hover, 0 0 15px $brand-glow-light, inset 0 0px 4px #01af6f;
-  }
-}
-
-@media (max-width: $breakpoint-sm) {
-  #rocket-cursor {
-    display: none;
-  }
-}
-
 @keyframes floatStar {
-  0% {
-    transform: translateY(0) scale(1);
-    opacity: 0.6;
-  }
-
-  50% {
-    transform: translateY(70px) scale(1.1);
-    opacity: 1;
-  }
-
-  100% {
-    transform: translateY(0) scale(1);
-    opacity: 0.6;
-  }
+  0% { transform: translateY(0) scale(1); opacity: 0.6; }
+  50% { transform: translateY(70px) scale(1.1); opacity: 1; }
+  100% { transform: translateY(0) scale(1); opacity: 0.6; }
 }
 
 // Loading spinner styles
@@ -231,13 +208,13 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: linear-gradient(135deg, #000428 0%, #004e92 100%);
-  
+  background: $bg-base;
+
   .spinner {
     width: 40px;
     height: 40px;
     border: 3px solid rgba(255, 255, 255, 0.3);
-    border-top: 3px solid #00ff88;
+    border-top: 3px solid $brand-primary;
     border-radius: 50%;
     animation: spin 1s linear infinite;
   }
@@ -246,6 +223,18 @@ body {
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+// ── Respect users who prefer reduced motion ──────────────────────────
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 // Import component styles

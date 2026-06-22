@@ -1,22 +1,36 @@
 // Standardized Color Palette
-$bg-primary: #0d1117;
-$bg-secondary: #161b22;
-$text-primary: #c9d1d9;
-$text-secondary: #8b949e;
+$bg-base: #08090c;          // rich near-black (no harsh pure #000)
+$bg-primary: #0a0c10;
+$bg-secondary: #11141a;
+$bg-elevated: #0e1116;
+$text-primary: #eef1f5;     // brighter for crisp contrast on dark
+$text-secondary: #9aa4b2;
 $accent-blue: #58a6ff;
 $accent-green: #3fb950;
 $border-color: #30363d;
+
+// Surfaces & borders - reusable tokens
+$surface: rgba(255, 255, 255, 0.035);
+$surface-hover: rgba(255, 255, 255, 0.06);
+$border-soft: 1px solid rgba(255, 255, 255, 0.08);
+$border-strong: 1px solid rgba(255, 255, 255, 0.14);
+
 // Brand Colors - Standardized
 $brand-primary: #00BE77;
 $brand-primary-dark: #006942;
 $brand-secondary: #00D4E7;
 $brand-secondary-dark: #005158;
-$brand-gradient: linear-gradient(180deg, $brand-primary, $brand-primary-dark);
+// Horizontal green→cyan: vibrant "AI" feel for highlights & numbers
+$brand-gradient: linear-gradient(90deg, #00BE77, #00D4E7);
 $brand-gradient-secondary: linear-gradient(90deg, $brand-secondary, $brand-secondary-dark);
 $brand-gradient-tertiary: linear-gradient(45deg, $brand-secondary-dark, $brand-primary-dark);
-$brand-glow: rgba(0, 122, 255, 0.3);
-$brand-glow-light: rgba(0, 122, 255, 0.1);
-$brand-glow-strong: rgba(0, 122, 255, 0.5);
+// Glows now match the brand (were blue by mistake)
+$brand-glow: rgba(0, 190, 119, 0.35);
+$brand-glow-light: rgba(0, 212, 231, 0.12);
+$brand-glow-strong: rgba(0, 190, 119, 0.55);
+
+// Fonts
+$font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 
 // Button Styles - Standardized
 $button-border: 1px solid rgba(255, 255, 255, 0.08);
@@ -43,4 +57,66 @@ $breakpoint-lg: 1024px;
 $breakpoint-xl: 1280px;
 
 // Container
-$container-max-width: 1200px;
+$container-max-width: 1160px;
+
+// ── Reusable mixins ──────────────────────────────────────────────────
+// Soft radial light anchored in a section, for depth between sections.
+@mixin glow($x, $y, $color, $w: 70%, $h: 55%) {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse #{$w} #{$h} at #{$x} #{$y}, $color, transparent 70%);
+}
+
+// Card with a 1px top-light gradient border (simulates light from above).
+@mixin card-surface {
+  position: relative;
+  background: $surface;
+  border: $border-soft;
+  border-radius: 1rem;
+  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    border-color 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.16), transparent 45%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0.7;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.14);
+    background: $surface-hover;
+    box-shadow: 0 14px 44px rgba(0, 0, 0, 0.45), 0 0 26px $brand-glow-light;
+  }
+}
+
+// Cursor-following spotlight. Pair with onMouseMove handler that sets
+// --spot-x / --spot-y custom properties (see lib/spotlight.ts).
+@mixin spotlight($color: rgba(0, 190, 119, 0.14), $size: 240px) {
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(#{$size} circle at var(--spot-x, -200px) var(--spot-y, -200px), $color, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+}

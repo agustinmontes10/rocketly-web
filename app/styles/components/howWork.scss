@@ -40,36 +40,65 @@
     overflow: visible;
   }
 
-  // Last dot: x=1140/1200=95%, y=30/400=7.5%
+  // Last dot: x=1080/1200=90%, y=60/400=15%
   &__rocket {
     position: absolute;
-    left: 95%;
-    top: -21.5%;
+    left: 90%;
+    top: 15%;
     width: 160px;
+    transform: translate(-50%, -55%);
     pointer-events: none;
   }
 
   &__labels {
     display: flex;
     justify-content: space-between;
-    padding: 0.25rem 0 0;
+    gap: 1.5rem;
+    padding: 1rem 0 0;
   }
 
   &__step {
-    width: 22%;
+    width: 31%;
     text-align: center;
 
     h3 {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       font-weight: 700;
       color: $text-primary;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.5rem;
     }
 
     p {
-      font-size: 0.85rem;
+      font-size: 0.92rem;
       color: $text-secondary;
-      line-height: 1.5;
+      line-height: 1.55;
+    }
+  }
+
+  &__step-number {
+    display: block;
+    font-family: $font-mono;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 0.6rem;
+    background: $brand-gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  &__cta {
+    margin-top: 2.5rem;
+    text-align: center;
+
+    .button {
+      font-size: 1.05rem;
+      padding: 0.9rem 2rem;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      margin-top: 1.5rem;
     }
   }
 
