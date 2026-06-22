@@ -3,11 +3,14 @@
 .ctaFinal {
   position: relative;
   padding: 7rem 1.5rem;
-  background: radial-gradient(ellipse 70% 60% at 50% 0%, #00be7720, transparent 65%), #000;
   color: $text-primary;
   text-align: center;
   overflow: hidden;
   z-index: 1;
+
+  &::before {
+    @include glow(50%, 0%, rgba(0, 190, 119, 0.12));
+  }
 
   &__overlay {
     position: absolute;

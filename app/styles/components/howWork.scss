@@ -3,7 +3,7 @@
 .howWork {
   position: relative;
   height: 350vh; // scroll space to drive the animation
-  background: #000;
+  background: $bg-base;
 
   &__sticky {
     position: sticky;
@@ -14,7 +14,7 @@
     align-items: center;
     justify-content: center;
     padding: 2rem 3rem;
-    background: #000; // necesario para cubrir el contenido que scrollea debajo
+    background: $bg-base; // necesario para cubrir el contenido que scrollea debajo
     z-index: 1;
   }
 
