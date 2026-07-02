@@ -2,14 +2,33 @@
 import '../styles/components/projects.scss';
 import { useState, useEffect, useRef, memo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Building2, Scale, MessageCircle, Globe, Calendar, Scissors } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 type FilterType = 'all' | 'web' | 'automation';
 
+interface PlatformCard {
+  type: string;
+  icon: React.ReactNode;
+  platform: string;
+  problem: string;
+}
+
+interface Project {
+  title: string;
+  description: string;
+  image?: string;
+  platformCard?: PlatformCard;
+  link: string;
+  tags: string[];
+  category: FilterType;
+  icon: React.ReactNode;
+}
+
 const MOBILE_LIMIT  = 3;
 const DESKTOP_LIMIT = 4;
 
-const getProjects = (t: any) => [
+const getProjects = (t: any): Project[] => [
   {
     title: t('projects.project1.title'),
     description: t('projects.project1.description'),
@@ -39,6 +58,7 @@ const getProjects = (t: any) => [
       </svg>
     ),
   },
+  /* Oculto temporalmente — Ferrario & Asociados
   {
     title: t('projects.project4.title'),
     description: t('projects.project4.description'),
@@ -56,6 +76,7 @@ const getProjects = (t: any) => [
       </svg>
     ),
   },
+  */
   {
     title: t('projects.project3.title'),
     description: t('projects.project3.description'),
@@ -69,6 +90,57 @@ const getProjects = (t: any) => [
         <polyline points="9 12 11 14 15 10"/>
       </svg>
     ),
+  },
+  {
+    title: t('cases.case1.sector'),
+    description: t('cases.case1.solution'),
+    platformCard: {
+      type: t('projects.typeAgent'),
+      icon: <MessageCircle size={26} />,
+      platform: t('projects.platformWhatsapp'),
+      problem: t('cases.case1.problem'),
+    },
+    link: '',
+    tags: ['WhatsApp', 'Chatwoot', 'n8n'],
+    category: 'automation' as FilterType,
+    icon: <Building2 size={18} />,
+  },
+  {
+    title: t('cases.case2.sector'),
+    description: t('cases.case2.solution'),
+    platformCard: {
+      type: t('projects.typeChatbot'),
+      icon: <Globe size={26} />,
+      platform: t('projects.platformWebsite'),
+      problem: t('cases.case2.problem'),
+    },
+    link: '',
+    tags: ['IA', 'RAG', 'Website'],
+    category: 'automation' as FilterType,
+    icon: <Scale size={18} />,
+  },
+  {
+    title: t('projects.project5.title'),
+    description: t('projects.project5.description'),
+    image: '/assets/aesthetic-preview',
+    link: 'https://aestheticapp.com.ar',
+    tags: ['Next.js', 'TypeScript', 'Tailwind', 'Hono', 'Supabase'],
+    category: 'web' as FilterType,
+    icon: <Calendar size={18} />,
+  },
+  {
+    title: t('projects.project5.title'),
+    description: t('projects.aestheticAgent.description'),
+    platformCard: {
+      type: t('projects.typeAgent'),
+      icon: <MessageCircle size={26} />,
+      platform: t('projects.platformWhatsapp'),
+      problem: t('projects.aestheticAgent.problem'),
+    },
+    link: '',
+    tags: ['WhatsApp', 'n8n', 'GPT-4o mini'],
+    category: 'automation' as FilterType,
+    icon: <Scissors size={18} />,
   },
 
 ];
@@ -131,6 +203,35 @@ const Projects = memo(function Projects() {
     window.scrollTo({ top: targetScroll, behavior: 'smooth' });
   };
 
+  const renderPreview = (project: Project, className: string, eager = false) => {
+    if (project.platformCard) {
+      return (
+        <div className={`projects__platform-card ${className}`}>
+          <h3 className="projects__platform-card__type">{project.platformCard.type}</h3>
+          <div className="projects__platform-card__where">
+            <div className="projects__platform-card__badge">{project.platformCard.icon}</div>
+            <div className="projects__platform-card__where-text">
+              <span className="projects__platform-card__where-label">{t('projects.platformLabel')}</span>
+              <span className="projects__platform-card__platform">{project.platformCard.platform}</span>
+            </div>
+          </div>
+          <div className="projects__platform-card__problem">
+            <span className="projects__platform-card__problem-label">{t('projects.problemLabel')}</span>
+            <p>{project.platformCard.problem}</p>
+          </div>
+        </div>
+      );
+    }
+    return (
+      <img
+        src={`${project.image}.png`}
+        alt={project.title}
+        className={className}
+        loading={eager ? 'eager' : 'lazy'}
+      />
+    );
+  };
+
 
   if (isMobile) {
     return (
@@ -142,21 +243,18 @@ const Projects = memo(function Projects() {
           <div className="projects__mobile-list">
             {projects.map((project, index) => (
               <div key={index} className="projects__mobile-card">
-                <img
-                  src={`${project.image}.png`}
-                  alt={project.title}
-                  className="projects__mobile-image"
-                  loading={index === 0 ? 'eager' : 'lazy'}
-                />
+                {renderPreview(project, 'projects__mobile-image', index === 0)}
                 <div className="projects__mobile-content">
                   <h3>{project.title}</h3>
                   <p>{project.description}</p>
                   <div className="projects__tags">
                     {project.tags.map((tag, i) => <span key={i}>{tag}</span>)}
                   </div>
-                  <a href={project.link} target="_blank" rel="noopener noreferrer">
-                    <button className="button button--primary">{t('projects.viewProject')}</button>
-                  </a>
+                  {project.link && (
+                    <a href={project.link} target="_blank" rel="noopener noreferrer">
+                      <button className="button button--primary">{t('projects.viewProject')}</button>
+                    </a>
+                  )}
                 </div>
               </div>
             ))}
@@ -230,9 +328,11 @@ const Projects = memo(function Projects() {
                 <div className="projects__tags">
                   {projects[activeIndex].tags.map((tag, i) => <span key={i}>{tag}</span>)}
                 </div>
-                <a href={projects[activeIndex].link} target="_blank" rel="noopener noreferrer">
-                  <button className="button button--primary">{t('projects.viewProject')}</button>
-                </a>
+                {projects[activeIndex].link && (
+                  <a href={projects[activeIndex].link} target="_blank" rel="noopener noreferrer">
+                    <button className="button button--primary">{t('projects.viewProject')}</button>
+                  </a>
+                )}
               </motion.div>
             </AnimatePresence>
 
@@ -258,23 +358,26 @@ const Projects = memo(function Projects() {
           {/* Right image */}
           <div className="projects__preview">
             <AnimatePresence mode="wait">
-              <motion.a
-                key={activeIndex}
-                href={projects[activeIndex].link}
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={{ opacity: 0, scale: 0.96, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 1.02, y: -20 }}
-                transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-                className="projects__preview-link"
-              >
-                <img
-                  src={`${projects[activeIndex].image}.png`}
-                  alt={projects[activeIndex].title}
-                  className="projects__preview-image"
-                />
-              </motion.a>
+              {(() => {
+                const active = projects[activeIndex];
+                const PreviewWrapper = active.link ? motion.a : motion.div;
+                const linkProps = active.link
+                  ? { href: active.link, target: '_blank', rel: 'noopener noreferrer' }
+                  : {};
+                return (
+                  <PreviewWrapper
+                    key={activeIndex}
+                    {...linkProps}
+                    initial={{ opacity: 0, scale: 0.96, y: 20 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 1.02, y: -20 }}
+                    transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+                    className="projects__preview-link"
+                  >
+                    {renderPreview(active, 'projects__preview-image')}
+                  </PreviewWrapper>
+                );
+              })()}
             </AnimatePresence>
           </div>
         </div>

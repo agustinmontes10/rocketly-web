@@ -3,6 +3,7 @@ import Hero from './components/Hero';
 import Problem from './components/Problem';
 import HowWork from './components/HowWork';
 import Services from './components/Services';
+import Projects from './components/Projects';
 import Cases from './components/Cases';
 import ForWhom from './components/ForWhom';
 import Faq from './components/Faq';
@@ -18,7 +19,8 @@ export default function Home() {
       <Problem />
       <Services />
       <HowWork />
-      <Cases />
+      <Projects />
+      {/* <Cases /> */}
       <ForWhom />
       <Faq />
       <CtaFinal />

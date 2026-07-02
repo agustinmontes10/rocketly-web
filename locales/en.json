@@ -61,7 +61,7 @@
       "description": "For more complex processes where a simple bot isn't enough: agents that make decisions, query information in real time and carry out complete tasks end to end."
     },
     "service4": {
-      "title": "Process diagnosis",
+      "title": "Free diagnosis",
       "description": "If you don't know where to start, we start here. We analyze your operation and tell you exactly what's worth automating, how long it would take and what return you can expect."
     },
     "service5": {
@@ -141,7 +141,7 @@
     "emailLabel": "Or write to us at"
   },
   "footer": {
-    "tagline": "AI automation for Argentine SMEs.",
+    "tagline": "AI automation for SMEs.",
     "services": "What we do",
     "cases": "Real cases",
     "about": "About us",
@@ -226,7 +226,7 @@
     "error": "Error sending message. Please try again."
   },
   "metadata": {
-    "title": "Rocketly — AI automation for Argentine SMEs",
+    "title": "Rocketly — AI automation for SMEs",
     "description": "We analyze your company's processes and implement real AI automations: WhatsApp bots, custom agents and more. First we understand, then we build."
   }
 }

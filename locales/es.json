@@ -61,7 +61,7 @@
       "description": "Para procesos más complejos donde un simple bot no alcanza: agentes que toman decisiones, consultan información en tiempo real y ejecutan tareas completas de punta a punta."
     },
     "service4": {
-      "title": "Diagnóstico de procesos",
+      "title": "Diagnóstico gratuito",
       "description": "Si no sabés por dónde empezar, empezamos por acá. Analizamos tu operativa y te decimos exactamente qué conviene automatizar, cuánto tiempo llevaría y qué retorno podés esperar."
     },
     "service5": {
@@ -141,7 +141,7 @@
     "emailLabel": "O escribinos a"
   },
   "footer": {
-    "tagline": "Automatización con IA para PyMEs argentinas.",
+    "tagline": "Automatización con IA para PyMEs.",
     "services": "Qué hacemos",
     "cases": "Casos reales",
     "about": "Nosotros",
@@ -162,6 +162,12 @@
       "web": "Desarrollo Web",
       "automation": "Automatización"
     },
+    "platformLabel": "Dónde funciona",
+    "problemLabel": "Problema que resuelve",
+    "platformWhatsapp": "WhatsApp",
+    "platformWebsite": "Sitio web",
+    "typeAgent": "Agente de IA",
+    "typeChatbot": "Chatbot conversacional",
     "project1": {
       "title": "Agencia de Viajes",
       "description": "Sitio web para una agencia de viajes, venta de paquetes turisticos"
@@ -177,6 +183,14 @@
     "project4": {
       "title": "Ferrario & Asociados",
       "description": "Chatbot a traves de Whatsapp, Chatwoot como gestion de inbox"
+    },
+    "project5": {
+      "title": "Aesthetic",
+      "description": "Software de gestión de turnos para peluquerías y estéticas: reservas por link público de cada negocio o directamente por WhatsApp, con pagos y señas mediante MercadoPago."
+    },
+    "aestheticAgent": {
+      "description": "Agente de IA en WhatsApp (n8n + GPT-4o mini) que recibe el mensaje del cliente, entiende la intención, consulta la agenda en tiempo real y confirma el turno solo, sin intervención humana.",
+      "problem": "Coordinar turnos a mano por WhatsApp le come tiempo al negocio y hace perder reservas fuera del horario de atención."
     }
   },
   "pricing": {
@@ -226,7 +240,7 @@
     "error": "Error al enviar el mensaje. Inténtalo de nuevo."
   },
   "metadata": {
-    "title": "Rocketly — Automatización con IA para PyMEs argentinas",
+    "title": "Rocketly — Automatización con IA para PyMEs",
     "description": "Analizamos los procesos de tu empresa e implementamos automatizaciones reales con IA: bots de WhatsApp, agentes a medida y más. Primero entendemos, después construimos."
   }
 }

@@ -10,8 +10,8 @@ import { whatsappLink } from '../../lib/site';
 
 const NAV_LINKS = [
   { id: 'services', key: 'navbar.services' },
-  { id: 'casos', key: 'navbar.cases' },
   { id: 'howWork', key: 'navbar.about' },
+  { id: 'projects', key: 'navbar.cases' },
 ];
 
 export default function Navbar() {
