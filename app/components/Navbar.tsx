@@ -56,7 +56,9 @@ export default function Navbar() {
         </nav>
 
         <div className="navbar__actions">
-          <LanguageToggle />
+          <div className="navbar__lang-toggle">
+            <LanguageToggle />
+          </div>
           <a
             href={whatsappLink()}
             target="_blank"

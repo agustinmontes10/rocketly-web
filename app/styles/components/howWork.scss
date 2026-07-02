@@ -111,8 +111,9 @@
     .howWork__sticky {
       position: sticky;
       top: 0;
-      height: 100vh;
-      padding: 2rem 1.25rem;
+      min-height: 100vh;
+      height: auto;
+      padding: 2rem 1.25rem 3rem;
       justify-content: flex-start;
     }
 
@@ -144,6 +145,7 @@
     justify-content: space-between;
     flex: 1;
     min-width: 0;
+    gap: 40px;
   }
 
   &__mobile-step {
