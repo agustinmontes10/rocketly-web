@@ -134,4 +134,142 @@
       }
     }
   }
+
+  // ── Right-side actions ────────────────────────────────────────────
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__lang-toggle {
+    @media (max-width: $breakpoint-md) {
+      display: none;
+    }
+  }
+
+  &__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 1.4rem;
+    border-radius: $button-radius;
+    background: linear-gradient(135deg, #00a866, #007a4a);
+    color: #fff;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 4px 14px rgba(0, 122, 70, 0.25);
+    transition: $button-transition;
+    white-space: nowrap;
+
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 8px 22px rgba(0, 122, 70, 0.35), 0 0 18px $brand-glow-light;
+    }
+
+    &--full {
+      width: 100%;
+      padding: 0.85rem 1.4rem;
+      font-size: 1.05rem;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      display: none;
+    }
+  }
+
+  // WhatsApp icon — siempre visible en mobile
+  &__cta-mobile {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #006942;
+    color: #fff;
+    box-shadow: inset 0 0 4px #01af6f;
+    text-decoration: none;
+
+    @media (max-width: $breakpoint-md) {
+      display: inline-flex;
+    }
+  }
+
+  &__hamburger {
+    display: none;
+    background: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 0.25rem;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: $breakpoint-md) {
+      display: inline-flex;
+    }
+  }
+
+  // ── Mobile dropdown menu ──────────────────────────────────────────
+  &__mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    padding: 6rem 2rem 3rem;
+    background: rgba(0, 0, 0, 0.97);
+    backdrop-filter: blur(20px);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-12px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+
+    &--open {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    @media (min-width: ($breakpoint-md + 1)) {
+      display: none;
+    }
+  }
+
+  &__mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &__mobile-link {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-family: inherit;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    padding: 0.85rem;
+    cursor: pointer;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $brand-primary;
+    }
+  }
+
+  &__mobile-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
 }

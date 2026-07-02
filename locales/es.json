@@ -1,40 +1,156 @@
 {
   "navbar": {
-    "howWork": "Proceso",
-    "projects": "Proyectos",
-    "pricing": "Precios",
-    "contact": "Contacto"
+    "services": "Qué hacemos",
+    "cases": "Casos reales",
+    "about": "Nosotros",
+    "cta": "Hablemos"
   },
   "hero": {
-    "title": "Transformamos tu empresa",
-    "titleHighlight": "con software e inteligencia artificial",
-    "description": "Desarrollamos webs, automatizaciones y soluciones con IA pensadas para escalar tu empresa.",
-    "cta": "Comenzar Proyecto"
+    "title": "Te ayudamos a implementar",
+    "titleHighlight": "Inteligencia Artificial de forma organizada",
+    "description": "Analizamos los procesos de tu empresa y diseñamos un plan claro antes de automatizar: bots de WhatsApp, agentes a medida y las herramientas que tu negocio realmente necesita.",
+    "ctaPrimary": "Quiero que analicen mi empresa",
+    "ctaSecondary": "Ver cómo trabajamos"
+  },
+  "problem": {
+    "title": "Lo que probablemente te",
+    "titleHighlight": "esté pasando",
+    "block1": {
+      "title": "Tareas manuales que ya podrías automatizar",
+      "description": "Perdés horas por semana en procesos repetitivos —cargar datos, responder siempre lo mismo, armar reportes— que una IA bien implementada resuelve en segundos."
+    },
+    "block2": {
+      "title": "Usás ChatGPT para todo",
+      "description": "Usás ChatGPT o alguna herramienta suelta para tareas puntuales, pero eso no es tener IA integrada a tu negocio: sigue siendo trabajo manual con un atajo."
+    },
+    "block3": {
+      "title": "Todos hablan de IA, nadie te dice cómo aplicarla",
+      "description": "Ves casos, noticias y promesas todos los días, pero nadie te muestra cómo se traduce eso en tu empresa, en concreto."
+    }
+  },
+  "howWork": {
+    "title": "Primero entendemos,",
+    "titleHighlight": "después construimos",
+    "step1": {
+      "title": "Analizamos tu operativa",
+      "description": "Nos metemos en cómo trabaja tu empresa: qué herramientas usás, dónde se acumula el trabajo manual, qué procesos se repiten todos los días. En 1-2 semanas tenés un diagnóstico claro de qué automatizar y en qué orden."
+    },
+    "step2": {
+      "title": "Implementamos en ciclos cortos",
+      "description": "Empezamos por lo que más impacto tiene. Cada semana hay algo nuevo funcionando. Nos integramos con las herramientas que ya usás — no reemplazamos lo que anda bien."
+    },
+    "step3": {
+      "title": "Acompañamos el crecimiento",
+      "description": "Una vez implementado, el sistema se ajusta a medida que tu empresa cambia. Estamos disponibles para mejoras, ajustes y soporte. No desaparecemos después de entregar."
+    },
+    "cta": "¿Querés saber qué automatizaríamos en tu empresa?"
   },
   "services": {
-    "title": "Nuestros",
-    "titleHighlight": "Servicios",
-    "subtitle": "Soluciones web integrales para impulsar tu éxito digital",
+    "title": "En qué te",
+    "titleHighlight": "podemos ayudar",
     "service1": {
-      "title": "Desarrollo Web",
-      "description": "Sitios web modernos y responsivos con las últimas tecnologías"
+      "title": "Automatización de procesos",
+      "description": "Conectamos tus herramientas para que lo que hoy hacen a mano funcione solo: respuestas automáticas, sincronización de datos entre sistemas, notificaciones, reportes y seguimientos."
     },
     "service2": {
-      "title": "Aplicaciones Móviles",
-      "description": "Apps nativas e híbridas para iOS y Android"
+      "title": "Bots de WhatsApp e IA conversacional",
+      "description": "Chatbots que atienden clientes, responden preguntas frecuentes, toman turnos y derivan casos complejos a tu equipo. Funcionan 24/7 y aprenden de la información de tu empresa."
     },
     "service3": {
-      "title": "E-commerce",
-      "description": "Tiendas online optimizadas para conversión y ventas"
+      "title": "Agentes de IA a medida",
+      "description": "Para procesos más complejos donde un simple bot no alcanza: agentes que toman decisiones, consultan información en tiempo real y ejecutan tareas completas de punta a punta."
     },
     "service4": {
-      "title": "Consultoría",
-      "description": "Asesoramiento técnico para optimizar tu presencia digital"
+      "title": "Diagnóstico gratuito",
+      "description": "Si no sabés por dónde empezar, empezamos por acá. Analizamos tu operativa y te decimos exactamente qué conviene automatizar, cuánto tiempo llevaría y qué retorno podés esperar."
     },
     "service5": {
-      "title": "Soluciones de Seguridad",
-      "description": "Medidas de seguridad robustas para proteger tus aplicaciones web y datos de usuarios"
+      "title": "Sitios web a medida",
+      "description": "Landing pages, e-commerce y paneles de administración, diseñados para convertir visitas en clientes y conectados a tus automatizaciones."
     }
+  },
+  "cases": {
+    "title": "Resultados concretos,",
+    "titleHighlight": "no promesas",
+    "subtitle": "Dos ejemplos de lo que ya implementamos.",
+    "sectorLabel": "Rubro",
+    "problemLabel": "Problema",
+    "solutionLabel": "Solución",
+    "resultLabel": "Resultado",
+    "case1": {
+      "sector": "Administración de consorcios",
+      "problem": "El equipo respondía todas las consultas de propietarios e inquilinos por WhatsApp a mano, todo el día.",
+      "solution": "Bot de WhatsApp conectado a su sistema de gestión. Responde consultas frecuentes, registra reclamos y deriva automáticamente los casos que necesitan atención humana. Encuestas de satisfacción automáticas después de cada interacción.",
+      "result": "El equipo pasó de responder mensajes todo el día a intervenir solo cuando el caso lo requiere."
+    },
+    "case2": {
+      "sector": "Estudio jurídico",
+      "problem": "Los clientes hacían consultas básicas por mail o teléfono en horario laboral, saturando al equipo con preguntas que ya estaban respondidas en su documentación.",
+      "solution": "Asistente de IA embebido en la web del estudio, entrenado con la documentación propia. Responde consultas específicas del estudio las 24 horas.",
+      "result": "Los clientes resuelven sus consultas básicas sin intervención del equipo, que ahora se concentra en el trabajo que aporta valor real."
+    }
+  },
+  "forWhom": {
+    "title": "¿Esto es para",
+    "titleHighlight": "tu empresa?",
+    "paragraph": "Trabajamos con empresas que tienen procesos repetitivos que le comen tiempo al equipo todos los días. No importa el rubro ni el tamaño: importa que haya un problema concreto que resolver y ganas de resolverlo.",
+    "bullets": [
+      "Tu equipo hace tareas manuales que se repiten semana a semana",
+      "Usás WhatsApp para atender clientes y no das abasto",
+      "Tenés herramientas que no están conectadas entre sí",
+      "Querés incorporar IA pero no sabés por dónde empezar",
+      "Buscás un resultado concreto, no tecnología por la tecnología"
+    ],
+    "cta": "Si alguno de estos aplica, hablemos."
+  },
+  "faq": {
+    "title": "Preguntas",
+    "titleHighlight": "frecuentes",
+    "items": [
+      {
+        "question": "¿Necesito saber de tecnología para trabajar con ustedes?",
+        "answer": "No. Vos conocés tu negocio, nosotros nos encargamos de la parte técnica. Te explicamos en lenguaje claro qué se va a hacer y por qué."
+      },
+      {
+        "question": "¿Tienen que cambiar los programas que ya uso?",
+        "answer": "No. Nos integramos con lo que ya tenés: WhatsApp, Google Sheets, sistemas de gestión, correo, y cualquier herramienta que tenga API. No tiramos abajo lo que funciona."
+      },
+      {
+        "question": "¿Cuánto tiempo lleva tener algo funcionando?",
+        "answer": "El diagnóstico tarda 1-2 semanas. Una automatización simple puede estar andando en 2-4 semanas. Un bot de WhatsApp completo, entre 3-6 semanas. Depende de la complejidad del proyecto."
+      },
+      {
+        "question": "¿Qué pasa si la automatización tiene un error?",
+        "answer": "Diseñamos los sistemas con supervisión humana. La IA se encarga de lo repetitivo, pero los casos que necesitan criterio pasan por tu equipo. Y ante cualquier problema, estamos disponibles para resolverlo."
+      },
+      {
+        "question": "¿Trabajan con empresas chicas?",
+        "answer": "Sí. Lo que importa no es el tamaño de la empresa sino si hay procesos manuales que valga la pena automatizar. Si tu equipo pierde horas cada semana en lo mismo, tiene sentido hablar."
+      },
+      {
+        "question": "¿Cómo es el primer paso?",
+        "answer": "Una llamada o chat de 30 minutos para entender tu situación. Sin compromiso. Si tiene sentido seguir, te hacemos una propuesta concreta."
+      }
+    ]
+  },
+  "ctaFinal": {
+    "title": "Contanos en qué",
+    "titleHighlight": "anda tu empresa",
+    "subtitle": "30 minutos para entender tu operativa. Si vemos que podemos ayudarte, te decimos exactamente qué haríamos y cuánto costaría. Si no, te lo decimos igual.",
+    "ctaPrimary": "Escribinos por WhatsApp",
+    "emailLabel": "O escribinos a"
+  },
+  "footer": {
+    "tagline": "Automatización con IA para PyMEs.",
+    "services": "Qué hacemos",
+    "cases": "Casos reales",
+    "about": "Nosotros",
+    "contact": "Contacto",
+    "rights": "© 2026 Rocketly. Todos los derechos reservados."
+  },
+  "whatsapp": {
+    "aria": "Hablar por WhatsApp",
+    "float": "Hablemos"
   },
   "projects": {
     "title": "Proyectos",
@@ -46,6 +162,12 @@
       "web": "Desarrollo Web",
       "automation": "Automatización"
     },
+    "platformLabel": "Dónde funciona",
+    "problemLabel": "Problema que resuelve",
+    "platformWhatsapp": "WhatsApp",
+    "platformWebsite": "Sitio web",
+    "typeAgent": "Agente de IA",
+    "typeChatbot": "Chatbot conversacional",
     "project1": {
       "title": "Agencia de Viajes",
       "description": "Sitio web para una agencia de viajes, venta de paquetes turisticos"
@@ -61,26 +183,14 @@
     "project4": {
       "title": "Ferrario & Asociados",
       "description": "Chatbot a traves de Whatsapp, Chatwoot como gestion de inbox"
-    }
-  },
-  "howWork": {
-    "title": "Cómo",
-    "titleHighlight": "Trabajamos",
-    "step1": {
-      "title": "Análisis",
-      "description": "Entendemos tus necesidades y objetivos"
     },
-    "step2": {
-      "title": "Diseño",
-      "description": "Creamos la experiencia visual perfecta"
+    "project5": {
+      "title": "Aesthetic",
+      "description": "Software de gestión de turnos para peluquerías y estéticas: reservas por link público de cada negocio o directamente por WhatsApp, con pagos y señas mediante MercadoPago."
     },
-    "step3": {
-      "title": "Desarrollo",
-      "description": "Implementamos con las mejores tecnologías"
-    },
-    "step4": {
-      "title": "Lanzamiento",
-      "description": "Desplegamos y optimizamos tu proyecto"
+    "aestheticAgent": {
+      "description": "Agente de IA en WhatsApp (n8n + GPT-4o mini) que recibe el mensaje del cliente, entiende la intención, consulta la agenda en tiempo real y confirma el turno solo, sin intervención humana.",
+      "problem": "Coordinar turnos a mano por WhatsApp le come tiempo al negocio y hace perder reservas fuera del horario de atención."
     }
   },
   "pricing": {
@@ -130,7 +240,7 @@
     "error": "Error al enviar el mensaje. Inténtalo de nuevo."
   },
   "metadata": {
-    "title": "Rocketly - Desarrollo Web",
-    "description": "Desarrollo web moderno para tu negocio"
+    "title": "Rocketly — Automatización con IA para PyMEs",
+    "description": "Analizamos los procesos de tu empresa e implementamos automatizaciones reales con IA: bots de WhatsApp, agentes a medida y más. Primero entendemos, después construimos."
   }
 }

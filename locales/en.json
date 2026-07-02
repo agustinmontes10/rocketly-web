@@ -1,40 +1,156 @@
 {
   "navbar": {
-    "howWork": "Process",
-    "projects": "Projects",
-    "pricing": "Pricing",
-    "contact": "Contact"
+    "services": "What we do",
+    "cases": "Real cases",
+    "about": "About us",
+    "cta": "Let's talk"
   },
   "hero": {
-    "title": "We transform your company",
-    "titleHighlight": "with software and artificial intelligence",
-    "description": "We develop websites, automations and AI solutions designed to scale your business.",
-    "cta": "Start Project"
+    "title": "We help you implement",
+    "titleHighlight": "AI in an organized way",
+    "description": "We analyze your company's processes and design a clear plan before automating: WhatsApp bots, custom agents, and the tools your business actually needs.",
+    "ctaPrimary": "I want you to analyze my company",
+    "ctaSecondary": "See how we work"
+  },
+  "problem": {
+    "title": "What's probably",
+    "titleHighlight": "happening to you",
+    "block1": {
+      "title": "Manual tasks you could already automate",
+      "description": "You lose hours every week on repetitive work — entering data, answering the same questions, building reports — that AI handles in seconds once it's actually implemented."
+    },
+    "block2": {
+      "title": "You use ChatGPT for everything",
+      "description": "Using ChatGPT or some standalone tool for one-off tasks isn't the same as having AI built into your business — it's still manual work with a shortcut."
+    },
+    "block3": {
+      "title": "Everyone's talking about AI, nobody shows you how",
+      "description": "You see the news, the case studies, the hype every day, but nobody's telling you exactly how it applies to your company."
+    }
+  },
+  "howWork": {
+    "title": "First we understand,",
+    "titleHighlight": "then we build",
+    "step1": {
+      "title": "We analyze your operation",
+      "description": "We dig into how your company works: which tools you use, where manual work piles up, which processes repeat every day. In 1-2 weeks you have a clear diagnosis of what to automate and in what order."
+    },
+    "step2": {
+      "title": "We implement in short cycles",
+      "description": "We start with what has the most impact. Every week there's something new running. We integrate with the tools you already use — we don't replace what already works."
+    },
+    "step3": {
+      "title": "We support your growth",
+      "description": "Once implemented, the system adjusts as your company changes. We're available for improvements, tweaks and support. We don't disappear after delivering."
+    },
+    "cta": "Want to know what we'd automate in your company?"
   },
   "services": {
-    "title": "Our",
-    "titleHighlight": "Services",
-    "subtitle": "Comprehensive web solutions to power your digital success",
+    "title": "How we can",
+    "titleHighlight": "help you",
     "service1": {
-      "title": "Web Development",
-      "description": "Modern and responsive websites with the latest technologies"
+      "title": "Process automation",
+      "description": "We connect your tools so what's done by hand today runs on its own: automatic replies, data syncing between systems, notifications, reports and follow-ups."
     },
     "service2": {
-      "title": "Mobile Apps",
-      "description": "Native and hybrid apps for iOS and Android"
+      "title": "WhatsApp bots & conversational AI",
+      "description": "Chatbots that serve customers, answer frequent questions, book appointments and hand complex cases to your team. They run 24/7 and learn from your company's information."
     },
     "service3": {
-      "title": "E-commerce",
-      "description": "Online stores optimized for conversion and sales"
+      "title": "Custom AI agents",
+      "description": "For more complex processes where a simple bot isn't enough: agents that make decisions, query information in real time and carry out complete tasks end to end."
     },
     "service4": {
-      "title": "Consulting",
-      "description": "Technical advice to optimize your digital presence"
+      "title": "Free diagnosis",
+      "description": "If you don't know where to start, we start here. We analyze your operation and tell you exactly what's worth automating, how long it would take and what return you can expect."
     },
     "service5": {
-      "title": "Security Solutions",
-      "description": "Robust security measures to protect your web applications and user data"
+      "title": "Custom websites",
+      "description": "Landing pages, e-commerce and admin dashboards, designed to turn visitors into customers and connected to your automations."
     }
+  },
+  "cases": {
+    "title": "Concrete results,",
+    "titleHighlight": "not promises",
+    "subtitle": "Two examples of what we've already implemented.",
+    "sectorLabel": "Industry",
+    "problemLabel": "Problem",
+    "solutionLabel": "Solution",
+    "resultLabel": "Result",
+    "case1": {
+      "sector": "Building management",
+      "problem": "The team answered every owner and tenant inquiry over WhatsApp by hand, all day long.",
+      "solution": "WhatsApp bot connected to their management system. It answers frequent questions, logs complaints and automatically routes the cases that need human attention. Automatic satisfaction surveys after every interaction.",
+      "result": "The team went from answering messages all day to stepping in only when the case requires it."
+    },
+    "case2": {
+      "sector": "Law firm",
+      "problem": "Clients made basic inquiries by email or phone during business hours, overwhelming the team with questions already answered in their documentation.",
+      "solution": "AI assistant embedded in the firm's website, trained on their own documentation. It answers firm-specific inquiries 24 hours a day.",
+      "result": "Clients resolve their basic inquiries without the team's involvement, which now focuses on the work that adds real value."
+    }
+  },
+  "forWhom": {
+    "title": "Is this for",
+    "titleHighlight": "your company?",
+    "paragraph": "We work with companies that have repetitive processes eating up the team's time every day. The industry and size don't matter: what matters is having a concrete problem to solve and the will to solve it.",
+    "bullets": [
+      "Your team does manual tasks that repeat week after week",
+      "You use WhatsApp to serve customers and can't keep up",
+      "You have tools that aren't connected to each other",
+      "You want to bring in AI but don't know where to start",
+      "You're after a concrete result, not technology for its own sake"
+    ],
+    "cta": "If any of these apply, let's talk."
+  },
+  "faq": {
+    "title": "Frequently asked",
+    "titleHighlight": "questions",
+    "items": [
+      {
+        "question": "Do I need to know about technology to work with you?",
+        "answer": "No. You know your business, we handle the technical part. We explain in plain language what's going to be done and why."
+      },
+      {
+        "question": "Do I have to change the software I already use?",
+        "answer": "No. We integrate with what you already have: WhatsApp, Google Sheets, management systems, email, and any tool with an API. We don't tear down what works."
+      },
+      {
+        "question": "How long does it take to get something running?",
+        "answer": "The diagnosis takes 1-2 weeks. A simple automation can be running in 2-4 weeks. A full WhatsApp bot, between 3-6 weeks. It depends on the project's complexity."
+      },
+      {
+        "question": "What happens if the automation has an error?",
+        "answer": "We design systems with human supervision. The AI handles the repetitive part, but cases that need judgment go through your team. And if any problem comes up, we're available to solve it."
+      },
+      {
+        "question": "Do you work with small companies?",
+        "answer": "Yes. What matters isn't the size of the company but whether there are manual processes worth automating. If your team loses hours every week on the same thing, it's worth talking."
+      },
+      {
+        "question": "What's the first step?",
+        "answer": "A 30-minute call or chat to understand your situation. No commitment. If it makes sense to continue, we put together a concrete proposal."
+      }
+    ]
+  },
+  "ctaFinal": {
+    "title": "Tell us what's going on",
+    "titleHighlight": "with your company",
+    "subtitle": "30 minutes to understand your operation. If we see we can help, we tell you exactly what we'd do and how much it would cost. If not, we'll tell you that too.",
+    "ctaPrimary": "Message us on WhatsApp",
+    "emailLabel": "Or write to us at"
+  },
+  "footer": {
+    "tagline": "AI automation for SMEs.",
+    "services": "What we do",
+    "cases": "Real cases",
+    "about": "About us",
+    "contact": "Contact",
+    "rights": "© 2026 Rocketly. All rights reserved."
+  },
+  "whatsapp": {
+    "aria": "Chat on WhatsApp",
+    "float": "Let's talk"
   },
   "projects": {
     "title": "Featured",
@@ -61,26 +177,6 @@
     "project4": {
       "title": "Ferrario & Asociados",
       "description": "Chatbot through Whatsapp, Chatwoot as inbox management"
-    }
-  },
-  "howWork": {
-    "title": "How We",
-    "titleHighlight": "Work",
-    "step1": {
-      "title": "Analysis",
-      "description": "We understand your needs and objectives"
-    },
-    "step2": {
-      "title": "Design",
-      "description": "We create the perfect visual experience"
-    },
-    "step3": {
-      "title": "Development",
-      "description": "We implement with the best technologies"
-    },
-    "step4": {
-      "title": "Launch",
-      "description": "We deploy and optimize your project"
     }
   },
   "pricing": {
@@ -130,7 +226,7 @@
     "error": "Error sending message. Please try again."
   },
   "metadata": {
-    "title": "Rocketly - Web Development",
-    "description": "Modern web development for your business"
+    "title": "Rocketly — AI automation for SMEs",
+    "description": "We analyze your company's processes and implement real AI automations: WhatsApp bots, custom agents and more. First we understand, then we build."
   }
 }

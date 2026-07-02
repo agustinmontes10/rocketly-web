@@ -1,0 +1,126 @@
+@import '../variables';
+
+.cases {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 6rem 0;
+  color: $text-primary;
+  overflow: hidden;
+  z-index: 1;
+
+  > .container {
+    width: 100%;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__subtitle {
+    text-align: center;
+    color: $text-secondary;
+    font-size: 1.15rem;
+    margin: -1rem 0 3rem;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+
+    @media (max-width: $breakpoint-md) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__card {
+    @include card-surface;
+    @include spotlight;
+    padding: 2rem;
+    overflow: hidden;
+
+    > * {
+      position: relative;
+      z-index: 2;
+    }
+  }
+
+  &__sector {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.25rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    &-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      flex-shrink: 0;
+      border-radius: 0.6rem;
+      color: $brand-secondary;
+      background: rgba($brand-secondary, 0.1);
+      border: 1px solid rgba($brand-secondary, 0.2);
+    }
+
+    &-label {
+      display: block;
+      font-family: $font-mono;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: $text-secondary;
+    }
+
+    &-name {
+      font-size: 1.2rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+  }
+
+  &__field {
+    margin-bottom: 1.1rem;
+
+    p {
+      font-size: 0.95rem;
+      color: $text-secondary;
+      line-height: 1.6;
+    }
+
+    &-label {
+      display: block;
+      font-family: $font-mono;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: $brand-primary;
+      margin-bottom: 0.4rem;
+    }
+  }
+
+  &__result {
+    margin-top: 1.25rem;
+    padding: 1rem 1.1rem;
+    border-radius: 0.75rem;
+    background: rgba($brand-primary, 0.07);
+    border: 1px solid rgba($brand-primary, 0.18);
+
+    .cases__field-label {
+      margin-bottom: 0.35rem;
+    }
+
+    p {
+      font-size: 0.95rem;
+      color: $text-primary;
+      line-height: 1.6;
+    }
+  }
+}

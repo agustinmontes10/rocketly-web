@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import { MotionConfig } from 'framer-motion';
 import '../../lib/i18n';
 
 export default function I18nProvider({ children }: { children: React.ReactNode }) {
@@ -9,5 +10,5 @@ export default function I18nProvider({ children }: { children: React.ReactNode }
     // Este componente solo asegura que se ejecute en el cliente
   }, []);
 
-  return <>{children}</>;
+  return <MotionConfig reducedMotion="user">{children}</MotionConfig>;
 }

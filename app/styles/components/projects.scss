@@ -337,3 +337,93 @@
     }
   }
 }
+
+// ── Platform card — replaces the screenshot preview for automations
+//    without a public site (shows where it runs + what it solves) ──
+.projects__platform-card {
+  @include card-surface;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1.1rem;
+  padding: 2.5rem 2rem;
+
+  &.projects__mobile-image {
+    height: auto;
+    aspect-ratio: 16 / 11;
+  }
+
+  &__type {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: $text-primary;
+  }
+
+  &__where {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    text-align: left;
+  }
+
+  &__where-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  &__where-label {
+    font-family: $font-mono;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: $brand-primary;
+  }
+
+  &__badge {
+    width: 48px;
+    height: 48px;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: $brand-primary;
+    background: rgba($brand-primary, 0.1);
+    border: 1px solid rgba($brand-primary, 0.25);
+    box-shadow: 0 0 24px rgba($brand-primary, 0.15);
+  }
+
+  &__platform {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: $text-primary;
+  }
+
+  &__problem {
+    max-width: 320px;
+
+    &-label {
+      display: block;
+      font-family: $font-mono;
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: $brand-primary;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 0.92rem;
+      color: $text-secondary;
+      line-height: 1.6;
+    }
+  }
+}

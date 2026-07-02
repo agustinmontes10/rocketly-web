@@ -5,7 +5,9 @@ import Link from "next/link"
 import "../styles/components/hero.scss"
 import { animate, stagger } from "motion";
 import { splitText } from "motion-plus";
+import { motion } from "framer-motion";
 import { useTranslation } from 'react-i18next';
+import { whatsappLink } from "../../lib/site";
 
 // Neural network layers: [x, y] per node
 const NN_LAYERS = [
@@ -151,15 +153,22 @@ const Hero = memo(function Hero() {
             <p key={`p-${i18n.language}`}>{t('hero.description')}</p>
           </div>
           <div className="hero__buttons">
-            <Link href="#contact" className="button button--primary">
-              {t('hero.cta')}
-            </Link>
-            <Link href="#projects" className="button button--secondary">
-              {t('navbar.projects')}
+            <motion.a
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+              href={whatsappLink()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="button button--primary"
+            >
+              {t('hero.ctaPrimary')}
+            </motion.a>
+            <Link href="#howWork" className="button button--secondary">
+              {t('hero.ctaSecondary')}
             </Link>
           </div>
         </div>
-
       </div>
     </section>
   )

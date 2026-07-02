@@ -3,7 +3,7 @@
 .howWork {
   position: relative;
   height: 350vh; // scroll space to drive the animation
-  background: #000;
+  background: $bg-base;
 
   &__sticky {
     position: sticky;
@@ -14,6 +14,8 @@
     align-items: center;
     justify-content: center;
     padding: 2rem 3rem;
+    background: $bg-base; // necesario para cubrir el contenido que scrollea debajo
+    z-index: 1;
   }
 
   &__header {
@@ -40,36 +42,65 @@
     overflow: visible;
   }
 
-  // Last dot: x=1140/1200=95%, y=30/400=7.5%
+  // Last dot: x=1080/1200=90%, y=60/400=15%
   &__rocket {
     position: absolute;
-    left: 95%;
-    top: -21.5%;
+    left: 90%;
+    top: 15%;
     width: 160px;
+    transform: translate(-50%, -55%);
     pointer-events: none;
   }
 
   &__labels {
     display: flex;
     justify-content: space-between;
-    padding: 0.25rem 0 0;
+    gap: 1.5rem;
+    padding: 1rem 0 0;
   }
 
   &__step {
-    width: 22%;
+    width: 31%;
     text-align: center;
 
     h3 {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       font-weight: 700;
       color: $text-primary;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.5rem;
     }
 
     p {
-      font-size: 0.85rem;
+      font-size: 0.92rem;
       color: $text-secondary;
-      line-height: 1.5;
+      line-height: 1.55;
+    }
+  }
+
+  &__step-number {
+    display: block;
+    font-family: $font-mono;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 0.6rem;
+    background: $brand-gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  &__cta {
+    margin-top: 2.5rem;
+    text-align: center;
+
+    .button {
+      font-size: 1.05rem;
+      padding: 0.9rem 2rem;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      margin-top: 1.5rem;
     }
   }
 
@@ -80,8 +111,9 @@
     .howWork__sticky {
       position: sticky;
       top: 0;
-      height: 100vh;
-      padding: 2rem 1.25rem;
+      min-height: 100vh;
+      height: auto;
+      padding: 2rem 1.25rem 3rem;
       justify-content: flex-start;
     }
 
@@ -113,6 +145,7 @@
     justify-content: space-between;
     flex: 1;
     min-width: 0;
+    gap: 40px;
   }
 
   &__mobile-step {
