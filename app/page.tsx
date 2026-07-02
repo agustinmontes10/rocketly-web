@@ -1,10 +1,8 @@
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Problem from './components/Problem';
-import ChatDemo from './components/ChatDemo';
 import HowWork from './components/HowWork';
 import Services from './components/Services';
-import Metrics from './components/Metrics';
 import Cases from './components/Cases';
 import ForWhom from './components/ForWhom';
 import Faq from './components/Faq';
@@ -18,10 +16,8 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Problem />
-      <ChatDemo />
-      <HowWork />
       <Services />
-      <Metrics />
+      <HowWork />
       <Cases />
       <ForWhom />
       <Faq />

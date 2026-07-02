@@ -6,9 +6,9 @@
     "cta": "Let's talk"
   },
   "hero": {
-    "title": "Your team loses hours on tasks",
-    "titleHighlight": "an AI could handle on its own",
-    "description": "At Rocketly we analyze your company's processes and implement real automations: from WhatsApp bots to agents that run your operation while you focus on what matters.",
+    "title": "We help you implement",
+    "titleHighlight": "AI in an organized way",
+    "description": "We analyze your company's processes and design a clear plan before automating: WhatsApp bots, custom agents, and the tools your business actually needs.",
     "ctaPrimary": "I want you to analyze my company",
     "ctaSecondary": "See how we work"
   },
@@ -16,16 +16,16 @@
     "title": "What's probably",
     "titleHighlight": "happening to you",
     "block1": {
-      "title": "The time that goes into the same old things",
-      "description": "Answering the same questions over WhatsApp, copying data from one system to another, doing manual follow-ups. Your team does it well, but they shouldn't have to."
+      "title": "Manual tasks you could already automate",
+      "description": "You lose hours every week on repetitive work — entering data, answering the same questions, building reports — that AI handles in seconds once it's actually implemented."
     },
     "block2": {
-      "title": "AI tools that never quite work",
-      "description": "ChatGPT, Zapier, some bot someone set up that nobody knows how to edit. The tools are there, but they're not connected to how your company actually works."
+      "title": "You use ChatGPT for everything",
+      "description": "Using ChatGPT or some standalone tool for one-off tasks isn't the same as having AI built into your business — it's still manual work with a shortcut."
     },
     "block3": {
-      "title": "Vendors who sell without understanding",
-      "description": "Most offer their solution before getting to know your business. We start the other way around."
+      "title": "Everyone's talking about AI, nobody shows you how",
+      "description": "You see the news, the case studies, the hype every day, but nobody's telling you exactly how it applies to your company."
     }
   },
   "howWork": {
@@ -63,22 +63,11 @@
     "service4": {
       "title": "Process diagnosis",
       "description": "If you don't know where to start, we start here. We analyze your operation and tell you exactly what's worth automating, how long it would take and what return you can expect."
+    },
+    "service5": {
+      "title": "Custom websites",
+      "description": "Landing pages, e-commerce and admin dashboards, designed to turn visitors into customers and connected to your automations."
     }
-  },
-  "chatDemo": {
-    "label": "In action",
-    "title": "A bot that responds",
-    "titleHighlight": "on its own, 24/7",
-    "description": "This is how the bot we built for a building management company works. What used to take the team all day is now handled automatically.",
-    "bullet1": "Responds instantly, at any hour",
-    "bullet2": "Routes to advisors when the case requires it",
-    "bullet3": "Learns from your company's real information"
-  },
-  "metrics": {
-    "item1": { "value": "24/7", "label": "Your bots run nonstop" },
-    "item2": { "value": "1-2 wks", "label": "Diagnosis of your operation" },
-    "item3": { "value": "2-6 wks", "label": "First automations up and running" },
-    "item4": { "value": "+10", "label": "Tools we integrate with" }
   },
   "cases": {
     "title": "Concrete results,",

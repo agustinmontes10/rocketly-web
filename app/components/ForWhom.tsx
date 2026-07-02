@@ -36,14 +36,17 @@ export default function ForWhom() {
         </ul>
 
         <div className="forWhom__cta">
-          <a
+          <motion.a
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 17 }}
             href={whatsappLink()}
             target="_blank"
             rel="noopener noreferrer"
             className="button button--primary"
           >
             {t('forWhom.cta')}
-          </a>
+          </motion.a>
         </div>
       </div>
     </section>

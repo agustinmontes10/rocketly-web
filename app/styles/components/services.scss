@@ -2,13 +2,16 @@
 
 .services {
   position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
   padding: 6rem 0;
   color: #ffffff;
   overflow: hidden;
   z-index: 1;
 
-  &::before {
-    @include glow(85%, 10%, rgba(0, 212, 231, 0.09));
+  > .container {
+    width: 100%;
   }
 
   .container {
@@ -16,74 +19,131 @@
     z-index: 1;
   }
 
-  .heading--lg {
-    margin-bottom: 3rem;
+  &__heading {
+    margin-bottom: 3.5rem;
   }
 
-  &__grid {
+  &__layout {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 1.25rem;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 4rem;
+    align-items: center;
     max-width: 1040px;
     margin: 0 auto;
 
     @media (max-width: $breakpoint-md) {
       grid-template-columns: 1fr;
+      gap: 2.5rem;
     }
   }
 
-  &__card {
-    @include card-surface;
-    @include spotlight(rgba(0, 212, 231, 0.12));
-    grid-column: span 2; // narrow bento cell
-    padding: 2.25rem;
-    overflow: hidden;
+  &__list {
+    list-style: none;
+  }
+
+  &__item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1.5rem 0 1.5rem 1.25rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 2px;
+      height: 0;
+      background: $brand-gradient;
+      border-radius: 2px;
+      transform: translateY(-50%);
+      transition: height 0.3s ease;
+    }
+
+    &:last-child {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    &:hover {
+      border-color: rgba(255, 255, 255, 0.16);
+    }
+  }
+
+  &__index {
+    flex-shrink: 0;
+    width: 1.75rem;
+    font-family: $font-mono;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.28);
+    transition: color 0.3s ease;
+  }
+
+  &__item-title {
+    flex: 1;
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: rgba(255, 255, 255, 0.32);
+    transition: color 0.3s ease;
+
+    @media (max-width: $breakpoint-sm) {
+      font-size: 1.15rem;
+    }
+  }
+
+  &__item--active {
+    &::before {
+      height: 58%;
+    }
+
+    .services__index {
+      color: $brand-primary;
+    }
+
+    .services__item-title {
+      color: $text-primary;
+      background: $brand-gradient;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  }
+
+  &__preview {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
-
-    // Bento: wide cells span more and lay out horizontally on desktop
-    &--wide {
-      grid-column: span 4;
-      flex-direction: row;
-      align-items: flex-start;
-    }
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+    padding: 2rem;
 
     @media (max-width: $breakpoint-md) {
-      grid-column: 1 / -1;
-      flex-direction: column;
+      padding: 0;
     }
+  }
 
-    &-icon {
-      position: relative;
-      z-index: 2;
-      flex-shrink: 0;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 54px;
-      height: 54px;
-      border-radius: 0.75rem;
-      color: $brand-primary;
-      background: rgba($brand-primary, 0.1);
-      border: 1px solid rgba($brand-primary, 0.2);
-    }
+  &__badge {
+    width: 68px;
+    height: 68px;
+    border-radius: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $brand-primary;
+    background: rgba($brand-primary, 0.08);
+    border: 1px solid rgba($brand-primary, 0.22);
+    box-shadow: 0 0 28px rgba($brand-primary, 0.14);
+  }
 
-    &-body {
-      position: relative;
-      z-index: 2;
-    }
-
-    h3 {
-      font-size: 1.3rem;
-      margin-bottom: 0.85rem;
-      line-height: 1.3;
-    }
-
-    p {
-      font-size: 0.98rem;
-      color: $text-secondary;
-      line-height: 1.6;
-    }
+  &__description {
+    color: $text-secondary;
+    font-size: 1rem;
+    line-height: 1.65;
+    max-width: 320px;
+    min-height: 3.3rem;
   }
 }

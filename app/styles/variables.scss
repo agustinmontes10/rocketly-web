@@ -60,16 +60,6 @@ $breakpoint-xl: 1280px;
 $container-max-width: 1160px;
 
 // ── Reusable mixins ──────────────────────────────────────────────────
-// Soft radial light anchored in a section, for depth between sections.
-@mixin glow($x, $y, $color, $w: 70%, $h: 55%) {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background: radial-gradient(ellipse #{$w} #{$h} at #{$x} #{$y}, $color, transparent 70%);
-}
-
 // Card with a 1px top-light gradient border (simulates light from above).
 @mixin card-surface {
   position: relative;

@@ -2,13 +2,16 @@
 
 .cases {
   position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
   padding: 6rem 0;
   color: $text-primary;
   overflow: hidden;
   z-index: 1;
 
-  &::before {
-    @include glow(50%, 0%, rgba(0, 190, 119, 0.10), 80%, 50%);
+  > .container {
+    width: 100%;
   }
 
   .container {

@@ -2,14 +2,14 @@ import I18nProvider from './components/I18nProvider';
 import './styles/globals.scss';
 import type { Metadata } from 'next';
 
-const SITE_TITLE = 'Rocketly — Automatización con IA para PyMEs argentinas';
+const SITE_TITLE = 'Rocketly | Agencia de IA y desarrollo web';
 const SITE_DESCRIPTION =
   'Analizamos los procesos de tu empresa e implementamos automatizaciones reales con IA: bots de WhatsApp, agentes a medida y más. Primero entendemos, después construimos.';
 
 export const metadata: Metadata = {
   title: SITE_TITLE,
   description: SITE_DESCRIPTION,
-  keywords: 'automatización, inteligencia artificial, IA, bots de WhatsApp, agentes de IA, automatización de procesos, PyMEs, Argentina, n8n, Chatwoot',
+  keywords: 'automatización, inteligencia artificial, IA, bots de WhatsApp, agentes de IA, automatización de procesos, PyMEs, Argentina, n8n, desarrollo web',
   authors: [{ name: 'Rocketly' }],
   creator: 'Rocketly',
   publisher: 'Rocketly',

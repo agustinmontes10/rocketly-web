@@ -2,13 +2,16 @@
 
 .forWhom {
   position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
   padding: 6rem 0;
   color: $text-primary;
   overflow: hidden;
   z-index: 1;
 
-  &::before {
-    @include glow(20%, 100%, rgba(0, 212, 231, 0.08));
+  > .container {
+    width: 100%;
   }
 
   .container {

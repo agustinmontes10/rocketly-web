@@ -2,15 +2,15 @@
 
 .ctaFinal {
   position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 7rem 1.5rem;
   color: $text-primary;
   text-align: center;
   overflow: hidden;
   z-index: 1;
-
-  &::before {
-    @include glow(50%, 0%, rgba(0, 190, 119, 0.12));
-  }
 
   &__overlay {
     position: absolute;
