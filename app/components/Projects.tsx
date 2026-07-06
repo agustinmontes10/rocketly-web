@@ -2,7 +2,7 @@
 import '../styles/components/projects.scss';
 import { useState, useEffect, useRef, memo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Building2, Scale, MessageCircle, Globe, Calendar, Scissors } from 'lucide-react';
+import { Building2, Calendar, Wallet, Scissors } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 type FilterType = 'all' | 'web' | 'automation';
@@ -94,30 +94,20 @@ const getProjects = (t: any): Project[] => [
   {
     title: t('cases.case1.sector'),
     description: t('cases.case1.solution'),
-    platformCard: {
-      type: t('projects.typeAgent'),
-      icon: <MessageCircle size={26} />,
-      platform: t('projects.platformWhatsapp'),
-      problem: t('cases.case1.problem'),
-    },
+    image: '/assets/ferrarioAsociados-preview',
     link: '',
     tags: ['WhatsApp', 'Chatwoot', 'n8n'],
     category: 'automation' as FilterType,
     icon: <Building2 size={18} />,
   },
   {
-    title: t('cases.case2.sector'),
-    description: t('cases.case2.solution'),
-    platformCard: {
-      type: t('projects.typeChatbot'),
-      icon: <Globe size={26} />,
-      platform: t('projects.platformWebsite'),
-      problem: t('cases.case2.problem'),
-    },
+    title: t('projects.project6.title'),
+    description: t('projects.project6.description'),
+    image: '/assets/personalAssistantAgent-preview',
     link: '',
-    tags: ['IA', 'RAG', 'Website'],
+    tags: ['n8n', 'GPT-4o mini', 'Whisper', 'PostgreSQL'],
     category: 'automation' as FilterType,
-    icon: <Scale size={18} />,
+    icon: <Wallet size={18} />,
   },
   {
     title: t('projects.project5.title'),
@@ -131,12 +121,7 @@ const getProjects = (t: any): Project[] => [
   {
     title: t('projects.project5.title'),
     description: t('projects.aestheticAgent.description'),
-    platformCard: {
-      type: t('projects.typeAgent'),
-      icon: <MessageCircle size={26} />,
-      platform: t('projects.platformWhatsapp'),
-      problem: t('projects.aestheticAgent.problem'),
-    },
+    image: '/assets/aestheticAgent-preview',
     link: '',
     tags: ['WhatsApp', 'n8n', 'GPT-4o mini'],
     category: 'automation' as FilterType,

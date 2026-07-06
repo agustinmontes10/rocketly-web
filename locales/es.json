@@ -191,6 +191,10 @@
     "aestheticAgent": {
       "description": "Agente de IA en WhatsApp (n8n + GPT-4o mini) que recibe el mensaje del cliente, entiende la intención, consulta la agenda en tiempo real y confirma el turno solo, sin intervención humana.",
       "problem": "Coordinar turnos a mano por WhatsApp le come tiempo al negocio y hace perder reservas fuera del horario de atención."
+    },
+    "project6": {
+      "title": "Asistente Personal de Gastos",
+      "description": "Agente conversacional por WhatsApp (texto o audio) que registra tus gastos: transcribe la nota de voz, extrae monto, categoría y descripción, pide confirmación antes de guardar y avisa si te pasás del presupuesto mensual. Deja buscar, editar y comparar gastos entre períodos. Prueba gratis de 20 mensajes, después con suscripción vía Mercado Pago."
     }
   },
   "pricing": {

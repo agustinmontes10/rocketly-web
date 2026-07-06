@@ -105,78 +105,75 @@
   }
 
   // ── Mobile class (rendered via JS isMobile branch) ──────────────
+  //    Sin scroll-jacking ni SVG: contenido simple, en flujo normal.
   &--mobile {
-    height: 260vh;
+    height: auto;
 
     .howWork__sticky {
-      position: sticky;
-      top: 0;
-      min-height: 100vh;
+      position: static;
       height: auto;
-      padding: 2rem 1.25rem 3rem;
-      justify-content: flex-start;
+      align-items: stretch;
+      padding: 4rem 1.25rem;
     }
 
     .howWork__header {
-      margin-bottom: 1.5rem;
-      flex-shrink: 0;
+      margin-bottom: 2rem;
 
       .heading--lg {
-        font-size: 2.4rem;
+        font-size: 2.2rem;
       }
     }
   }
 
-  // ── Mobile layout: texto izquierda | curva S derecha ──────────
-  &__mobile-layout {
-    display: flex;
-    gap: 0.5rem;
-    align-items: stretch;
-    width: 100%;
-    flex: 1;
-    min-height: 0;
-    position: relative;
-  }
-
-  // Columna izquierda: pasos con texto centrado
   &__mobile-steps {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    flex: 1;
-    min-width: 0;
-    gap: 40px;
+    gap: 1.1rem;
+    width: 100%;
   }
 
   &__mobile-step {
-    text-align: center;
-    background-color: #000000a1;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    text-align: left;
+    padding: 1.4rem;
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  &__mobile-step-number {
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $font-mono;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: $brand-primary;
+    background: rgba($brand-primary, 0.1);
+    border: 1px solid rgba($brand-primary, 0.3);
+  }
+
+  &__mobile-step-content {
+    min-width: 0;
 
     h3 {
-      font-size: 1.5rem;
+      font-size: 1.15rem;
       font-weight: 700;
       color: $text-primary;
-      margin-bottom: 0.25rem;
-      line-height: 1.2;
+      margin-bottom: 0.35rem;
+      line-height: 1.25;
     }
 
     p {
+      font-size: 0.92rem;
       color: $text-secondary;
-      line-height: 1.5;
+      line-height: 1.6;
     }
-  }
-
-  // Columna derecha: SVG curva S
-  &__mobile-svg-wrapper {
-    position: absolute;
-    height: 100%;
-    left: 25%;
-    z-index: -1;
-    opacity: 0.5
-  }
-
-  &__mobile-svg {
-    height: 100%;
-    width: auto
   }
 }

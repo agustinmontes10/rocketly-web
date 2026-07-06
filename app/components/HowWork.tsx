@@ -73,9 +73,6 @@ export default function HowWork() {
   const stepYs = [step1Y, step2Y, step3Y]
   const rocketOpacity = useTransform(smooth, [0.73, 0.86], [0, 1])
 
-  // ── Mobile timeline animation ───────────────
-  const mobilePathLength = useTransform(scrollYProgress, [0, 0.9], [0.05, 1])
-
   return (
     // Un único elemento root — containerRef nunca se desmonta → useScroll siempre trackea
     <div
@@ -92,111 +89,28 @@ export default function HowWork() {
         </div>
 
         {isMobile ? (
-          /* ── Mobile content ───────────────────────────────────── */
-          <div className="howWork__mobile-layout">
-
-            {/* SVG timeline centrada */}
-            <div className="howWork__mobile-svg-wrapper">
-              <svg className="howWork__mobile-svg" width="100" height="462" viewBox="0 0 100 462" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g clip-path="url(#clip0_259_41)">
-                  <path d="M49 -38.5941C93.8 23.335 93.8 65.9113 49 127.841C93.8 189.77 93.8 232.346 49 294.275C93.8 356.204 93.8 384.589 49 446.518" stroke="white" stroke-opacity="0.06" stroke-width="2" />
-                  <path opacity="0.12" d="M49 -38.5941C93.8 23.335 93.8 65.9113 49 127.841C93.8 189.77 93.8 232.346 49 294.275C93.8 356.204 93.8 384.589 49 446.518" stroke="url(#paint0_linear_259_41)" stroke-width="12" stroke-linecap="round" stroke-dasharray="1 1" />
-                  <motion.path
-                    d="M49 -38.5941C93.8 23.335 93.8 65.9113 49 127.841C93.8 189.77 93.8 232.346 49 294.275C93.8 356.204 93.8 384.589 49 446.518"
-                    stroke="url(#paint1_linear_259_41)"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    style={{ pathLength: mobilePathLength }}
-                  />
-                </g>
-                <g clip-path="url(#clip1_259_41)">
-                  <path d="M50 8.34998C5.2 61.75 5.2 98.4625 50 151.862C5.2 205.262 5.2 241.975 50 295.375C5.2 348.775 5.2 373.25 50 426.65" stroke="white" stroke-opacity="0.06" stroke-width="2" />
-                  <path opacity="0.12" d="M50 8.34998C5.2 61.75 5.2 98.4625 50 151.862C5.2 205.262 5.2 241.975 50 295.375C5.2 348.775 5.2 373.25 50 426.65" stroke="url(#paint2_linear_259_41)" stroke-width="12" stroke-linecap="round" stroke-dasharray="1 1" />
-                  <motion.path
-                    d="M50 8.34998C5.2 61.75 5.2 98.4625 50 151.862C5.2 205.262 5.2 241.975 50 295.375C5.2 348.775 5.2 373.25 50 426.65"
-                    stroke="url(#paint3_linear_259_41)"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    style={{ pathLength: mobilePathLength }}
-                  />
-                </g>
-                <g clip-path="url(#clip2_259_41)">
-                  <path d="M50 8.34998C94.8 61.75 94.8 98.4625 50 151.862C94.8 205.262 94.8 241.975 50 295.375C94.8 348.775 94.8 373.25 50 426.65" stroke="white" stroke-opacity="0.06" stroke-width="2" />
-                  <path opacity="0.12" d="M50 8.34998C94.8 61.75 94.8 98.4625 50 151.862C94.8 205.262 94.8 241.975 50 295.375C94.8 348.775 94.8 373.25 50 426.65" stroke="url(#paint4_linear_259_41)" stroke-width="12" stroke-linecap="round" stroke-dasharray="1 1" />
-                  <motion.path
-                    d="M50 8.34998C94.8 61.75 94.8 98.4625 50 151.862C94.8 205.262 94.8 241.975 50 295.375C94.8 348.775 94.8 373.25 50 426.65"
-                    stroke="url(#paint5_linear_259_41)"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    style={{ pathLength: mobilePathLength }}
-                  />
-                </g>
-                <defs>
-                  <linearGradient id="paint0_linear_259_41" x1="49" y1="-38.5941" x2="49" y2="446.518" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#00BE77" />
-                    <stop offset="0.5" stop-color="#00CFAF" />
-                    <stop offset="1" stop-color="#00D4E7" />
-                  </linearGradient>
-                  <linearGradient id="paint1_linear_259_41" x1="49" y1="-38.5941" x2="49" y2="446.518" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#00BE77" />
-                    <stop offset="0.5" stop-color="#00CFAF" />
-                    <stop offset="1" stop-color="#00D4E7" />
-                  </linearGradient>
-                  <linearGradient id="paint2_linear_259_41" x1="50" y1="8.34998" x2="50" y2="426.65" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#00BE77" />
-                    <stop offset="0.5" stop-color="#00CFAF" />
-                    <stop offset="1" stop-color="#00D4E7" />
-                  </linearGradient>
-                  <linearGradient id="paint3_linear_259_41" x1="50" y1="8.34998" x2="50" y2="426.65" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#00BE77" />
-                    <stop offset="0.5" stop-color="#00CFAF" />
-                    <stop offset="1" stop-color="#00D4E7" />
-                  </linearGradient>
-                  <linearGradient id="paint4_linear_259_41" x1="50" y1="8.34998" x2="50" y2="426.65" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#00BE77" />
-                    <stop offset="0.5" stop-color="#00CFAF" />
-                    <stop offset="1" stop-color="#00D4E7" />
-                  </linearGradient>
-                  <linearGradient id="paint5_linear_259_41" x1="50" y1="8.34998" x2="50" y2="426.65" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#00BE77" />
-                    <stop offset="0.5" stop-color="#00CFAF" />
-                    <stop offset="1" stop-color="#00D4E7" />
-                  </linearGradient>
-                  <clipPath id="clip0_259_41">
-                    <rect width="69" height="167" fill="white" transform="translate(30 295)" />
-                  </clipPath>
-                  <clipPath id="clip1_259_41">
-                    <rect width="69" height="143" fill="white" transform="matrix(-1 0 0 1 69 152)" />
-                  </clipPath>
-                  <clipPath id="clip2_259_41">
-                    <rect width="69" height="152" fill="white" transform="translate(31)" />
-                  </clipPath>
-                </defs>
-              </svg>
-            </div>
-
-            {/* Steps */}
-            <div className="howWork__mobile-steps">
-              {steps.map((step, i) => (
-                <motion.div
-                  key={i}
-                  className="howWork__mobile-step"
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-60px" }}
-                  transition={{
-                    duration: 0.5,
-                    delay: i * 0.15,
-                    ease: "easeOut",
-                  }}
-                >
-                  <span className="howWork__step-number">{step.number}</span>
+          /* ── Mobile content: lista simple, sin SVG ──────────────── */
+          <div className="howWork__mobile-steps">
+            {steps.map((step, i) => (
+              <motion.div
+                key={i}
+                className="howWork__mobile-step"
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{
+                  duration: 0.5,
+                  delay: i * 0.15,
+                  ease: "easeOut",
+                }}
+              >
+                <span className="howWork__mobile-step-number">{step.number}</span>
+                <div className="howWork__mobile-step-content">
                   <h3>{step.title}</h3>
                   <p>{step.description}</p>
-                </motion.div>
-              ))}
-            </div>
-
+                </div>
+              </motion.div>
+            ))}
           </div>
         ) : (
           /* ── Desktop content ──────────────────────────────────── */

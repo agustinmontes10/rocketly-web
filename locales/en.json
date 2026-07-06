@@ -162,6 +162,12 @@
       "web": "Web Development",
       "automation": "Automation"
     },
+    "platformLabel": "Where it runs",
+    "problemLabel": "Problem it solves",
+    "platformWhatsapp": "WhatsApp",
+    "platformWebsite": "Website",
+    "typeAgent": "AI Agent",
+    "typeChatbot": "Conversational chatbot",
     "project1": {
       "title": "Travel Agency",
       "description": "Website for a travel agency, selling tourist packages"
@@ -177,6 +183,18 @@
     "project4": {
       "title": "Ferrario & Asociados",
       "description": "Chatbot through Whatsapp, Chatwoot as inbox management"
+    },
+    "project5": {
+      "title": "Aesthetic",
+      "description": "Appointment booking software for hair salons and beauty studios: bookings through each business's public link or straight through WhatsApp, with payments and deposits via MercadoPago."
+    },
+    "aestheticAgent": {
+      "description": "AI agent on WhatsApp (n8n + GPT-4o mini) that receives the customer's message, understands the intent, checks the schedule in real time and confirms the appointment on its own, with no human involved.",
+      "problem": "Coordinating appointments by hand over WhatsApp eats up the business's time and loses bookings made outside business hours."
+    },
+    "project6": {
+      "title": "Personal Expense Assistant",
+      "description": "Conversational WhatsApp agent (text or voice) that logs your expenses: transcribes the voice note, extracts amount, category and description, asks for confirmation before saving, and warns you if you're about to go over your monthly budget. Lets you search, edit and compare expenses across periods. Free trial of 20 messages, then a monthly subscription via MercadoPago."
     }
   },
   "pricing": {
